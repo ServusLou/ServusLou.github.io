@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>容百科技新能源产业日报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f5f7fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.5; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 15px; }
+        .header { background: linear-gradient(135deg, #1a3a5c 0%, #2d6a9f 100%); color: #fff; padding: 30px 25px; border-radius: 12px; margin-bottom: 24px; }
+        .header h1 { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+        .header .sub { font-size: 14px; opacity: 0.85; margin-top: 8px; }
+        .nav-bar { background: #fff; border-radius: 10px; padding: 12px 18px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+        .nav-bar a { color: #2d6a9f; text-decoration: none; font-size: 13px; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; transition: 0.2s; }
+        .nav-bar a:hover { border-bottom-color: #2d6a9f; }
+        .card { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+        .card h2 { font-size: 18px; color: #1a3a5c; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8edf2; }
+        .card h3 { font-size: 15px; color: #2d6a9f; margin: 14px 0 8px; }
+        .card h4 { font-size: 13px; color: #666; font-weight: 400; margin: 4px 0; }
+        .card p { font-size: 14px; margin: 6px 0; color: #444; }
+        .card .source { font-size: 12px; color: #999; margin: 2px 0; }
+        .card .url { font-size: 11px; color: #aaa; word-break: break-all; margin: 2px 0; }
+        .card .impact { font-size: 12px; padding: 3px 8px; border-radius: 4px; display: inline-block; margin: 4px 0; }
+        .impact-bull { background: #e8f5e9; color: #2e7d32; }
+        .impact-bear { background: #ffebee; color: #c62828; }
+        .impact-neutral { background: #e3f2fd; color: #1565c0; }
+        .bg-policy { background: #f0f6ff; }
+        .bg-industry { background: #eef6fb; }
+        .bg-news { background: #fafafa; }
+        .bg-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+        .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #e8edf2; color: #555; margin: 2px 4px 2px 0; }
+        .divider { height: 1px; background: #eee; margin: 16px 0; }
+        .insight-box { background: #f9fbfd; border-radius: 8px; padding: 14px 16px; margin: 10px 0; border-left: 3px solid #2d6a9f; }
+        .insight-box li { font-size: 14px; margin: 8px 0; list-style: none; }
+        .insight-box li::before { content: "◆"; color: #2d6a9f; margin-right: 8px; }
+        .focus-item { background: #f0f7ff; border-radius: 6px; padding: 10px 14px; margin: 6px 0; font-size: 14px; }
+        .focus-item strong { color: #1a3a5c; }
+        .risk-list li { font-size: 14px; margin: 10px 0; padding: 8px 12px; background: #fff5f5; border-radius: 6px; list-style: none; border-left: 3px solid #dc2626; }
+        .source-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+        .source-grid .tag { font-size: 12px; padding: 4px 12px; }
+        .footer { text-align: center; font-size: 12px; color: #999; padding: 16px 0; }
+        .keyword-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+        .keyword-cloud span { background: #e3edf7; color: #1a3a5c; padding: 4px 12px; border-radius: 14px; font-size: 12px; }
+        .price-box { background: linear-gradient(135deg, #f8f9fa, #eef2f7); border-radius: 8px; padding: 12px 16px; margin: 8px 0; display: flex; flex-wrap: wrap; justify-content: space-between; }
+        .price-box .item { text-align: center; min-width: 80px; padding: 4px 8px; }
+        .price-box .label { font-size: 11px; color: #888; }
+        .price-box .value { font-size: 16px; font-weight: 700; color: #1a3a5c; }
+        .price-box .change-down { color: #dc2626; }
+        .price-box .change-up { color: #16a34a; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+        th { background: #e8edf2; padding: 8px 10px; text-align: left; font-weight: 600; }
+        td { padding: 8px 10px; border-bottom: 1px solid #eee; }
+        @media (max-width: 600px) {
+            .container { padding: 12px 10px; }
+            .header h1 { font-size: 20px; }
+            .card { padding: 16px; }
+            .price-box .item { min-width: 60px; }
+        }
+        hr { border: none; border-top: 1px dashed #ddd; margin: 18px 0; }
+        .emoji-icon { margin-right: 6px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 头部 -->
+<div class="header">
+    <h1>🔋 容百科技新能源产业舆情监测与洞察日报</h1>
+    <div class="sub">📅 监测时段：2026-05-21（北京时间）</div>
+</div>
+
+<!-- 快捷导航 -->
+<div class="nav-bar">
+    <a href="#policy">📌 政策/政治新闻</a>
+    <a href="#industry">📊 行业动态</a>
+    <a href="#news">📰 舆情信息</a>
+    <a href="#insight">💡 关键洞察</a>
+    <a href="#risk">⚠️ 风险提示</a>
+    <a href="#source">📎 数据来源</a>
+</div>
+
+<!-- ============ 一、政策/政治新闻摘要 ============ -->
+<div class="card" id="policy">
+    <h2>📌 一、政策/政治新闻摘要</h2>
+    
+    <h3>🌍 国际政策及新闻</h3>
+    <div class="divider"></div>
+    
+    <!-- 国际1 -->
+    <h4>🔹 美国财政部OFAC制裁4个中国实体</h4>
+    <p class="source">📰 天津市商务局贸易摩擦信息周报 | 2026-05-21 发布</p>
+    <p>美国财政部OFAC对4个中国实体实施制裁，贸易摩擦持续升级。美企促政府调查中企借道非洲规避太阳能反倾销税。</p>
+    <p><span class="impact impact-bear">利空</span> 中美贸易摩擦加剧可能影响容百科技海外（尤其北美）业务拓展，对高镍三元正极材料出口构成不确定性。</p>
+    <p class="url">🔗 <a href="https://shangwuju.tj.gov.cn/tjsswjzz/ztzl/ztzl/swfzjsgz1/gpmy/yszn/202605/t20260521_7303507.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <!-- 国际2 -->
+    <h4>🔹 欧洲议会批准新版钢铁贸易保护措施</h4>
+    <p class="source">📰 我的钢铁网 | 2026-05-21</p>
+    <p>欧盟批准新的钢铁贸易保护措施，免税进口配额削减47%，超配额部分征收50%关税。新规计划2026年7月1日生效。</p>
+    <p><span class="impact impact-bear">利空</span> 欧盟贸易保护主义升级信号可能向电池材料领域蔓延，容百科技欧洲市场（如韩国基地出口欧洲）面临潜在贸易壁垒风险。</p>
+    <p class="url">🔗 <a href="https://export.mysteel.com/a/26052110/F1253F53E5E348D0.html" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <!-- 国际3 -->
+    <h4>🔹 商务部介绍中美经贸磋商初步成果 / 美国批准向10家中国公司销售H200芯片</h4>
+    <p class="source">📰 天津市商务局贸易摩擦信息周报 | 2026-05-21</p>
+    <p>中美经贸磋商释放积极信号，美方批准向10家中国公司销售H200芯片。中国恢复对美牛肉进口。</p>
+    <p><span class="impact impact-bull">利好</span> 中美关系边际缓和有利于整体产业链信心修复，容百科技作为外向型锂电材料企业，海外业务预期改善。</p>
+    <p class="url">🔗 <a href="https://shangwuju.tj.gov.cn/tjsswjzz/ztzl/ztzl/swfzjsgz1/gpmy/yszn/202605/t20260521_7303507.html" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <div class="divider"></div>
+    
+    <h3>🇨🇳 国内政策及新闻</h3>
+    <div class="divider"></div>
+    
+    <!-- 国内1 -->
+    <h4>🔹 两部委发文：推动"多用户"绿电直连发展，合理配置储能</h4>
+    <p class="source">📰 中国储能网 | 2026-05-21（文件5月20日发布）</p>
+    <p>国家发改委、国家能源局发布通知，推动多用户绿电直连，项目应合理配置储能、提升集控管理能力。新能源弃电不纳入利用率统计。</p>
+    <p><span class="impact impact-bull">利好</span> 储能政策加码直接利好锂电行业需求增长。容百科技作为正极材料龙头，储能领域布局（磷酸锰铁锂/钠电）有望受益于储能装机需求放量。</p>
+    <p class="url">🔗 <a href="https://www.escn.com.cn/news/show-2252780.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <!-- 国内2 -->
+    <h4>🔹 国新办：1-4月我国锂电产量同比增长36%</h4>
+    <p class="source">📰 中国储能网 | 2026-05-21</p>
+    <p>据国新办5月18日发布会数据，1-4月锂离子电池产量同比增长36%，4月单月增长31%；锂电制造业投资同比增长28.8%。4月锂离子电池制造价格同比上涨4.5%。</p>
+    <p><span class="impact impact-bull">利好</span> 锂电行业量价齐升趋势确认，容百科技作为龙头正极材料供应商，高镍三元+磷酸锰铁锂双轮驱动，直接受益于行业高景气。</p>
+    <p class="url">🔗 <a href="https://www.escn.com.cn/news/show-2252780.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <!-- 国内3 -->
+    <h4>🔹 辽宁"十五五"规划：做大储能产业，推动固态电池发展</h4>
+    <p class="source">📰 中国储能网 | 2026-05-21</p>
+    <p>辽宁省发布十五五规划，提出做大储能产业，推动液流电池、锂电池、钠离子电池等新型储能多元化发展。</p>
+    <p><span class="impact impact-neutral">中性</span> 省级储能规划利好行业长期发展，对容百科技钠电正极材料布局形成政策支撑，但短期影响有限。</p>
+    <p class="url">🔗 <a href="https://www.escn.com.cn/news/show-2252780.html" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <!-- 国内4 -->
+    <h4>🔹 2026年5月20日最新LPR公布</h4>
+    <p class="source">📰 中国政府网/阿克苏市政府转载 | 2026-05-21</p>
+    <p>最新LPR利率数据公布，延续宽松货币环境。</p>
+    <p><span class="impact impact-bull">利好</span> 宽松流动性降低企业融资成本，容百科技2026年度综合授信额度及担保议案已获股东会通过（详见公告），低成本资金有助于产能建设。</p>
+    <p class="url">🔗 <a href="https://www.akss.gov.cn/zwgk/fgwj/zcjd/bmjd/20260521/i1400917.html" target="_blank" style="color:#888;">来源链接</a></p>
+</div>
+
+<!-- ============ 二、行业动态 ============ -->
+<div class="card bg-industry" id="industry">
+    <h2>📊 二、行业动态</h2>
+    
+    <h4>🔹 碳酸锂现货5月21日上涨，SMM电池级碳酸锂均价18.2万元/吨</h4>
+    <p class="source">📰 腾讯新闻/贝壳财经 | 2026-05-21</p>
+    <p>5月21日电池级碳酸锂现货均价18.2万元/吨，较前一日上涨3000元/吨。年度涨幅超205%。期货主力合约报17.76万元/吨，跌2620元/吨。供给扰动叠加需求回暖，锂供需紧平衡。</p>
+    <p><span class="impact impact-neutral">中性偏利好</span> 锂价高位运行利好容百科技库存收益及产品定价能力；但过高锂价可能抑制下游需求，同时增加三元正极材料成本压力。容百科技高镍三元业务需关注成本传导能力。</p>
+    <p class="url">🔗 <a href="https://news.qq.com/rain/a/20260521A09N0L00" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <h4>🔹 Mysteel日报：碳酸锂价格上涨，三元材料价格下跌但排产回暖</h4>
+    <p class="source">📰 我的钢铁网 | 2026-05-21 17:07</p>
+    <p>三元正极材料523型中间价191500元/吨，811型220500元/吨，价格跟随锂盐下行。但需求端出现积极变化，5月三元正极排产环比预计增长约7.6%。</p>
+    <p><span class="impact impact-bull">利好</span> 三元正极排产环比增长7.6%直接利好容百科技（国内高镍三元龙头），验证下游需求回暖趋势。虽然价格短期承压，但量增可弥补价跌。</p>
+    <p class="url">🔗 <a href="https://xny.mysteel.com/a/26052117/82E000C1B6328DF5.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <h4>🔹 六氟磷酸锂价格"淡季逆袭"，单周涨超12%，行业库存仅一周</h4>
+    <p class="source">📰 财联社/我的钢铁网 | 2026-05-21</p>
+    <p>截至5月20日，六氟磷酸锂均价113500元/吨，单周涨幅超12%。行业库存仅够一周，储能高景气叠加动力电池排产回暖，供需格局全面反转。</p>
+    <p><span class="impact impact-bull">利好</span> 六氟磷酸锂价格大涨反映锂电产业链全面复苏信号。储能+动力双轮驱动下游需求强劲，容百科技正极材料业务有望量价齐升。</p>
+    <p class="url">🔗 <a href="https://news.mysteel.com/a/26052108/04CA9A3EEAAB7661.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <h4>🔹 五矿证券：锂电材料下游储能、动力需求连续超预期</h4>
+    <p class="source">📰 财联社/网易 | 2026-05-21</p>
+    <p>五矿证券研报指出，锂电材料下游储能、动力需求连续超预期，产业供需紧平衡有望延续。建议关注锂电板块，包括供需紧平衡的铁锂正极、钠电板块、固态电池产业等。</p>
+    <p><span class="impact impact-bull">利好</span> 券商明确看多锂电板块，容百科技在钠电正极、固态电池正极材料方向有前瞻布局，有望受益于板块资金关注。</p>
+    <p class="url">🔗 <a href="https://www.163.com/dy/article/KTFAVU7605198CJN.html" target="_blank" style="color:#888;">来源链接</a></p>
+    
+    <h4>🔹 CIBF2026圆满收官，勾勒全球电池产业新图景</h4>
+    <p class="source">📰 中华网 | 2026-05-21 15:11</p>
+    <p>CIBF2026展会收官，全球电池产业链3000+企业参展，展示从材料到电池到回收的全产业链最新成果。</p>
+    <p><span class="impact impact-neutral">中性</span> 行业展会热度高反映产业景气，容百科技作为核心正极材料厂商为展会常客，但当日无直接展会相关信息。</p>
+    <p class="url">🔗 <a href="https://tech.china.com/articles/20260521/202605211874549.html" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <h4>🔹 SMM固态电池周度分析：本周固态电池细分领域落地和长期布局占主流</h4>
+    <p class="source">📰 上海有色网 | 2026-05-21 15:14</p>
+    <p>本周（5月15-21日）固态电池多点突破：恩力动力、国轩高科、赣锋锂业发布高能量密度新品，赣锋500Wh/kg产品小批量量产；清陶能源推进产能项目，行业产业化加速。</p>
+    <p><span class="impact impact-bull">利好</span> 固态电池产业化加速利好容百科技固态电池正极材料研发。公司在固态电池正极（高镍单晶/富锂锰基）有前瞻布局，有望受益。</p>
+    <p class="url">🔗 <a href="https://newenergy.smm.cn/content/151036/103914934" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <h4>🔹 武汉大学/华中科技大学等高校固态电池学术进展发布</h4>
+    <p class="source">📰 中研网 | 2026-05-21</p>
+    <p>行业分析报告指出，2026年中国固态电池行业处于"实验室概念"向"规模化量产"跨越的拐点。半固态率先突围，全固态研发加速。</p>
+    <p><span class="impact impact-bull">利好</span> 固态电池技术路线确定性的提升，利好容百科技等提前布局固态电解质/正极材料的企业。</p>
+    <p class="url">🔗 <a href="https://m.chinairn.com/hyzx/20260521/17434284.shtml" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <h4>🔹 新能源集体"涨价"，燃油车降价，电池成本传导至整车</h4>
+    <p class="source">📰 新浪汽车 | 2026-05-21</p>
+    <p>碳酸锂价格从2025年7月7.5万/吨飙升至2026年5月近20万/吨，涨幅超167%。蔚来、极氪、零跑等新能源车企跟进涨价，成本压力向下游传导。</p>
+    <p><span class="impact impact-neutral">中性偏利好</span> 电池成本上涨背景下，正极材料企业议价能力增强。容百科技作为头部供应商，高镍三元产品有望获得更好的利润空间。</p>
+    <p class="url">🔗 <a href="https://k.sina.com.cn/article_7857201856_1d45362c001905pvqk.html" target="_blank" style="color:#888;">来源链接</a></p>
+</div>
+
+<!-- ============ 三、舆情信息 ============ -->
+<div class="card" id="news">
+    <h2>📰 三、舆情信息</h2>
+    
+    <h3>📋 新闻摘要</h3>
+    <div class="divider"></div>
+    
+    <!-- 容百科技公告 -->
+    <h4>🔹 容百科技2025年年度股东会决议公告</h4>
+    <p class="source">📰 上海证券报（中国证券报） | 2026-05-21 发布</p>
+    <p>容百科技于5月20日召开2025年年度股东会，董事长白厚善主持。8项议案全部通过：包括董事会工作报告、2025年年报、董事薪酬方案、利润分配方案、2026年度综合授信及担保、续聘审计机构、外汇套期保值等。无被否决议案。</p>
+    <p><span class="impact impact-bull">利好</span> 股东会全部议案高票通过，公司治理规范，经营稳健。利润分配方案及授信担保获批，为2026年产能扩张和海外布局（韩国JS能源等）提供资金保障。</p>
+    <p class="url">🔗 <a href="https://paper.cnstock.com/html/2026-05/21/content_2219735.htm" target="_blank" style="color:#888;">查看公告原文</a></p>
+    
+    <h4>🔹 容百科技5月21日股价：收报34.31元，跌2.83%</h4>
+    <p class="source">📰 搜狐证券/东方财富 | 2026-05-21 收盘</p>
+    <p>容百科技(688005)当日收盘34.31元，跌1.00元（-2.83%），成交额13.35亿元，换手率5.20%，盘中最低34.28元，最高37.18元，振幅较大。市值约245亿元。</p>
+    <p><span class="impact impact-bear">利空</span> 当日股价跌幅较大，跑输大盘。但成交额超13亿、换手率超5%显示多空博弈激烈。盘中冲高回落，反映市场分歧。</p>
+    <p class="url">🔗 <a href="https://q.stock.sohu.com/cn/688005/index.shtml?date=2026-05-21" target="_blank" style="color:#888;">行情数据</a></p>
+    
+    <h4>🔹 电池ETF强劲冲高，容百科技等个股跟涨</h4>
+    <p class="source">📰 腾讯新闻 | 2026-05-21 10:17</p>
+    <p>5月21日早盘，电池ETF鹏华(560410)涨超2%，冲击5连阳。中证电池主题指数成分股中，容百科技等个股跟涨。六氟磷酸锂价格大涨+储能排产上修驱动板块走强。5家样本电池厂排产平均环增9.6%，头部电池厂预排产上修至95GWh。</p>
+    <p><span class="impact impact-bull">利好</span> 电池板块整体走强，容百科技作为正极材料核心标的获得资金关注。下游电池排产持续上修验证行业高景气。</p>
+    <p class="url">🔗 <a href="https://news.qq.com/rain/a/20260521A037IL00" target="_blank" style="color:#888;">来源链接</a></p>
+
+    <div class="divider"></div>
+    
+    <h3>📊 舆情分析</h3>
+    
+    <div class="price-box">
+        <div class="item"><span class="label">容百科技 收盘价</span><br><span class="value">34.31</span><br><span class="change-down">-2.83%</span></div>
+        <div class="item"><span class="label">成交额</span><br><span class="value">13.35亿</span><br><span style="font-size:12px;color:#888;">换手5.20%</span></div>
+        <div class="item"><span class="label">总市值</span><br><span class="value">245.22亿</span><br><span style="font-size:12px;color:#888;">科创板</span></div>
+        <div class="item"><span class="label">中证电池指数</span><br><span class="value">上涨2%</span><br><span class="change-up">板块走强</span></div>
+    </div>
+
+    <p><strong>情绪分布评估（基于当日舆情抽样）：</strong></p>
+    <table>
+        <tr><th>情绪类型</th><th>占比（估）</th><th>主要来源</th></tr>
+        <tr><td style="color:#16a34a;">✅ 正面</td><td>~45%</td><td>股东会公告、行业景气、排产上修、锂电产量增长36%</td></tr>
+        <tr><td style="color:#888;">➖ 中性</td><td>~35%</td><td>碳酸锂价格波动、三元价格下跌、大盘震荡</td></tr>
+        <tr><td style="color:#dc2626;">❌ 负面</td><td>~20%</td><td>股价当日跌2.83%、中美贸易摩擦、欧盟保护主义</td></tr>
+    </table>
+    
+    <p><strong>关注焦点：</strong></p>
+    <ul style="font-size:14px; margin:8px 0 0 18px; color:#444;">
+        <li>容百科技2025年年度股东会全部议案通过，公司运营稳定</li>
+        <li>三元正极5月排产环比增长约7.6%，容百科技作为龙头率先受益</li>
+        <li>碳酸锂价格高位运行（18万+/吨）影响三元材料利润空间</li>
+        <li>固态电池产业化加速，容百科技技术储备有望价值重估</li>
+        <li>当日股价跌2.83%与板块走势背离，引发市场关注</li>
+    </ul>
+    
+    <p><strong>潜在风险信号：</strong></p>
+    <ul style="font-size:14px; margin:8px 0 0 18px; color:#c62828;">
+        <li>容百科技当日股价大幅跑输电池ETF（ETF涨2%，容百跌2.83%）</li>
+        <li>中美贸易摩擦持续，可能影响韩国基地出口北美</li>
+        <li>三元正极价格下跌，短期盈利承压</li>
+    </ul>
+
+    <div class="divider"></div>
+    
+    <h3>💡 关键洞察</h3>
+    <div class="insight-box" id="insight">
+        <ul>
+            <li><strong>股东会顺利落幕验证经营稳定性：</strong>容百科技5月20日年度股东会全部议案通过，涵盖年报、利润分配、授信担保、外汇套期保值等核心议题。董事长白厚善亲自主持，9位董事全员列席，体现公司治理规范性。2026年度综合授信及担保获批准，为韩国JS能源（载世能源）、湖北/贵州基地的产能扩张及海外布局提供资金基础。</li>
+            <li><strong>三元排产环比+7.6%，高镍龙头迎量增逻辑：</strong>5月三元正极排产环比预计增长约7.6%，这一数据对容百科技构成直接利好。作为国内高镍三元正极材料市占率领先的企业，容百科技将率先受益于下游客户（宁德时代、中创新航、亿纬锂能等）的三元电池排产回暖。量增有望部分对冲三元材料价格下跌的影响。</li>
+            <li><strong>储能+固态双轮驱动长期成长：</strong>两部委发文推动绿电配储、国新办披露锂电产量增长36%、六氟磷酸锂库存仅一周——三大信号指向储能市场爆发。容百科技在磷酸锰铁锂（LMFP）、钠电正极材料方向的布局，将充分受益于储能市场的结构性增长。同时固态电池行业产业化加速（赣锋500Wh/kg小批量量产），容百科技作为正极材料龙头在固态电解质/高镍单晶方向有技术储备。</li>
+            <li><strong>股价背离板块涨幅需警惕：</strong>5月21日电池ETF涨超1%-2%冲击五连阳，但容百科技逆势下跌2.83%，振幅近8%。这一背离信号值得关注：可能反映市场对公司三元材料定价能力或海外业务风险的担忧。建议密切跟踪后续资金流向及机构评级变化。</li>
+            <li><strong>中美/欧盟贸易摩擦升级的潜在影响：</strong>美国OFAC制裁中国实体、欧盟钢铁保护措施趋严，虽未直接针对锂电材料，但贸易保护主义升温的背景下，容百科技韩国基地（JS Energy）对欧美出口业务需关注贸易政策风险。不过中美经贸磋商释放积极信号，部分缓和市场担忧。</li>
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+    
+    <h3>📅 后续关注建议</h3>
+    <div class="focus-item"><strong>2026年5月下旬-6月初：</strong>容百科技2025年年度报告全文及摘要披露后的卖方研报更新，关注券商目标价调整</div>
+    <div class="focus-item"><strong>2026年6月：</strong>韩国JS Energy（载世能源）产能爬坡及海外客户（LG、三星SDI等）订单进展跟踪</div>
+    <div class="focus-item"><strong>2026年6月中旬：</strong>国内5月新能源汽车销量及动力电池装车量数据发布（中汽协/中国汽车动力电池产业创新联盟），验证排产回暖趋势</div>
+    <div class="focus-item"><strong>2026年7月：</strong>容百科技半年度业绩预告窗口期，关注高镍三元出货量及钠电/磷酸锰铁锂业务进展</div>
+    <div class="focus-item"><strong>持续关注：</strong>碳酸锂价格走势（影响正极材料利润空间）、固态电池产业化进展（容百科技技术卡位价值）</div>
+</div>
+
+<!-- ============ 四、风险提示 ============ -->
+<div class="card bg-risk" id="risk">
+    <h2>⚠️ 四、风险提示</h2>
+    <ul class="risk-list">
+        <li><strong>📉 市场风险：</strong>容百科技5月21日股价逆板块下跌2.83%（电池ETF涨超1%），振幅高达8.4%（34.28-37.18），显示多空分歧剧烈。当日成交额13.35亿、换手率5.20%均处于高位，需警惕短期资金博弈风险及主力出货迹象。</li>
+        <li><strong>📋 政策风险：</strong>美国财政部OFAC制裁4个中国实体、欧盟钢铁保护措施升级，贸易保护主义环境对容百科技海外战略（韩国基地、欧洲/北美市场）构成潜在壁垒。若中美/中欧贸易摩擦进一步蔓延至锂电材料领域，将直接影响公司出口业务。</li>
+        <li><strong>🏭 行业风险：</strong>三元正极材料价格（523型、811型）当日继续下跌，而锂盐成本维持高位（碳酸锂18万+/吨），正极材料企业利润空间面临双向挤压。虽然5月排产环比增长7.6%提供量增支撑，但若锂价持续上行而下游涨价传导不畅，容百科技毛利率可能承压。</li>
+        <li><strong>📢 舆情风险：</strong>当日容百科技股价走势与电池板块整体走强形成背离，可能引发社交媒体（雪球、东方财富股吧等）负面情绪发酵。历史经验表明，股价与板块背离时，散户端"公司出利空"的猜疑可能加剧抛压。需关注后续是否有未披露信息或机构评级调整。</li>
+    </ul>
+</div>
+
+<!-- ============ 五、数据来源 ============ -->
+<div class="card" id="source">
+    <h2>📎 六、数据来源</h2>
+    <p style="margin-bottom:10px;">本次日报信息采集来源如下：</p>
+    <div class="source-grid">
+        <span class="tag">📰 上海证券报/中国证券报</span>
+        <span class="tag">📰 证券时报</span>
+        <span class="tag">📰 东方财富网</span>
+        <span class="tag">📰 财联社</span>
+        <span class="tag">📰 我的钢铁网（Mysteel）</span>
+        <span class="tag">📰 上海有色网（SMM）</span>
+        <span class="tag">📰 生意社/生意头条</span>
+        <span class="tag">📰 中国储能网</span>
+        <span class="tag">📰 腾讯新闻/贝壳财经</span>
+        <span class="tag">📰 新浪财经/新浪汽车</span>
+        <span class="tag">📰 搜狐证券</span>
+        <span class="tag">📰 网易新闻</span>
+        <span class="tag">📰 中华网</span>
+        <span class="tag">📰 长江有色金属网</span>
+        <span class="tag">📰 中研网</span>
+        <span class="tag">📰 界面新闻</span>
+        <span class="tag">📰 天津市商务局</span>
+        <span class="tag">📰 阿克苏市人民政府（转载央媒）</span>
+        <span class="tag">📰 格隆汇</span>
+        <span class="tag">📰 中财网</span>
+    </div>
+</div>
+
+<!-- ============ 六、今日监测热点词汇 ============ -->
+<div class="card">
+    <h2>🔍 七、今日监测热点词汇</h2>
+    <div class="keyword-cloud">
+        <span>容百科技</span><span>688005</span><span>容百锂电</span><span>JS Energy</span><span>载世能源</span>
+        <span>白厚善</span><span>高镍三元</span><span>磷酸铁锂</span><span>磷酸锰铁锂</span><span>钠电正极</span>
+        <span>固态电池</span><span>三元正极</span><span>碳酸锂</span><span>六氟磷酸锂</span><span>储能</span>
+        <span>动力电池</span><span>排产</span><span>绿电直连</span><span>中美贸易</span><span>欧盟关税</span>
+        <span>宁波</span><span>湖北</span><span>贵州</span><span>韩国</span><span>正极材料</span>
+    </div>
+</div>
+
+<!-- ============ 七、生成信息 ============ -->
+<div class="footer">
+    <p>📋 容百科技新能源产业舆情监测与洞察日报</p>
+    <p>📅 监测时段：2026-05-21 | 日报生成时间：2026-05-21</p>
+    <p style="margin-top:8px; color:#2d6a9f; font-weight:500;">✅ 系统内置通知已推送</p>
+    <p style="margin-top:6px; font-size:11px; color:#bbb;">* 本报告基于公开信息整理，仅供参考，不构成投资建议。</p>
+</div>
+
+</div>
+</body>
+</html>
+```
