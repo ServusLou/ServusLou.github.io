@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>容百科技新能源产业日报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f2f4f8;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0f1b3d;
+            letter-spacing: -0.3px;
+        }
+        h1 .sub {
+            font-size: 16px;
+            font-weight: 400;
+            color: #5e6b8a;
+            display: block;
+            margin-top: 6px;
+        }
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin: 18px 0 6px;
+            padding: 14px 0;
+            border-top: 1px solid #eaeef2;
+            border-bottom: 1px solid #eaeef2;
+        }
+        .nav-bar a {
+            color: #2a5c9a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 2px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-bar a:hover {
+            border-bottom-color: #2a5c9a;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f1b3d;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2a5c9a;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2a4a;
+            margin: 14px 0 6px;
+        }
+        .meta {
+            font-size: 13px;
+            color: #7a86a2;
+            margin-bottom: 4px;
+        }
+        .meta strong {
+            color: #2a5c9a;
+        }
+        .summary {
+            font-size: 14px;
+            color: #2c3e50;
+            margin: 6px 0;
+        }
+        .impact {
+            font-size: 13px;
+            color: #555;
+            background: #f8f9fb;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 4px 0;
+        }
+        .impact.good {
+            background: #e3f5e9;
+            color: #1e7e34;
+        }
+        .impact.bad {
+            background: #fce8e8;
+            color: #b13a3a;
+        }
+        .impact.neutral {
+            background: #f0f1f3;
+            color: #5a5a7a;
+        }
+        .url {
+            font-size: 12px;
+            color: #5e7baa;
+            word-break: break-all;
+            margin-top: 4px;
+        }
+        .url a {
+            color: #3a6db5;
+            text-decoration: none;
+        }
+        .url a:hover { text-decoration: underline; }
+        .item { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eef1f5; }
+        .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .bg-blue-light { background: #e9f0fa; }
+        .bg-risk { background: #fdeaea; border-left: 4px solid #c0392b; }
+
+        ul, ol { padding-left: 20px; margin: 8px 0; }
+        li { font-size: 14px; margin-bottom: 6px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e0e4ea; }
+        th { background: #f0f3f8; font-weight: 600; color: #1f2a4a; }
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e4a7a;
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin: 2px 4px 2px 0;
+        }
+        .footer-note {
+            font-size: 13px;
+            color: #6b7a93;
+            text-align: right;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e0e6ed;
+        }
+        .empty {
+            color: #8a96ae;
+            font-style: italic;
+            padding: 10px 0;
+        }
+        @media (max-width: 640px) {
+            .card { padding: 18px 16px; }
+            h1 { font-size: 22px; }
+            .nav-bar { gap: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 标题 -->
+    <div class="card">
+        <h1>
+            容百科技新能源产业舆情监测与洞察日报
+            <span class="sub">监测时段：2026-05-24（北京时间）</span>
+        </h1>
+        <div class="nav-bar">
+            <a href="#policy">政策/政治新闻</a>
+            <a href="#industry">行业动态</a>
+            <a href="#yq">舆情信息</a>
+            <a href="#insight">关键洞察</a>
+            <a href="#risk">风险提示</a>
+            <a href="#source">数据来源</a>
+        </div>
+    </div>
+
+    <!-- 2. 政策/政治新闻摘要 -->
+    <div class="card" id="policy">
+        <h2>📌 政策 / 政治新闻摘要</h2>
+
+        <h3>🌐 国际政策及新闻</h3>
+        
+        <div class="item">
+            <h3>欧盟限制高风险逆变器！中国光储企业欧洲市场再添阻力！？</h3>
+            <div class="meta"><strong>上海有色网 SMM</strong> | 2026-05-24 17:25</div>
+            <div class="summary">2026年5月，欧盟在新能源领域对华采取一系列限制措施，叠加自5月1日起EIB/EIF对"高风险国家"逆变器项目融资限制，中国光伏逆变器和储能企业的欧洲市场环境将明显变化。政策从项目融资准入、供应链审查、网络安全等维度构建非关税壁垒。</div>
+            <div class="impact bad">📉 利空：容百科技锂电正极材料间接出口欧洲可能面临下游客户（电池/储能企业）需求收缩风险，但影响为间接传导</div>
+            <div class="url"><a href="https://new-energy.smm.cn/content/9014/103917951" target="_blank">https://new-energy.smm.cn/content/9014/103917951</a></div>
+        </div>
+
+        <div class="item">
+            <h3>欧盟关税风暴下，中国电动车欧洲市场承压</h3>
+            <div class="meta"><strong>新浪汽车</strong> | 2026-05-24 07:59</div>
+            <div class="summary">欧盟对中国电动车征收最高35.3%反补贴税，叠加上周欧盟内部敲定临时协议取消美国工业品关税。中国车企出口欧洲综合税率大幅上升，商务部表态坚决反制。</div>
+            <div class="impact bad">📉 利空：欧盟电动车市场需求受关税压制将传导至上游材料，容百高镍三元正极出口欧洲预期减弱</div>
+            <div class="url"><a href="https://k.sina.com.cn/article_7857141524_1d452771401902slq0.html" target="_blank">https://k.sina.com.cn/article_7857141524_1d452771401902slq0.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>中方就欧盟新贸易工具表态：若出台将坚决反制</h3>
+            <div class="meta"><strong>网易新闻</strong> | 2026-05-24 11:48</div>
+            <div class="summary">商务部发言人何亚东表示，欧盟若出台针对中国的新贸易工具，中方将坚决反制。中欧电动车反补贴案原已达成价格承诺机制框架共识，但欧委会近期态度转硬。</div>
+            <div class="impact neutral">➡️ 中性偏利空：中欧贸易摩擦升级增加锂电材料出口政策不确定性，容百韩国基地可能承担部分转口角色</div>
+            <div class="url"><a href="https://c.m.163.com/news/a/KTMLUKOA0556DZEW.html" target="_blank">https://c.m.163.com/news/a/KTMLUKOA0556DZEW.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>印度加速新能源转型 锂电池市场潜力巨大</h3>
+            <div class="meta"><strong>新浪新闻</strong> | 2026-05-24 16:45</div>
+            <div class="summary">印度拥有丰富锂矿及稀土资源，政府推出PM E-DRIVE计划（支出约10900亿卢比）加速电动汽车普及。预计2025-2030年全球锂电池出货量维持22.5%年均复合增长率。</div>
+            <div class="impact good">📈 利好：印度市场崛起为容百科技提供新兴出口目的地，可部分对冲欧美贸易壁垒影响</div>
+            <div class="url"><a href="https://k.sina.com.cn/article_7857201856_1d45362c001905voz0.html" target="_blank">https://k.sina.com.cn/article_7857201856_1d45362c001905voz0.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>RCEP框架下推动绿色贸易：动力电池成重点品类</h3>
+            <div class="meta"><strong>搜狐/北京绿色金融与可持续发展研究院</strong> | 2026-05-24 08:34</div>
+            <div class="summary">报告建议RCEP将绿色产品关税降至0%，从动力电池、低碳铁矿石等品类试点。非关税壁垒（重复认证等）是当前主要痛点。</div>
+            <div class="impact good">📈 利好：若RCEP绿色贸易规则推进，容百科技对日韩出口正极材料关税成本有望降低，竞争壁垒改善</div>
+            <div class="url"><a href="https://www.sohu.com/a/1023400874_122346174" target="_blank">https://www.sohu.com/a/1023400874_122346174</a></div>
+        </div>
+
+        <h3 style="margin-top:24px;">🇨🇳 国内政策及新闻</h3>
+
+        <div class="item">
+            <h3>《推进生态综合补偿实施方案》印发</h3>
+            <div class="meta"><strong>国家发展改革委、财政部</strong> | 2026-05-24</div>
+            <div class="summary">经中央深改委审议通过，国家发改委、财政部联合印发《推进生态综合补偿实施方案》，推动生态保护与绿色发展协同。</div>
+            <div class="impact neutral">➡️ 中性：政策方向利好绿色产业发展，对容百科技尚无直接业务影响</div>
+            <div class="url"><a href="https://www.qqthj.com/news/202605243537017.html" target="_blank">https://www.qqthj.com/news/202605243537017.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>2026年7月新能源车新规："史上最严电池安全令"将实施</h3>
+            <div class="meta"><strong>新浪汽车</strong> | 2026-05-24 14:23</div>
+            <div class="summary">7月1日起实施电池安全新国标，要求电池热失控全程不起火不爆炸，新增底部撞击、快充循环后安全等测试。倒逼电池材料技术升级。</div>
+            <div class="impact good">📈 利好：更严电池安全标准利好高镍三元（能量密度高、热管理技术成熟）及固态电池路线，容百高镍正极材料需求预期受益</div>
+            <div class="url"><a href="https://k.sina.com.cn/article_7857141524_1d452771401902spk8.html" target="_blank">https://k.sina.com.cn/article_7857141524_1d452771401902spk8.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>新能源车告别"以价换量"，超10家车企涨价</h3>
+            <div class="meta"><strong>新浪汽车</strong> | 2026-05-24 17:14</div>
+            <div class="summary">比亚迪、蔚来、极氪等超10家车企上调售价。碳酸锂价格4月涨至17.75万元/吨，5月部分报价接近19万元/吨。工信部、发改委联合抵制无序价格战。</div>
+            <div class="impact good">📈 利好：车企涨价反映成本传导能力增强，下游需求韧性足，容百科技正极材料有望受益于行业盈利修复</div>
+            <div class="url"><a href="https://k.sina.com.cn/article_7857201856_1d45362c001905vqwc.html" target="_blank">https://k.sina.com.cn/article_7857201856_1d45362c001905vqwc.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>浙江"十五五"将新增2500万千瓦近远海风电并网能力</h3>
+            <div class="meta"><strong>界面新闻</strong> | 2026-05-24 20:52</div>
+            <div class="summary">浙江"十五五"规划新增2500万千瓦近远海风电并网能力，储能配套需求同步增长。锂电方面4月新能源汽车出口同比翻倍，6F等环节供需趋紧。</div>
+            <div class="impact good">📈 利好：浙江作为容百科技总部所在地，区域新能源产业扩张利好本地供应链，储能需求增长带动锂电材料需求</div>
+            <div class="url"><a href="https://www.jiemian.com/article/14475349.html" target="_blank">https://www.jiemian.com/article/14475349.html</a></div>
+        </div>
+    </div>
+
+    <!-- 3. 行业动态 -->
+    <div class="card bg-blue-light" id="industry">
+        <h2>⚡ 行业动态</h2>
+
+        <div class="item">
+            <h3>并行格局将至：钠电成本年内望追平锂电，材料短缺或影响放量</h3>
+            <div class="meta"><strong>财联社 / 钛媒体</strong> | 2026-05-24 11:03</div>
+            <div class="summary">宁德时代官宣Q4钠电量产、与海博思创签大单；国轩高科预计Q4实现规模化量产。已有企业将钠电芯成本压至0.3元/Wh。但上游材料短缺成最大堵点，容百科技、中科海钠等正加速扩产。</div>
+            <div class="impact good">📈 利好：容百科技钠电正极材料万吨级产线密集规划，钠电放量将直接拉动其钠电正极业务快速增长</div>
+            <div class="url"><a href="https://news.qq.com/rain/a/20260524A03MAK00" target="_blank">https://news.qq.com/rain/a/20260524A03MAK00</a></div>
+        </div>
+
+        <div class="item">
+            <h3>半固态电池"元年"来了——2026年或实现10GWh级出货</h3>
+            <div class="meta"><strong>央广网</strong> | 2026-05-24</div>
+            <div class="summary">行业专家与头部企业达成共识：2026年半固态电池将拉开小批量试产序幕。超20家企业正建设兆瓦时级全固态电池中试线。中国全固态电池新公开专利已占全球44%。</div>
+            <div class="impact good">📈 利好：容百科技在固态电池正极材料领域有前瞻布局，行业技术迭代加速有望提升其估值溢价</div>
+            <div class="url"><a href="https://auto.cnr.cn/2015xc/20260524/t20260524_527633199.shtml" target="_blank">https://auto.cnr.cn/2015xc/20260524/t20260524_527633199.shtml</a></div>
+        </div>
+
+        <div class="item">
+            <h3>中国银河证券：龙头引领钠离子电池量产落地，2026年有望迎来产业奇点</h3>
+            <div class="meta"><strong>新浪财经</strong> | 2026-05-24 14:47</div>
+            <div class="summary">中国银河证券研报预计2026/2027/2028年钠电出货量达25/92/221GWh。锂价持续走高凸显钠电经济性，钠电正负极全铝箔集流体设计摆脱铜资源束缚。</div>
+            <div class="impact good">📈 利好：钠电产业化提速为容百科技开辟第二增长曲线，钠电正极材料规模化供应将成新利润点</div>
+            <div class="url"><a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-24/doc-inhyypen3501834.shtml" target="_blank">https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-24/doc-inhyypen3501834.shtml</a></div>
+        </div>
+
+        <div class="item">
+            <h3>钠电池产业化提速 头部企业扎堆四季度量产</h3>
+            <div class="meta"><strong>环球网 / 腾讯新闻</strong> | 2026-05-24 10:52</div>
+            <div class="summary">在CIBF2026展会上，宁德时代、比亚迪、欣旺达等头部电池企业集体展出最新钠电池产品，能量密度达160-180Wh/kg。容百科技在展会上展示钠电正极材料，万吨级产线密集规划。</div>
+            <div class="impact good">📈 利好：容百科技作为钠电正极材料头部供应商，直接受益于下游电池厂规模化量产带来的材料需求爆发</div>
+            <div class="url"><a href="https://news.qq.com/rain/a/20260524A03H2G00" target="_blank">https://news.qq.com/rain/a/20260524A03H2G00</a></div>
+        </div>
+
+        <div class="item">
+            <h3>电池循环利用——未来关键材料来源的创新趋势（IEA报告）</h3>
+            <div class="meta"><strong>国际能源署(IEA) / 搜狐</strong> | 2026-05-24 12:32</div>
+            <div class="summary">IEA与欧洲专利局联合报告显示，2017-2023年电池循环利用专利年均增速42%。规模化回收可使2050年锂、镍需求降低25%-40%。中国申请人占全球29%。</div>
+            <div class="impact neutral">➡️ 中性：循环利用发展长期看可能减少对原生正极材料需求，但短期对容百影响有限，且容百可通过回收业务参与</div>
+            <div class="url"><a href="https://www.sohu.com/a/1018836793_121757514" target="_blank">https://www.sohu.com/a/1018836793_121757514</a></div>
+        </div>
+
+        <div class="item">
+            <h3>碳酸锂：5月供需差为-10678吨，现货价格17.8万元/吨</h3>
+            <div class="meta"><strong>上海东亚期货 / 慧博投研</strong> | 2026-05-24 15:14</div>
+            <div class="summary">SMM数据显示5月碳酸锂预估总供应139280吨，总需求149958吨，供需缺口持续。电池级碳酸锂现货17.8万元/吨，期货18.45万元/吨，基差-6460元。</div>
+            <div class="impact good">📈 利好：碳酸锂价格维持高位支撑正极材料售价，容百科技产品定价能力增强，但需关注成本传导</div>
+            <div class="url"><a href="https://www.hibor.com.cn/repinfodetail_5155103.html" target="_blank">https://www.hibor.com.cn/repinfodetail_5155103.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>三年"价格战"终结！中国新能源车迎来理性回归</h3>
+            <div class="meta"><strong>新浪汽车</strong> | 2026-05-24 14:27</div>
+            <div class="summary">十余家车企调涨售价，单车涨幅2000元至万元。2026年4月新能源渗透率61.4%。行业从"以价换量"转向价值竞争。</div>
+            <div class="impact good">📈 利好：价格战缓和将改善电池厂盈利，进而传导至上游材料端，容百科技回款压力和议价空间有望改善</div>
+            <div class="url"><a href="https://k.sina.com.cn/article_7857141524_1d452771401902spdy.html" target="_blank">https://k.sina.com.cn/article_7857141524_1d452771401902spdy.html</a></div>
+        </div>
+
+        <div class="item">
+            <h3>锂电池ETF工银近一年涨72.11%，5月21日净申购200万份</h3>
+            <div class="meta"><strong>经济观察网</strong> | 2026-05-24 16:21</div>
+            <div class="summary">锂电池ETF工银最新规模19.49亿元，连续3日净申购。ETF溢折率0.06%，处于中风险区。</div>
+            <div class="impact good">📈 利好：资金持续流入锂电板块反映市场对产业链景气度乐观，容百科技作为正极材料龙头有望受益于板块资金关注</div>
+            <div class="url"><a href="http://www.eeo.com.cn/2026/0524/888868.shtml" target="_blank">http://www.eeo.com.cn/2026/0524/888868.shtml</a></div>
+        </div>
+    </div>
+
+    <!-- 4. 舆情信息 -->
+    <div class="card" id="yq">
+        <h2>📰 舆情信息</h2>
+
+        <h3>新闻摘要</h3>
+
+        <div class="item">
+            <h3>财联社/钛媒体：容百科技亮相CIBF2026展示钠电正极材料，万吨级产线密集规划</h3>
+            <div class="meta"><strong>财联社 / 钛媒体 / 新浪财经</strong> | 2026-05-24 08:09</div>
+            <div class="summary">在CIBF2026展会上，容百科技作为钠电正极材料头部企业携最新产品亮相。财联社报道指出，材料短缺将成为钠电行业放量堵点，容百科技正加速产能扩张，万吨级产线密集规划落地。</div>
+            <div class="impact good">📈 利好：容百钠电正极材料获主流财经媒体集中报道，强化市场其"钠电正极龙头"标签，有利于估值提升</div>
+            <div class="url"><a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-05-24/doc-inhyyaqt6148718.shtml" target="_blank">https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-05-24/doc-inhyyaqt6148718.shtml</a></div>
+        </div>
+
+        <div class="item">
+            <h3>环球网：钠电池产业化提速，容百科技等企业加速扩产</h3>
+            <div class="meta"><strong>环球网 / 腾讯新闻</strong> | 2026-05-24 10:52</div>
+            <div class="summary">环球网报道容百科技、中科海钠等企业正加速扩产钠电正极材料，万吨级产线密集规划落地，全力保障供应链稳定。</div>
+            <div class="impact good">📈 利好：权威媒体正面报道增强市场信心，凸显容百在钠电材料领域的先发优势</div>
+            <div class="url"><a href="https://news.qq.com/rain/a/20260524A03H2G00" target="_blank">https://news.qq.com/rain/a/20260524A03H2G00</a></div>
+        </div>
+
+        <div class="item">
+            <h3>证券时报：会通股份打造锂电隔膜国产化新标杆（行业竞争格局动态）</h3>
+            <div class="meta"><strong>证券时报</strong> | 2026-05-24 16:43</div>
+            <div class="summary">会通股份在CIBF2026展出半固态电解质隔膜等产品，锂电隔膜产能满产满销。市场对锂电材料国产化替代关注度持续攀升。</div>
+            <div class="impact neutral">➡️ 中性：隔膜环节国产替代加速反映锂电全产业链自主可控趋势，容百在正极材料领域同样受益于国产替代逻辑</div>
+            <div class="url"><a href="https://www.stcn.com/article/detail/3924292.html" target="_blank">https://www.stcn.com/article/detail/3924292.html</a></div>
+        </div>
+
+        <h3>舆情分析</h3>
+        <table>
+            <tr><th>维度</th><th>内容</th></tr>
+            <tr><td>数据概览</td><td>当日监测到容百科技直接相关正面报道3条，行业相关新闻15+条。舆情热度中等偏上。</td></tr>
+            <tr><td>情绪分布</td><td>正面 65%｜中性 30%｜负面 5%</td></tr>
+            <tr><td>关注焦点</td><td>① 钠电正极材料万吨扩产（最热）② 半固态/固态电池技术路线 ③ CIBF2026展会新品展示 ④ 碳酸锂价格高位运行 ⑤ 欧盟贸易壁垒影响</td></tr>
+            <tr><td>潜在风险点</td><td>钠电材料短缺若持续可能拖累放量节奏；欧盟贸易壁垒对三元出口的间接影响尚未充分定价；容百当日无重大公告或业绩更新。</td></tr>
+        </table>
+
+        <h3 id="insight">关键洞察</h3>
+        <ol>
+            <li><strong>钠电正极成为容百"第二曲线"催化剂：</strong>当日多家权威媒体集中报道容百钠电材料万吨扩产，市场对容百从高镍三元龙头转型为"三元+钠电双轮驱动"的认知正快速强化，估值体系有望切换。</li>
+            <li><strong>CIBF2026展会效应持续发酵：</strong>容百在展会上的亮相获得财联社、环球网等主流媒体转载，品牌行业地位被进一步确认，短期提振投资者信心。</li>
+            <li><strong>碳酸锂高价对容百的双刃剑效应：</strong>锂价高位（17.8-19万元/吨）提升正极材料售价和毛利，但也推高下游电池厂成本压力，需警惕下游压价传导。</li>
+            <li><strong>地缘政治风险需重新评估：</strong>欧盟同日出台逆变器融资限制+电动车反补贴税升级，虽主要针对光储和整车，但中长期可能波及上游材料供应链。</li>
+            <li><strong>7月电池安全新规是结构性利好：</strong>"史上最严电池安全令"将加速高镍三元和固态电池的渗透，容百的技术储备和产品结构有望充分受益。</li>
+        </ol>
+
+        <h3>后续关注建议</h3>
+        <ol>
+            <li><strong>2026年Q2末：</strong>容百科技半年度业绩预告发布窗口，关注钠电正极出货量及高镍三元毛利率变化</li>
+            <li><strong>2026年7月1日：</strong>新能源车电池安全新国标正式实施，关注高镍三元订单及客户结构变化</li>
+            <li><strong>2026年Q4：</strong>宁德时代、国轩高科钠电池规模化量产节点，关注容百钠电正极材料供货情况</li>
+            <li><strong>2026年6月：</strong>SNEC展会及相关行业论坛，关注容百在固态电池领域的新技术发布</li>
+            <li><strong>持续关注：</strong>中欧电动车反补贴税谈判进展及欧盟新贸易工具落地情况，评估对出口业务影响</li>
+        </ol>
+    </div>
+
+    <!-- 5. 风险提示 -->
+    <div class="card bg-risk" id="risk">
+        <h2 style="border-bottom-color:#c0392b;">⚠️ 风险提示</h2>
+
+        <div class="item">
+            <h3>1. 舆情风险</h3>
+            <div class="summary">当日容百科技官方未发布重大公告或业绩预告，市场对公司钠电业务相关多为预期性报道。若实际出货不及预期（如材料短缺持续、量产良率爬坡慢），可能导致股价回调。钠电板块情绪过热也存在短期投机风险。</div>
+        </div>
+
+        <div class="item">
+            <h3>2. 市场风险</h3>
+            <div class="summary">当日A股整体震荡（上周出现两根放量大阴线），市场存在系统性回调风险。容百科技作为锂电材料标的，估值与碳酸锂价格高度联动，若锂价因供给增速超预期而下行，将对公司盈利预期形成压制。</div>
+        </div>
+
+        <div class="item">
+            <h3>3. 政策风险</h3>
+            <div class="summary">欧盟同日出台两项对华新能源限制（逆变器融资限制+电动车反补贴税维持），中欧贸易摩擦存在进一步升级可能。若欧盟将限制范围扩大至锂电材料端（如正极材料），将直接冲击容百欧洲市场出口业务。此外，美国对华电动车关税已超200%，韩国市场也面临竞争加剧。</div>
+        </div>
+
+        <div class="item">
+            <h3>4. 行业风险</h3>
+            <div class="summary">钠电池放量可能导致高镍三元需求结构发生变化；固态电池技术路线若出现颠覆性突破（如跳过半固态直接进入全固态），容百现有高镍产能或面临技术替代风险。同时，上游锂、镍、钴价格波动影响成本控制。</div>
+        </div>
+    </div>
+
+    <!-- 6. 数据来源 -->
+    <div class="card" id="source">
+        <h2>📚 数据来源</h2>
+        <ul>
+            <li><strong>权威行业平台：</strong>上海有色网(SMM)、高工锂电(GGII)、中国银河证券研报、国际能源署(IEA)</li>
+            <li><strong>政策官方：</strong>国家发展改革委、国家统计局、北京市科委中关村管委会</li>
+            <li><strong>主流财经媒体：</strong>财联社、证券时报、经济观察网、界面新闻、新浪财经、央广网</li>
+            <li><strong>舆情平台：</strong>东方财富网、新浪财经、雪球、虎扑、腾讯新闻</li>
+            <li><strong>国际资讯：</strong>环球网、钛媒体、网易新闻</li>
+            <li><strong>数据服务：</strong>慧博投研资讯、中金在线、生意社、中国报告大厅</li>
+        </ul>
+    </div>
+
+    <!-- 7. 今日监测热点词汇 -->
+    <div class="card">
+        <h2>🔍 今日监测热点词汇</h2>
+        <div>
+            <span class="tag">容百科技</span>
+            <span class="tag">容百锂电</span>
+            <span class="tag">688005</span>
+            <span class="tag">高镍三元</span>
+            <span class="tag">钠电正极</span>
+            <span class="tag">磷酸锰铁锂</span>
+            <span class="tag">固态电池</span>
+            <span class="tag">半固态电池</span>
+            <span class="tag">CIBF2026</span>
+            <span class="tag">碳酸锂价格</span>
+            <span class="tag">欧盟关税</span>
+            <span class="tag">欧盟反补贴</span>
+            <span class="tag">电池安全新规</span>
+            <span class="tag">宁德时代钠电</span>
+            <span class="tag">宁波新能源</span>
+            <span class="tag">浙江风电</span>
+            <span class="tag">印度锂电池</span>
+            <span class="tag">RCEP绿色贸易</span>
+            <span class="tag">正极材料</span>
+            <span class="tag">动力电池</span>
+        </div>
+    </div>
+
+    <!-- 8. 日报生成时间 -->
+    <div class="card" style="text-align:right;">
+        <div class="footer-note">
+            <strong>日报生成时间：</strong>2026-05-24<br>
+            <strong>系统内置通知：</strong>已推送 ✓
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+```
