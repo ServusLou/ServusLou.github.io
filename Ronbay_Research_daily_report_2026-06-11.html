@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #1a3a5c 0%, #2a6496 100%); color: #fff; padding: 30px 30px 20px; border-radius: 12px 12px 0 0; }
+        .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+        .header .sub { font-size: 14px; opacity: 0.85; margin-bottom: 14px; }
+        .nav { display: flex; flex-wrap: wrap; gap: 12px; }
+        .nav a { color: #fff; text-decoration: none; font-size: 13px; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; transition: 0.2s; }
+        .nav a:hover { background: rgba(255,255,255,0.3); }
+        .card { background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px; overflow: hidden; }
+        .card-body { padding: 24px 30px; }
+        .section-title { font-size: 20px; font-weight: 700; color: #1a3a5c; border-left: 5px solid #2a6496; padding-left: 14px; margin-bottom: 18px; margin-top: 10px; }
+        .headline-grid { display: flex; flex-direction: column; gap: 20px; }
+        .headline-item { background: #f8faff; border-left: 4px solid #d32f2f; padding: 16px 20px; border-radius: 6px; transition: 0.2s; }
+        .headline-item:hover { background: #eef3ff; }
+        .headline-item h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+        .headline-item .meta { font-size: 12px; color: #888; margin-bottom: 8px; }
+        .headline-item .src { font-size: 12px; color: #2a6496; }
+        .headline-item .src a { color: #2a6496; text-decoration: underline; word-break: break-all; }
+        .headline-item .summary { font-size: 14px; color: #444; margin: 6px 0 4px; }
+        .risk-badge { display: inline-block; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 6px; }
+        .blue-badge { display: inline-block; background: #2a6496; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 6px; }
+        .block-item { background: #f9f9fb; border-left: 4px solid #2a6496; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; transition: 0.2s; }
+        .block-item:hover { background: #eef3ff; }
+        .block-item h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+        .block-item .meta { font-size: 12px; color: #888; margin-bottom: 6px; }
+        .block-item .summary { font-size: 14px; color: #444; margin-bottom: 4px; }
+        .block-item .url { font-size: 12px; color: #2a6496; word-break: break-all; }
+        .block-item .url a { color: #2a6496; text-decoration: underline; }
+        .topic-tag { display: inline-block; background: #e8f0fe; color: #1a3a5c; font-size: 13px; padding: 6px 14px; border-radius: 20px; margin: 4px 6px 4px 0; }
+        .divider { height: 1px; background: #e8e8e8; margin: 10px 0 20px; }
+        .footer { text-align: center; font-size: 12px; color: #aaa; padding: 16px 0 8px; }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .header { padding: 20px 18px 16px; }
+            .header h1 { font-size: 22px; }
+            .card-body { padding: 16px 16px; }
+            .headline-item, .block-item { padding: 12px 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <h1>中央研究院日报</h1>
+        <div class="sub">监测时段：2026-06-11（北京时间）</div>
+        <div class="nav">
+            <a href="#headline">头条新闻</a>
+            <a href="#info">资讯信息</a>
+            <a href="#hot">今日热点词汇</a>
+        </div>
+    </div>
+
+    <!-- 头条新闻 -->
+    <div class="card" id="headline">
+        <div class="card-body">
+            <div class="section-title">📌 头条新闻</div>
+            <div class="headline-grid">
+
+                <!-- 头条1 -->
+                <div class="headline-item">
+                    <div><span class="risk-badge">头条</span><span class="blue-badge">固态电池</span></div>
+                    <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
+                    <div class="meta">2026-06-11 08:40 | 上海有色网 (smm.cn)</div>
+                    <div class="summary">某网红全固态电池被证实数据造假，引发行业震动。业内专家表示，现有全固态电池在界面阻抗、循环寿命等方面仍存在关键技术瓶颈，真正规模化装车预计仍需5至10年。此事件加速了行业对固态电池检测标准和透明化披露的呼声。</div>
+                    <div class="src">🔗 <a href="https://newenergy.smm.cn/news/103948643" target="_blank">https://newenergy.smm.cn/news/103948643</a></div>
+                </div>
+
+                <!-- 头条2 -->
+                <div class="headline-item">
+                    <div><span class="risk-badge">头条</span><span class="blue-badge">动力电池</span></div>
+                    <h3>5月我国动力和储能电池合计出口29.3GWh 同比增长53.7%</h3>
+                    <div class="meta">2026-06-11 | 东方财富网 (eastmoney.com) / 上海有色网 (smm.cn)</div>
+                    <div class="summary">中国汽车动力电池产业创新联盟发布数据：5月我国动力和储能电池合计出口29.3GWh，同比增长53.7%，环比增长8.2%。出口高增长印证了海外市场对锂电池的强劲需求，头部电池企业海外布局持续加速。</div>
+                    <div class="src">🔗 <a href="https://finance.eastmoney.com/a/202606113768036775.html" target="_blank">https://finance.eastmoney.com/a/202606113768036775.html</a> &nbsp;|&nbsp; <a href="https://newenergy.smm.cn/news/103948653" target="_blank">smm.cn报道</a></div>
+                </div>
+
+            </div>
+            <div class="divider"></div>
+            <div style="font-size:13px;color:#888;">关联容百科技：固态电池电解质材料（LLZO/硫化物）及高镍正极材料研发进展关乎公司战略布局；海外高镍三元动力电池出口增长直接利好公司主营业务。</div>
+        </div>
+    </div>
+
+    <!-- 资讯信息 -->
+    <div class="card" id="info">
+        <div class="card-body">
+            <div class="section-title">📰 资讯信息</div>
+
+            <!-- 板块1：动力电池 -->
+            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:8px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">🔋 动力电池</h2>
+
+            <div class="block-item">
+                <h3>5月我国动力和储能电池合计出口29.3GWh 同比增长53.7%</h3>
+                <div class="meta">2026-06-11 | 东方财富网 (eastmoney.com)</div>
+                <div class="summary">中国汽车动力电池产业创新联盟发布数据，5月动力和储能电池合计出口29.3GWh，同比增长53.7%，环比增长8.2%。其中动力电池出口占比超七成，三元锂电池和磷酸铁锂电池均保持高增长。</div>
+                <div class="url">🔗 <a href="https://finance.eastmoney.com/a/202606113768036775.html" target="_blank">https://finance.eastmoney.com/a/202606113768036775.html</a></div>
+            </div>
+
+            <div class="block-item">
+                <h3>5月动力电池出口29.3GWh 同环比双增</h3>
+                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
+                <div class="summary">上海有色网追踪报道，5月我国动力电池出口量同环比双增，海外储能需求亦表现强劲。产业链企业加速出海布局，欧洲和东南亚为主要出口目的地。</div>
+                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948653" target="_blank">https://newenergy.smm.cn/news/103948653</a></div>
+            </div>
+
+            <!-- 板块2：固态电池 -->
+            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">⚡ 固态电池</h2>
+
+            <div class="block-item">
+                <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
+                <div class="meta">2026-06-11 08:40 | 上海有色网 (smm.cn)</div>
+                <div class="summary">网红全固态电池企业被证实数据造假，行业内对全固态电池的实际进展产生质疑。多位专家指出，全固态电池在界面阻抗、室温电导率、循环寿命等方面仍需突破，5-10年内难以实现大规模装车。</div>
+                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948643" target="_blank">https://newenergy.smm.cn/news/103948643</a></div>
+            </div>
+
+            <!-- 板块3：钠离子电池 -->
+            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">🧂 钠离子电池</h2>
+
+            <div class="block-item">
+                <h3>2026年钠电装机量有望突破15GWh</h3>
+                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
+                <div class="summary">随着硬碳负极和层状氧化物正极技术成熟，钠离子电池产业链趋于完善。2026年钠电装机量预计突破15GWh，在储能、低速电动车、备电等场景渗透率持续提升，成本优势逐步显现。</div>
+                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948655" target="_blank">https://newenergy.smm.cn/news/103948655</a></div>
+            </div>
+
+            <!-- 板块4：负极材料 -->
+            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">⚙️ 负极材料</h2>
+
+            <div class="block-item">
+                <h3>硅基负极渗透率加速提升 2026年或成拐点年</h3>
+                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
+                <div class="summary">硅基负极在高端动力电池中的渗透率加速提升，2026年被产业链视为规模化应用的"拐点年"。CVD硅氧和多孔硅碳技术取得突破，头部负极企业产能规划已超20万吨，但循环寿命问题仍是量产关键挑战。</div>
+                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948650" target="_blank">https://newenergy.smm.cn/news/103948650</a></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 今日热点词汇 -->
+    <div class="card" id="hot">
+        <div class="card-body">
+            <div class="section-title">🏷️ 今日热点词汇</div>
+            <div style="padding:4px 0;">
+                <span class="topic-tag">全固态电池</span>
+                <span class="topic-tag">电池造假</span>
+                <span class="topic-tag">动力电池出口</span>
+                <span class="topic-tag">储能电池</span>
+                <span class="topic-tag">29.3GWh</span>
+                <span class="topic-tag">同比增长53.7%</span>
+                <span class="topic-tag">钠离子电池</span>
+                <span class="topic-tag">15GWh装机量</span>
+                <span class="topic-tag">硅基负极</span>
+                <span class="topic-tag">2026拐点年</span>
+                <span class="topic-tag">CVD硅氧</span>
+                <span class="topic-tag">多孔硅碳</span>
+                <span class="topic-tag">规模化装车</span>
+                <span class="topic-tag">硬碳负极</span>
+                <span class="topic-tag">界面阻抗</span>
+                <span class="topic-tag">检测标准</span>
+                <span class="topic-tag">海外布局</span>
+                <span class="topic-tag">高压实密度</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">中央研究院 · 电池材料研发日报 · 数据来源：东方财富网 / 上海有色网 / OFweek</div>
+
+</div>
+</body>
+</html>
