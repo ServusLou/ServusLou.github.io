@@ -11,456 +11,402 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f2f4f8;
-            line-height: 1.6;
+            background-color: #f2f4f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px;
             color: #1e2a3a;
-            padding: 16px;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            padding: 32px 28px;
-        }
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #0b1c3a;
-            text-align: center;
-            margin-bottom: 4px;
-        }
-        .subhead {
-            text-align: center;
-            font-size: 0.95rem;
-            color: #6b7a8f;
-            margin-bottom: 18px;
-            font-weight: 400;
-            border-bottom: 1px solid #e8edf4;
-            padding-bottom: 14px;
-        }
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px 22px;
-            margin-bottom: 28px;
-            font-size: 0.9rem;
-        }
-        .nav a {
-            color: #2a5c8a;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
-            transition: 0.2s;
-        }
-        .nav a:hover {
-            border-bottom-color: #2a5c8a;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0b1c3a;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            padding-left: 12px;
-            border-left: 5px solid #2a5c8a;
         }
         .card {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 20px 22px;
-            margin-bottom: 18px;
-            border: 1px solid #eef2f7;
-            transition: 0.2s;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            padding: 28px 30px;
+            margin-bottom: 24px;
         }
-        .card:hover {
-            border-color: #cdd9e9;
-            background: #f5f8fe;
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            color: #0a1a2f;
         }
-        .card-top {
+        .sub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 12px;
+        }
+        .sub-header .date {
+            font-size: 15px;
+            color: #4a5b6e;
+            font-weight: 400;
+        }
+        .nav-links {
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
-            gap: 8px 14px;
-            margin-bottom: 6px;
+            gap: 12px 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eef2f6;
         }
-        .card-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #0b1c3a;
-        }
-        .card-title a {
-            color: inherit;
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2b6c9e;
             text-decoration: none;
+            transition: color 0.15s;
         }
-        .card-title a:hover {
-            color: #2a5c8a;
+        .nav-links a:hover {
+            color: #1a4b73;
             text-decoration: underline;
         }
-        .card-meta {
-            font-size: 0.82rem;
-            color: #7f8fa4;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #dce3ea;
         }
-        .card-meta .source {
-            font-weight: 500;
-            color: #4a6a8a;
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 18px 0 6px 0;
         }
-        .card-meta .date {
-            background: #e6ecf3;
-            padding: 0 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            color: #3a556f;
+        .news-item {
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf0f4;
         }
-        .card-summary {
-            font-size: 0.94rem;
-            color: #2c3e50;
-            margin: 6px 0 8px 0;
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
-        .card-link {
-            font-size: 0.75rem;
+        .news-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0b1f33;
+            margin-bottom: 2px;
+        }
+        .news-meta {
+            font-size: 13px;
+            color: #6a7e93;
+            margin-bottom: 6px;
+        }
+        .news-summary {
+            font-size: 14px;
+            color: #2a3b4f;
+            margin-bottom: 4px;
+        }
+        .news-link {
+            font-size: 12px;
+            color: #3b7eb0;
             word-break: break-all;
-            color: #6b8aaa;
         }
-        .card-link a {
-            color: #6b8aaa;
+        .news-link a {
+            color: #3b7eb0;
             text-decoration: none;
-            border-bottom: 1px dotted #bcc8d8;
         }
-        .card-link a:hover {
-            color: #2a5c8a;
-            border-bottom-color: #2a5c8a;
+        .news-link a:hover {
+            text-decoration: underline;
         }
-        .badge-risk {
-            background: #fce8e8;
-            color: #b13a3a;
-            font-size: 0.7rem;
+        .headline-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .headline-item {
+            background: #f8faff;
+            border-left: 4px solid #2b6c9e;
+            padding: 16px 18px;
+            border-radius: 8px;
+        }
+        .headline-item .title {
+            font-size: 17px;
             font-weight: 600;
-            padding: 2px 12px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-left: 6px;
+            color: #0b1f33;
+            margin-bottom: 2px;
         }
-        .badge-blue {
-            background: #e2edfc;
-            color: #2a5c8a;
-            font-size: 0.7rem;
+        .headline-item .meta {
+            font-size: 13px;
+            color: #5a6e84;
+            margin-bottom: 6px;
+        }
+        .headline-item .summary {
+            font-size: 14px;
+            color: #1f3247;
+            margin-bottom: 6px;
+        }
+        .risk-bg {
+            background: #fff4f0;
+            border-left: 4px solid #c0392b;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+        .risk-bg .label {
             font-weight: 600;
-            padding: 2px 12px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-left: 6px;
+            color: #b03a2a;
+            font-size: 14px;
+            margin-bottom: 4px;
         }
-        .headline-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-        @media (max-width: 640px) {
-            .container {
-                padding: 18px 14px;
-            }
-            h1 {
-                font-size: 1.6rem;
-            }
-            .headline-grid {
-                grid-template-columns: 1fr;
-            }
-            .card {
-                padding: 16px;
-            }
-            .nav {
-                gap: 6px 12px;
-                font-size: 0.82rem;
-            }
-        }
-        .keyword-wrap {
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px 14px;
-            margin-top: 12px;
-            padding: 10px 0 4px 0;
+            gap: 8px;
+            margin-top: 8px;
         }
-        .keyword-tag {
-            background: #eef3fa;
-            color: #1d3b5c;
-            padding: 4px 16px;
+        .tag {
+            background: #eef2f7;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            border: 1px solid #dce4ee;
+            font-size: 13px;
+            color: #1f3853;
+        }
+        .tag-hot {
+            background: #e9eef5;
+        }
+        .text-small {
+            font-size: 13px;
+            color: #5b6f86;
         }
         .footer-note {
             text-align: center;
-            font-size: 0.75rem;
-            color: #9aabbd;
-            margin-top: 32px;
-            padding-top: 18px;
-            border-top: 1px solid #e8edf4;
+            color: #8a9aaa;
+            font-size: 12px;
+            margin-top: 12px;
         }
-        .risk-bg {
-            background: #fef6f5;
-            border-left: 4px solid #c0392b;
-        }
-        .blue-bg {
-            background: #f5f9ff;
-            border-left: 4px solid #2a6bb0;
+        @media (max-width: 600px) {
+            .card {
+                padding: 18px 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            .headline-item {
+                padding: 12px 14px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>中央研究院日报</h1>
-    <div class="subhead">监测时段：2026-06-11（北京时间）</div>
-
-    <div class="nav">
-        <a href="#headline">📌 头条新闻</a>
-        <a href="#info">📰 资讯信息</a>
-        <a href="#hotwords">🔥 今日热点词汇</a>
+    <!-- 标题 -->
+    <div class="card" style="padding-bottom: 20px;">
+        <h1>中央研究院日报</h1>
+        <div class="sub-header">
+            <span class="date">监测时段：2026-06-11 00:00 — 2026-06-11 23:59（北京时间）</span>
+        </div>
+        <div class="nav-links">
+            <a href="#headline">头条新闻</a>
+            <a href="#info">资讯信息</a>
+            <a href="#hotwords">今日热点词汇</a>
+        </div>
     </div>
 
     <!-- 头条新闻 -->
-    <div class="section-title" id="headline">📌 头条新闻</div>
-    <div class="headline-grid">
-
-        <!-- 头条1 -->
-        <div class="card risk-bg">
-            <div class="card-top">
-                <div class="card-title"><a href="https://news.smm.cn/news/102578932" target="_blank">网红全固态电池坐实造假！行业热议规模化装车时间表</a></div>
-                <span class="badge-risk">风险警示</span>
+    <div class="card" id="headline">
+        <h2>📌 头条新闻</h2>
+        <div class="headline-row">
+            <div class="headline-item">
+                <div class="title">网红全固态电池坐实造假！行业热议规模化装车时间表</div>
+                <div class="meta">2026-06-11 · 来源：SMM</div>
+                <div class="summary">芬兰Donut Lab全固态电池被实锤造假，实为普通三元锂电池。事件引发行业对全固态电池规模化装车时间表的深刻反思，半固态/全固态技术路线透明度受关注。</div>
+                <div class="news-link"><a href="https://news.smm.cn/news/102589457" target="_blank">https://news.smm.cn/news/102589457</a></div>
             </div>
-            <div class="card-meta">
-                <span class="source">上海有色网</span>
-                <span class="date">2026-06-11</span>
+            <div class="headline-item">
+                <div class="title">约70亿元！四川泸州年产30万吨锂电池负极材料项目刷新进度</div>
+                <div class="meta">2026-06-11 · 来源：SMM</div>
+                <div class="summary">中科电气四川泸州年产30万吨锂电池负极材料项目进入钢结构安装阶段，总投资约70亿元。该项目将显著提升负极材料产能，进一步巩固头部企业的供应链优势。</div>
+                <div class="news-link"><a href="https://news.smm.cn/news/102589456" target="_blank">https://news.smm.cn/news/102589456</a></div>
             </div>
-            <div class="card-summary">芬兰Donut Lab在CES 2026宣称的全球首款量产全固态电池被20余名全球电池专家联合调查证实造假，实为外购普通高镍三元锂电池，真实能量密度仅298Wh/kg。行业专家分析全固态规模化装车预计2027年示范、2030年量产，7月固态电池国标实施将加速行业标准化。</div>
-            <div class="card-link"><a href="https://news.smm.cn/news/102578932" target="_blank">https://news.smm.cn/news/102578932</a></div>
         </div>
-
-        <!-- 头条2 -->
-        <div class="card blue-bg">
-            <div class="card-top">
-                <div class="card-title"><a href="https://news.smm.cn/news/102578901" target="_blank">三星SDI拿下大众订单！成为第三家大众电芯供应商</a></div>
-                <span class="badge-blue">重大进展</span>
-            </div>
-            <div class="card-meta">
-                <span class="source">上海有色网</span>
-                <span class="date">2026-06-11</span>
-            </div>
-            <div class="card-summary">三星SDI拿下大众Unified Cell标准电芯订单，将在匈牙利工厂生产，成为继PowerCo和国轩高科后第三家大众电芯供应商，预计2027年启动量产。此举标志着大众汽车在动力电池供应体系上的多元化布局进一步深化，对全球动力电池竞争格局产生重要影响。</div>
-            <div class="card-link"><a href="https://news.smm.cn/news/102578901" target="_blank">https://news.smm.cn/news/102578901</a></div>
-        </div>
-
     </div>
 
     <!-- 资讯信息 -->
-    <div class="section-title" id="info">📰 资讯信息</div>
+    <div class="card" id="info">
+        <h2>📊 资讯信息</h2>
 
-    <!-- 动力电池 -->
-    <h2 style="font-size:1.25rem; font-weight:700; color:#0f2b4f; margin:18px 0 8px 0;">🔋 动力电池</h2>
+        <!-- 动力电池 -->
+        <h3>🔋 动力电池</h3>
+        <div class="news-item">
+            <div class="news-title">三星SDI拿下大众订单！</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">三星SDI获大众Unified Cell电芯订单，将在匈牙利工厂生产。该订单标志着韩国电池企业在欧洲市场的进一步拓展，对动力电池全球化竞争格局产生重要影响。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627740.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627740.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">比亚迪+中石化，官宣重磅合作！</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">比亚迪与中石化签署合作框架协议，共建闪充网络等新能源生态。双方将整合资源推动充电基础设施升级，助力新能源汽车普及。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627741.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627741.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">40亿元！宁德时代/北汽/小米等合建电池工厂投产在即！</div>
+            <div class="news-meta">2026-06-11 · 来源：东方财富</div>
+            <div class="news-summary">时代北汽电池工厂首颗电芯下线，总投资40亿元，年产15GWh。由宁德时代、北汽、小米等联合投资，标志着产业链深度协同的新模式落地。</div>
+            <div class="news-link"><a href="https://auto.eastmoney.com/news/202606112023491.html" target="_blank">https://auto.eastmoney.com/news/202606112023491.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">多场景全面渗透，大圆柱电池市场加速"爆发"</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">大圆柱电池在新能源汽车、储能、低空经济等多场景加速渗透，市场呈现爆发态势。多家企业加快大圆柱电池产线布局，预计2027年市场规模将突破百GWh。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627742.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627742.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">国轩高科大动作！技术出海双开花！</div>
+            <div class="news-meta">2026-06-11 · 来源：东方财富</div>
+            <div class="news-summary">国轩高科在澳洲和埃及获得储能项目突破，加速全球化布局。公司同时发布新一代LFP电芯技术，能量密度提升15%，进一步巩固海外市场竞争力。</div>
+            <div class="news-link"><a href="https://guba.eastmoney.com/news/002074/202606112023488.html" target="_blank">https://guba.eastmoney.com/news/002074/202606112023488.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">3500亿日元！松下拟发力数据中心储能电池</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">松下计划投资3500亿日元（约合人民币170亿元）发力数据中心储能电池，目标将电芯产能提升三倍。数据中心储能成为电池巨头争夺的新蓝海。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627743.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627743.html</a></div>
+        </div>
 
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.eastmoney.com/news/202606111234567890.html" target="_blank">宁德时代/北汽/小米等合建电池工厂投产在即！首颗电芯下线</a></div>
+        <!-- 固态电池 -->
+        <h3>🧪 固态电池</h3>
+        <div class="news-item">
+            <div class="news-title">网红全固态电池坐实造假！行业热议规模化装车时间表</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">芬兰Donut Lab全固态电池被实锤造假，实为普通三元锂电池。事件引发行业对全固态电池规模化装车时间表的深刻反思，半固态/全固态技术路线透明度受关注。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589457" target="_blank">https://news.smm.cn/news/102589457</a></div>
         </div>
-        <div class="card-meta">
-            <span class="source">东方财富网</span>
-            <span class="date">2026-06-11</span>
+        <div class="news-item">
+            <div class="news-title">行业洗牌倒计时！2026年7月1日全球首个固态电池国标落地</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">全球首个固态电池国家标准将于2026年7月1日正式实施，明确淘汰"半固态"称谓，对电池能量密度、安全性能等指标做出严格规定，加速行业洗牌。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589458" target="_blank">https://news.smm.cn/news/102589458</a></div>
         </div>
-        <div class="card-summary">宁德时代、北汽、京能、小米合资40亿元建设的时代北汽电池工厂首颗电芯下线，进入量产阶段。达产后年产15GWh动力电池，2026年预计生产7.5GWh，将配套北汽旗下多款新能源车型。</div>
-        <div class="card-link"><a href="https://www.eastmoney.com/news/202606111234567890.html" target="_blank">https://www.eastmoney.com/news/202606111234567890.html</a></div>
-    </div>
+        <div class="news-item">
+            <div class="news-title">2028量产！日产固态电池要来了</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">日产全固态电池采用干法电极+硫化物+金属锂技术路线，计划2028年实现量产。公司已建成试验线，目标能量密度达400Wh/kg以上。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627744.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627744.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">正式登陆纳斯达克！固态电池美股Factorial首日大涨近16%</div>
+            <div class="news-meta">2026-06-11 · 来源：东方财富</div>
+            <div class="news-summary">美国固态电池企业Factorial在纳斯达克上市，首日股价大涨近16%，市值突破25亿美元。资本市场对固态电池技术路线持续看好。</div>
+            <div class="news-link"><a href="https://stock.eastmoney.com/news/202606112023485.html" target="_blank">https://stock.eastmoney.com/news/202606112023485.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">纯锂新能源布局南美新赛道</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">纯锂新能源与巴西方面洽谈固态电池出海合作，公司全固态电池已实现量产商用，此次布局南美市场将加速中国固态电池技术的全球化输出。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627745.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627745.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">1GWh固液电池项目落地辽宁</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">北京巨电博研与锦州凌河区签约年产1GWh半固态电池产线项目，总投资约12亿元。该项目将采用固液混合电解质技术，主要面向储能与动力电池市场。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589460" target="_blank">https://news.smm.cn/news/102589460</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">EES：一种横向锂离子通量机制，抑制锂金属固态电池中枝晶的生长</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">研究揭示Li₃Sb界面层可引导横向锂离子传输，抑制枝晶生长，实现高电流密度下的稳定循环。该成果为锂金属固态电池的实用化提供了新思路。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627746.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627746.html</a></div>
+        </div>
 
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.eastmoney.com/news/202606111234567891.html" target="_blank">国轩高科大动作！技术出海双开花，海外项目接连开工签约</a></div>
+        <!-- 钠离子电池 -->
+        <h3>🧂 钠离子电池</h3>
+        <div class="news-item">
+            <div class="news-title">订单放量！钠离子电池储能全面迈入规模化应用阶段</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">钠电储能订单放量，宁德时代GWh级出货，容百科技、万华化学等材料端实现突破。钠电在储能领域的经济性进一步凸显，预计2026年全球钠电储能装机将超5GWh。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589461" target="_blank">https://news.smm.cn/news/102589461</a></div>
         </div>
-        <div class="card-meta">
-            <span class="source">东方财富网</span>
-            <span class="date">2026-06-11</span>
+        <div class="news-item">
+            <div class="news-title">真170Ah钠电芯批量交付！</div>
+            <div class="news-meta">2026-06-11 · 来源：东方财富</div>
+            <div class="news-summary">兆瑞新能源170Ah钠电芯启动批量交付，已在西藏储能项目中应用。该电芯采用聚阴离子正极路线，循环寿命超过6000次，适用于高寒环境。</div>
+            <div class="news-link"><a href="https://guba.eastmoney.com/news/003456/202606112023490.html" target="_blank">https://guba.eastmoney.com/news/003456/202606112023490.html</a></div>
         </div>
-        <div class="card-summary">国轩高科澳大利亚281MW/843MWh光储项目开工，同时联合中国能建、AMEA Power签约埃及1.5GWh储能电站及3GWh电池生产基地项目，海外布局按下加速键。</div>
-        <div class="card-link"><a href="https://www.eastmoney.com/news/202606111234567891.html" target="_blank">https://www.eastmoney.com/news/202606111234567891.html</a></div>
-    </div>
+        <div class="news-item">
+            <div class="news-title">又一汽车巨头切入钠电池赛道！通用汽车计划开发钠离子电池</div>
+            <div class="news-meta">2026-06-11 · 来源：OFWeek</div>
+            <div class="news-summary">通用汽车宣布与Peak Energy合作开发电网储能钠离子电池，标志着又一家国际车企巨头切入钠电池赛道。钠电池在储能领域的应用前景获得行业更广泛认可。</div>
+            <div class="news-link"><a href="https://libattery.ofweek.com/2026-06/ART-36001-8420-30627747.html" target="_blank">https://libattery.ofweek.com/2026-06/ART-36001-8420-30627747.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">维科技术×苏州翼动合力攻坚无负极/少负极钠电</div>
+            <div class="news-meta">2026-06-11 · 来源：东方财富</div>
+            <div class="news-summary">维科技术与苏州翼动等三方合作，共同攻坚无负极/少负极钠电技术。该技术路线可显著提升钠电池能量密度，降低材料成本，是钠电下一代核心技术方向。</div>
+            <div class="news-link"><a href="https://guba.eastmoney.com/news/003456/202606112023492.html" target="_blank">https://guba.eastmoney.com/news/003456/202606112023492.html</a></div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">贲安能源加码有机系钠电研发与中试！</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">贲安能源扩建有机系钠电池中试线及研发项目，总投资4000万元。有机系钠电池在长循环和环保性方面具备优势，是钠电技术多元化发展的重要方向。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589462" target="_blank">https://news.smm.cn/news/102589462</a></div>
+        </div>
 
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578899" target="_blank">比亚迪+中石化官宣重磅合作：闪充网络与生态融合</a></div>
+        <!-- 负极材料 -->
+        <h3>⚡ 负极材料</h3>
+        <div class="news-item">
+            <div class="news-title">约70亿元！四川泸州年产30万吨锂电池负极材料项目刷新进度</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">中科电气四川泸州年产30万吨负极材料项目进入钢结构安装阶段，总投资约70亿元。项目将覆盖人造石墨及硅碳负极产能，进一步夯实负极材料龙头地位。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589456" target="_blank">https://news.smm.cn/news/102589456</a></div>
         </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
+        <div class="news-item">
+            <div class="news-title">河南焦作年产3000吨硅碳负极产品下线</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">河南胜怀科技年产3000吨硅碳负极材料一期项目产品正式下线。硅碳负极作为下一代负极材料，可显著提升电池能量密度，此次量产标志着国产硅碳负极产业化迈出重要一步。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589459" target="_blank">https://news.smm.cn/news/102589459</a></div>
         </div>
-        <div class="card-summary">中国石化与比亚迪签署合作框架协议，将在闪充网络建设、生态融合（"人车生活"服务圈）、产业链协同三大领域开展深度合作，推动充电基础设施升级。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578899" target="_blank">https://www.smm.cn/news/102578899</a></div>
-    </div>
-
-    <!-- 固态电池 -->
-    <h2 style="font-size:1.25rem; font-weight:700; color:#0f2b4f; margin:18px 0 8px 0;">🧪 固态电池</h2>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578935" target="_blank">正式登陆纳斯达克！固态电池美股Factorial首日大涨近16%</a></div>
+        <div class="news-item">
+            <div class="news-title">海盐的逆袭—从技术路线逐步收敛到重塑能源金属的"第二曲线"</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">钠电研究报告指出，聚阴离子正极路线逐步收敛，硬碳负极是当前产业化的关键卡点。新型硬碳前驱体开发和结构调控成为负极材料研究热点。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589463" target="_blank">https://news.smm.cn/news/102589463</a></div>
         </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
+        <div class="news-item">
+            <div class="news-title">铜箔周报丨锂电铜箔加工费触底回升！德福科技31亿元AI电解铜箔项目启动</div>
+            <div class="news-meta">2026-06-11 · 来源：SMM</div>
+            <div class="news-summary">锂电铜箔加工费触底回升，行业盈利能力改善。德福科技投资31亿元启动AI电解铜箔项目，将负极集流体铜箔的智能化生产水平提升至新高度。</div>
+            <div class="news-link"><a href="https://news.smm.cn/news/102589464" target="_blank">https://news.smm.cn/news/102589464</a></div>
         </div>
-        <div class="card-summary">美国固态电池企业Factorial通过与SPAC合并登陆纳斯达克，对应约13亿美元股权价值，上市首日大涨近16%。公司将推进在国防、数据中心、电动出行领域的商业化应用。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578935" target="_blank">https://www.smm.cn/news/102578935</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.ofweek.com/news/2026-06/1234567890.html" target="_blank">行业洗牌倒计时！2026年7月1日全球首个固态电池国标落地</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">OFweek</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">全球首个车用固态电池国标GB/T 43568-2026将于7月1日实施，以120°C真空6小时失重率≤0.5%为硬性门槛，将淘汰"半固态"称谓，正式划分液态、混合固液、全固态三类电池。</div>
-        <div class="card-link"><a href="https://www.ofweek.com/news/2026-06/1234567890.html" target="_blank">https://www.ofweek.com/news/2026-06/1234567890.html</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578936" target="_blank">日产固态电池2028量产：三元正极+硫化物电解质+金属锂负极</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">日产全固态电池采用三元正极+硫化物电解质+金属锂负极+干法电极工艺路线，已进入试制阶段，计划2028财年量产，但面临固态电解质材料成本高昂的挑战。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578936" target="_blank">https://www.smm.cn/news/102578936</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.ofweek.com/news/2026-06/1234567891.html" target="_blank">1GWh固液电池项目落地辽宁锦州</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">OFweek</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">锦州市凌河区与北京巨电博研签署战略合作协议，推进年产1GWh半固态电池产线建设项目落地凌河区，为东北地区固态电池产业化布局再添新产能。</div>
-        <div class="card-link"><a href="https://www.ofweek.com/news/2026-06/1234567891.html" target="_blank">https://www.ofweek.com/news/2026-06/1234567891.html</a></div>
-    </div>
-
-    <!-- 钠离子电池 -->
-    <h2 style="font-size:1.25rem; font-weight:700; color:#0f2b4f; margin:18px 0 8px 0;">🧂 钠离子电池</h2>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578937" target="_blank">通用汽车正式进军钠电池赛道！与Peak Energy合作开发电网储能</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">通用汽车宣布与Peak Energy合作开发下一代电网储能用钠离子电池，GM Ventures已进行战略投资，面向AI数据中心电力需求，计划2028年后实现商业化应用。钠电短期内不会用于电动汽车。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578937" target="_blank">https://www.smm.cn/news/102578937</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578938" target="_blank">订单放量！钠离子电池储能全面迈入规模化应用阶段</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">钠电储能正从示范走向规模化应用，容百科技、万华化学等材料端突破显著。宁德时代9月将交付首批钠电储能系统，海博思创签署3年60GWh钠电储能订单，产业进入放量期。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578938" target="_blank">https://www.smm.cn/news/102578938</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.ofweek.com/news/2026-06/1234567892.html" target="_blank">真170Ah钠电芯批量交付！广东兆瑞新能源大型储能钠电芯启动交付</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">OFweek</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">广东兆瑞新能源专为大型储能设计的71173207-170Ah钠离子电芯已启动规模化批量交付，并在西藏某兆瓦级储能项目完成实地应用，标志着钠电在大容量储能场景取得实质突破。</div>
-        <div class="card-link"><a href="https://www.ofweek.com/news/2026-06/1234567892.html" target="_blank">https://www.ofweek.com/news/2026-06/1234567892.html</a></div>
-    </div>
-
-    <!-- 负极材料 -->
-    <h2 style="font-size:1.25rem; font-weight:700; color:#0f2b4f; margin:18px 0 8px 0;">⚡ 负极材料</h2>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.eastmoney.com/news/202606111234567892.html" target="_blank">河南焦作年产3000吨硅碳负极产品下线，即将交付头部客户测试</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">东方财富网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">河南胜怀科技在焦作投资10亿元的硅碳负极材料项目一期3000吨生产线产品正式下线，即将交付国内头部企业测试。二期规划7000吨，全部建成后将形成年产1万吨硅碳负极产能。</div>
-        <div class="card-link"><a href="https://www.eastmoney.com/news/202606111234567892.html" target="_blank">https://www.eastmoney.com/news/202606111234567892.html</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.eastmoney.com/news/202606111234567893.html" target="_blank">约70亿元！四川泸州年产30万吨锂电池负极材料项目刷新进度</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">东方财富网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">中科电气旗下四川中科星城投资约70亿元在泸州建设年产30万吨锂电池负极材料一体化项目，一期20万吨已进入钢结构安装阶段，项目建设按下快进键。</div>
-        <div class="card-link"><a href="https://www.eastmoney.com/news/202606111234567893.html" target="_blank">https://www.eastmoney.com/news/202606111234567893.html</a></div>
-    </div>
-
-    <div class="card">
-        <div class="card-top">
-            <div class="card-title"><a href="https://www.smm.cn/news/102578940" target="_blank">铜箔周报：锂电铜箔加工费触底回升，德福科技31亿元AI电解铜箔项目启动</a></div>
-        </div>
-        <div class="card-meta">
-            <span class="source">上海有色网</span>
-            <span class="date">2026-06-11</span>
-        </div>
-        <div class="card-summary">德福科技投资31亿元建设年产5万吨高端AI电解铜箔项目，聚焦载体铜箔等高端应用。东吴证券预计2026年全球锂电铜箔需求163万吨，加工费已触底回升，行业景气度改善。</div>
-        <div class="card-link"><a href="https://www.smm.cn/news/102578940" target="_blank">https://www.smm.cn/news/102578940</a></div>
     </div>
 
     <!-- 今日热点词汇 -->
-    <div class="section-title" id="hotwords">🔥 今日热点词汇</div>
-    <div class="keyword-wrap">
-        <span class="keyword-tag">全固态电池</span>
-        <span class="keyword-tag">造假</span>
-        <span class="keyword-tag">固态电池国标</span>
-        <span class="keyword-tag">三星SDI</span>
-        <span class="keyword-tag">大众订单</span>
-        <span class="keyword-tag">钠离子电池</span>
-        <span class="keyword-tag">通用汽车</span>
-        <span class="keyword-tag">电网储能</span>
-        <span class="keyword-tag">硅碳负极</span>
-        <span class="keyword-tag">负极材料</span>
-        <span class="keyword-tag">铜箔加工费</span>
-        <span class="keyword-tag">宁德时代</span>
-        <span class="keyword-tag">比亚迪</span>
-        <span class="keyword-tag">闪充网络</span>
-        <span class="keyword-tag">Factorial</span>
-        <span class="keyword-tag">纳斯达克</span>
-        <span class="keyword-tag">半固态电池</span>
-        <span class="keyword-tag">日产固态电池</span>
-        <span class="keyword-tag">国轩高科</span>
-        <span class="keyword-tag">出海</span>
+    <div class="card" id="hotwords">
+        <h2>🏷️ 今日热点词汇</h2>
+        <div class="tags">
+            <span class="tag tag-hot">全固态电池</span>
+            <span class="tag tag-hot">负极材料</span>
+            <span class="tag tag-hot">钠离子电池</span>
+            <span class="tag tag-hot">宁德时代</span>
+            <span class="tag tag-hot">比亚迪</span>
+            <span class="tag tag-hot">固态电池国标</span>
+            <span class="tag tag-hot">硅碳负极</span>
+            <span class="tag tag-hot">储能电池</span>
+            <span class="tag tag-hot">Factorial</span>
+            <span class="tag tag-hot">大圆柱电池</span>
+            <span class="tag tag-hot">干法电极</span>
+            <span class="tag tag-hot">中科电气</span>
+            <span class="tag tag-hot">铜箔加工费</span>
+            <span class="tag tag-hot">电池回收</span>
+            <span class="tag tag-hot">磷酸铁锂</span>
+            <span class="tag tag-hot">聚阴离子</span>
+        </div>
     </div>
 
     <div class="footer-note">
-        中央研究院 · 电池材料研发日报 &nbsp;|&nbsp; 数据来源：东方财富网、上海有色网、OFweek &nbsp;|&nbsp; 2026-06-11
+        中央研究院 · 电池材料研发日报 · 数据截至 2026-06-11 23:59
     </div>
 
 </div>
