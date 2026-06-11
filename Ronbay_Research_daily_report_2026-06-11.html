@@ -1,254 +1,297 @@
-<!DOCTYPE html>开始，不能有任何前置文字。内嵌CSS，现代干净风格，响应式设计。移动端适配。不使用外部资源。
-
-我需要确保HTML结构完整闭合，所有标签正确。压缩不必要的空格和注释，但输出完整的</html>结束标签。
-
-用户还要求url链接必须是可访问的，直接引用用户给出的链接。
-
-现在开始构建HTML。我会用浅灰背景，白色卡片，卡片圆角阴影。头条新闻用红色边框或背景突出，其他模块用浅蓝背景区分。字体用系统无衬线字体。
-
-头条新闻部分，虽然只有一条，但按格式输出标题、日期、来源、url、摘要、关联容百。关联容百写“暂无直接关联”。
-
-资讯信息部分，只输出“固态电池”板块，其他板块不输出。如果板块无新闻，用户要求不输出那些板块，所以我只输出有内容的板块。
-
-今日热点词汇用列表形式。
-
-所有内容必须来自用户提供的表格，不能自己编造。
-
-现在开始写HTML代码。
-</think><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中央研究院日报</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #f2f4f8;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-            line-height: 1.5;
-            color: #1e2a3a;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            padding: 24px 28px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #0b1b33;
-            margin-bottom: 4px;
-        }
-        .sub-title {
-            font-size: 15px;
-            color: #5e6f88;
-            margin-bottom: 12px;
-        }
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 14px;
-            margin-top: 8px;
-            border-top: 1px solid #e9edf2;
-            padding-top: 12px;
-        }
-        .nav a {
-            color: #2a6f97;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav a:hover {
-            color: #1a4f77;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0b1b33;
-            margin-bottom: 16px;
-            padding-bottom: 6px;
-            border-bottom: 3px solid #d0d8e3;
-        }
-        .headline-block {
-            background: #fef6f5;
-            border-left: 5px solid #c53030;
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .headline-block:last-child {
-            margin-bottom: 0;
-        }
-        .headline-block h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: #c53030;
-            margin-bottom: 6px;
-        }
-        .headline-block .meta {
-            font-size: 13px;
-            color: #6b7a8f;
-            margin-bottom: 6px;
-        }
-        .headline-block .url {
-            font-size: 12px;
-            word-break: break-all;
-            color: #4a6fa5;
-        }
-        .headline-block .url a {
-            color: #4a6fa5;
-            text-decoration: underline;
-        }
-        .headline-block .abstract {
-            font-size: 14px;
-            margin: 6px 0 8px;
-        }
-        .headline-block .rongbai {
-            font-size: 13px;
-            color: #7a4e2e;
-            background: #f9efe8;
-            display: inline-block;
-            padding: 2px 10px;
-            border-radius: 4px;
-        }
-        .section-block {
-            margin-bottom: 28px;
-        }
-        .info-item {
-            background: #f8faff;
-            border-left: 4px solid #3b82b0;
-            padding: 14px 18px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-        }
-        .info-item h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0b1b33;
-            margin-bottom: 4px;
-        }
-        .info-item .meta {
-            font-size: 13px;
-            color: #6b7a8f;
-            margin-bottom: 4px;
-        }
-        .info-item .abstract {
-            font-size: 14px;
-            margin: 4px 0 6px;
-        }
-        .info-item .url {
-            font-size: 12px;
-            word-break: break-all;
-        }
-        .info-item .url a {
-            color: #3b82b0;
-            text-decoration: underline;
-        }
-        .keywords-block {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 14px;
-            padding-top: 4px;
-        }
-        .keywords-block span {
-            background: #e6edf6;
-            color: #1e3a5f;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .no-data {
-            color: #8a9aa8;
-            font-style: italic;
-            font-size: 14px;
-            padding: 12px 0;
-        }
-        @media (max-width: 600px) {
-            body { padding: 12px; }
-            .card { padding: 16px 18px; }
-            h1 { font-size: 24px; }
-            .nav { gap: 10px; font-size: 13px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中央研究院日报</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #f5f7fa; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.5; color: #1f2937; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.card { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+h1 { font-size: 1.75rem; font-weight: 700; color: #111827; margin-bottom: 4px; }
+.subtitle { font-size: 0.9rem; color: #6b7280; margin-bottom: 16px; }
+.nav { margin: 12px 0 20px; padding: 12px 0; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+.nav a { display: inline-block; margin-right: 20px; color: #2563eb; text-decoration: none; font-size: 0.95rem; }
+.nav a:hover { text-decoration: underline; }
+h2 { font-size: 1.3rem; font-weight: 600; color: #1f2937; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e5e7eb; }
+h3 { font-size: 1rem; font-weight: 600; color: #111827; margin: 0 0 4px; }
+.news-item { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid #f3f4f6; }
+.news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.meta { font-size: 0.8rem; color: #6b7280; margin-bottom: 6px; }
+.summary { font-size: 0.92rem; color: #374151; margin-bottom: 6px; }
+.link { font-size: 0.78rem; word-break: break-all; }
+.link a { color: #2563eb; text-decoration: none; }
+.link a:hover { text-decoration: underline; }
+.headline-box { background: #eef2ff; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.headline-box .news-item { border-bottom-color: #dbe8ff; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-list span { background: #e5e7eb; padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; color: #374151; }
+.section-gap { height: 24px; }
+@media (max-width: 640px) {
+  body { padding: 12px; }
+  .card { padding: 16px; }
+  h1 { font-size: 1.4rem; }
+  .nav a { margin-right: 12px; font-size: 0.85rem; }
+  .headline-box { padding: 14px; }
+}
+</style>
 </head>
 <body>
 <div class="container">
-
-    <!-- 标题 -->
-    <div class="card">
-        <h1>中央研究院日报</h1>
-        <div class="sub-title">监测时段：2026年6月11日（北京时间）</div>
-        <div class="nav">
-            <a href="#headline">头条新闻</a>
-            <a href="#info">资讯信息</a>
-            <a href="#keywords">今日热点词汇</a>
-        </div>
+  <div class="card">
+    <h1>中央研究院日报</h1>
+    <div class="subtitle">监测时段：2026-06-11（北京时间）</div>
+    <div class="nav">
+      <a href="#headline">头条新闻</a>
+      <a href="#power">动力电池</a>
+      <a href="#solid">固态电池</a>
+      <a href="#sodium">钠离子电池</a>
+      <a href="#anode">负极材料</a>
+      <a href="#keywords">今日热点词汇</a>
     </div>
+  </div>
 
-    <!-- 头条新闻 -->
-    <div class="card" id="headline">
-        <h2>头条新闻</h2>
-        <div class="headline-block">
-            <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
-            <div class="meta">上海有色网 · 2026-06-11</div>
-            <div class="abstract">电池研究员Ziroth联合20余位独立电池专家溯源调查，实锤今年CES展上芬兰Donut Lab全固态电池系造假，所谓新一代固态产品本质是普通锂离子电池，戳破固态电池概念泡沫。</div>
-            <div class="url"><a href="https://new-energy.smm.cn/content/151036/103948643" target="_blank">https://new-energy.smm.cn/content/151036/103948643</a></div>
-            <div class="rongbai">关联容百：暂无直接关联</div>
-        </div>
+  <!-- 头条新闻 -->
+  <div class="card" id="headline">
+    <h2>头条新闻</h2>
+    <div class="headline-box">
+      <div class="news-item">
+        <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
+        <div class="meta">2026-06-11 | 上海有色网</div>
+        <div class="summary">电池研究员Ziroth联合20余位独立电池专家溯源调查，实锤芬兰Donut Lab公司全固态电池造假，本质为普通锂电池，戳破行业过度炒作的概念泡沫。</div>
+        <div class="link"><a href="https://new-energy.smm.cn/content/151036/103948643" target="_blank">https://new-energy.smm.cn/content/151036/103948643</a></div>
+      </div>
+      <div class="news-item">
+        <h3>比亚迪+中石化，官宣重磅合作！</h3>
+        <div class="meta">发布日期未知 | 来源未知</div>
+        <div class="summary">比亚迪与中石化签署合作框架协议，共建闪充网络等生态，标志着两大巨头在新能源基础设施领域的深度协同。</div>
+        <div class="link"><a href="https://mp.weixin.qq.com/s/nXeW_iM8bmIGHLAsPSIM0w" target="_blank">https://mp.weixin.qq.com/s/nXeW_iM8bmIGHLAsPSIM0w</a></div>
+      </div>
     </div>
+  </div>
 
-    <!-- 资讯信息 -->
-    <div class="card" id="info">
-        <h2>资讯信息</h2>
-        
-        <!-- 固态电池 -->
-        <div class="section-block">
-            <h2 style="font-size:18px; border-bottom-color:#7ab0d4; margin-bottom:12px;">固态电池</h2>
-            <div class="info-item">
-                <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
-                <div class="meta">上海有色网 · 2026-06-11</div>
-                <div class="abstract">电池研究员Ziroth联合20余位独立电池专家开展溯源调查，实锤今年CES展上轰动全球的芬兰Donut Lab公司全固态电池系造假，其对外展示、送检的所谓新一代固态产品，本质就是普通锂离子电池，戳破了固态电池赛道过度炒作的概念泡沫。</div>
-                <div class="url"><a href="https://new-energy.smm.cn/content/151036/103948643" target="_blank">https://new-energy.smm.cn/content/151036/103948643</a></div>
-            </div>
-        </div>
+  <!-- 资讯信息 -->
+  <!-- 动力电池板块 -->
+  <div class="card" id="power">
+    <h2>动力电池</h2>
+    <div class="news-item">
+      <h3>3500亿日元！松下拟发力数据中心储能电池</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">松下计划投资3500亿日元发力数据中心储能电池，提升电芯产能三倍，布局AI算力带来的爆发式储能需求。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/6gX91ZDeRh0m-uEcCbrh-g" target="_blank">https://mp.weixin.qq.com/s/6gX91ZDeRh0m-uEcCbrh-g</a></div>
     </div>
-
-    <!-- 今日热点词汇 -->
-    <div class="card" id="keywords">
-        <h2>今日热点词汇</h2>
-        <div class="keywords-block">
-            <span>全固态电池</span>
-            <span>造假</span>
-            <span>Donut Lab</span>
-            <span>CES</span>
-            <span>宁德时代</span>
-            <span>比亚迪</span>
-            <span>亿纬锂能</span>
-            <span>CMC清单</span>
-            <span>美国制裁</span>
-            <span>规模化装车</span>
-            <span>国标</span>
-            <span>半固态</span>
-            <span>概念泡沫</span>
-            <span>溯源调查</span>
-            <span>电池研究员</span>
-        </div>
+    <div class="news-item">
+      <h3>三星SDI拿下大众订单！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">三星SDI获大众Unified Cell电芯订单，将在匈牙利工厂生产，标志着韩系电池企业进一步深入欧洲车企供应链。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/s2DLswjd2VQbTSHGiRZvtw" target="_blank">https://mp.weixin.qq.com/s/s2DLswjd2VQbTSHGiRZvtw</a></div>
     </div>
+    <div class="news-item">
+      <h3>国轩高科大动作！技术出海双开花！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">国轩高科在澳洲和埃及获储能项目突破，加速全球化布局，展现中国电池企业的海外拓展能力。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/Ly76k3L4sYFL5VqwBM88KQ" target="_blank">https://mp.weixin.qq.com/s/Ly76k3L4sYFL5VqwBM88KQ</a></div>
+    </div>
+    <div class="news-item">
+      <h3>总投资98亿！一期10GWh！圣钘科技湖南宁乡锂电池项目传新进展</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">圣钘科技湖南宁乡锂电池一期10GWh项目环评受理，总投资98亿元，加速产能建设步伐。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/e-ZtC3f2eROqPQHC9nbasw" target="_blank">https://mp.weixin.qq.com/s/e-ZtC3f2eROqPQHC9nbasw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>多场景全面渗透，大圆柱电池市场加速"爆发"</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">大圆柱电池在新能源汽车、储能、低空经济等多场景加速渗透，市场进入爆发式增长阶段。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/Cp15uCjMfNtWhRN6IZDOCg" target="_blank">https://mp.weixin.qq.com/s/Cp15uCjMfNtWhRN6IZDOCg</a></div>
+    </div>
+    <div class="news-item">
+      <h3>40亿元！宁德时代/北汽/小米等合建电池工厂投产在即！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">时代北汽电池工厂首颗电芯下线，总投资40亿元，年产15GWh，由宁德时代、北汽、小米等联合建设。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/xGfy9MqLcfW6gQ_67ZVuJA" target="_blank">https://mp.weixin.qq.com/s/xGfy9MqLcfW6gQ_67ZVuJA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>一众电池企业再被美国"拉黑"！宁德时代/比亚迪均在列！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">美国更新CMC清单，宁德时代、比亚迪、亿纬锂能等新能源企业被列入，地缘政治风险再度升级。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/xYhQS-MaAPD6SssxJ-WRCQ" target="_blank">https://mp.weixin.qq.com/s/xYhQS-MaAPD6SssxJ-WRCQ</a></div>
+    </div>
+    <div class="news-item">
+      <h3>爬产进度受影响！天齐锂业澳洲锂精矿工厂失火</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">天齐锂业澳洲第三期锂精矿工厂检修期间失火，爬产进度受影响，或对锂精矿短期供应造成扰动。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/mWd2_qkl9v5T7LtdDGQu3w" target="_blank">https://mp.weixin.qq.com/s/mWd2_qkl9v5T7LtdDGQu3w</a></div>
+    </div>
+    <div class="news-item">
+      <h3>注资40亿！万华增资磷酸铁锂子公司</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">万华化学增资磷酸铁锂子公司至40亿元，加速产能扩张，深化正极材料布局。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/AKraZxTu-1CDD-D4MtGcPA" target="_blank">https://mp.weixin.qq.com/s/AKraZxTu-1CDD-D4MtGcPA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>10.88亿元！12万吨！龙蟠科技拟在印尼扩产磷酸铁锂</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">龙蟠科技拟1.6亿美元在印尼扩建12万吨磷酸铁锂正极材料项目，全球化布局再落一子。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/Rx8FeUFL4qaklKWK3dklcA" target="_blank">https://mp.weixin.qq.com/s/Rx8FeUFL4qaklKWK3dklcA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>拟募资超12亿元投建电池系统基地等！又一电池公司IPO获受理</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">安仕科技创业板IPO获受理，拟募资12.18亿元建设电池系统基地，资本市场再添电池新军。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/U0OrB26GbWSdcOnbiyqyvw" target="_blank">https://mp.weixin.qq.com/s/U0OrB26GbWSdcOnbiyqyvw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>铜箔周报丨锂电铜箔加工费触底回升</h3>
+      <div class="meta">2026-06-11 | 来源未知</div>
+      <div class="summary">锂电铜箔加工费触底回升，德福科技31亿元AI电解铜箔项目启动，行业景气度有望回暖。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/QE_MU9A4FxYp7REdpGgZ-Q" target="_blank">https://mp.weixin.qq.com/s/QE_MU9A4FxYp7REdpGgZ-Q</a></div>
+    </div>
+  </div>
 
+  <!-- 固态电池板块（含负面造假新闻，使用浅红背景） -->
+  <div class="card" id="solid" style="background:#fee2e2;">
+    <h2 style="border-bottom-color:#fca5a5;">固态电池</h2>
+    <div class="news-item">
+      <h3>全球首款量产固态电池被实锤造假！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">芬兰Donut Lab全固态电池被实锤造假，实为普通三元锂电池，此前宣称的"全球首款量产"系虚假宣传。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/BDuxDYpXMntGscxQuOJYmw" target="_blank">https://mp.weixin.qq.com/s/BDuxDYpXMntGscxQuOJYmw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>行业洗牌倒计时！2026年7月1日全球首个固态电池国标落地</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">全球首个固态电池国标7月1日实施，将淘汰半固态称谓，规范行业技术标准，加速行业洗牌。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/v7n3MjRki8MKNCthPBxcFw" target="_blank">https://mp.weixin.qq.com/s/v7n3MjRki8MKNCthPBxcFw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>2028量产！日产固态电池要来了</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">日产全固态电池采用干法电极+硫化物+金属锂路线，计划2028年量产，日系车企加速追赶固态赛道。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/NYHnLCJmuqJdjRa2MXZTtQ" target="_blank">https://mp.weixin.qq.com/s/NYHnLCJmuqJdjRa2MXZTtQ</a></div>
+    </div>
+    <div class="news-item">
+      <h3>正式登陆纳斯达克！固态电池美股Factorial首日大涨近16%</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">美国固态电池企业Factorial在纳斯达克上市，首日大涨近16%，资本市场对固态电池赛道热度不减。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/QK8aqNgqiZTR4aHTNVKouw" target="_blank">https://mp.weixin.qq.com/s/QK8aqNgqiZTR4aHTNVKouw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>纯锂新能源布局南美新赛道</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">纯锂新能源与巴西洽谈固态电池出海，全固态电池已量产商用，中国固态电池企业加速海外布局。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/5I_7P2gnZbbnXB3KSB0YVw" target="_blank">https://mp.weixin.qq.com/s/5I_7P2gnZbbnXB3KSB0YVw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>1GWh固液电池项目落地辽宁</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">北京巨电博研与锦州凌河区签约年产1GWh半固态电池产线项目，固液混合路线产业化继续推进。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/vQ9fnmWYFklIGrK2muDbmg" target="_blank">https://mp.weixin.qq.com/s/vQ9fnmWYFklIGrK2muDbmg</a></div>
+    </div>
+    <div class="news-item">
+      <h3>茹天科技获上市企业投资，固态电池装备全面升级</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">荣旗科技战略投资茹天科技，打通固态电池装备全链条，产业链协同加速。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/lkKe_jxIKj0cAn9_Z4iQEg" target="_blank">https://mp.weixin.qq.com/s/lkKe_jxIKj0cAn9_Z4iQEg</a></div>
+    </div>
+    <div class="news-item">
+      <h3>EES：一种横向锂离子通量机制，抑制锂金属固态电池中枝晶的生长</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">研究揭示Li₃Sb界面层横向锂传输可抑制枝晶，实现高电流稳定循环，为固态电池界面设计提供新思路。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/1uD4yzE7_ug20X5tblGEJg" target="_blank">https://mp.weixin.qq.com/s/1uD4yzE7_ug20X5tblGEJg</a></div>
+    </div>
+  </div>
+
+  <!-- 钠离子电池板块 -->
+  <div class="card" id="sodium">
+    <h2>钠离子电池</h2>
+    <div class="news-item">
+      <h3>订单放量！钠离子电池储能全面迈入规模化应用阶段</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">钠电储能订单放量，宁德时代GWh级出货，容百、万华等材料端突破，产业全面进入规模化阶段。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/09SizIIFCARCYXtQMT8tXA" target="_blank">https://mp.weixin.qq.com/s/09SizIIFCARCYXtQMT8tXA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>真170Ah钠电芯批量交付！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">兆瑞新能源170Ah钠电芯启动批量交付，已在西藏储能项目中应用，钠电大容量电芯实现商业落地。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/7YqDaDFPF8qbC0NQuRKGvg" target="_blank">https://mp.weixin.qq.com/s/7YqDaDFPF8qbC0NQuRKGvg</a></div>
+    </div>
+    <div class="news-item">
+      <h3>又一汽车巨头切入钠电池赛道！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">通用汽车宣布与Peak Energy合作开发电网储能钠离子电池，汽车巨头跨界布局钠电赛道。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/V0sDX24bDHJo5FHAB-fJvA" target="_blank">https://mp.weixin.qq.com/s/V0sDX24bDHJo5FHAB-fJvA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>总投资5.5亿元！四川年产1.6万吨聚阴离子钠电正极材料项目一期环评审批</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">四川井研县年产1.6万吨聚阴离子钠电正极材料项目一期8000吨环评获批，钠电材料产能持续扩充。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/cDV17aFNknE7-IufYxifjw" target="_blank">https://mp.weixin.qq.com/s/cDV17aFNknE7-IufYxifjw</a></div>
+    </div>
+    <div class="news-item">
+      <h3>维科技术×苏州翼动合力攻坚无负极/少负极钠电</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">维科技术与苏州翼动等三方合作攻坚无负极/少负极钠电技术，探索下一代钠电池创新路线。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/Kxhmci44R7ax2yvNZBG2CA" target="_blank">https://mp.weixin.qq.com/s/Kxhmci44R7ax2yvNZBG2CA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>贲安能源加码有机系钠电研发与中试！</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">贲安能源扩建有机系钠电池中试线及研发项目，总投资4000万元，差异化路线持续推进。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/i9FZ6WXEC2A3MfiR6CLQ9w" target="_blank">https://mp.weixin.qq.com/s/i9FZ6WXEC2A3MfiR6CLQ9w</a></div>
+    </div>
+    <div class="news-item">
+      <h3>年产50万套二轮车钠电PACK项目即将投产</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">浙江中领光储年产50万套二轮车钠电PACK项目进入桩基施工阶段，钠电在两轮车领域加速渗透。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/_TzR0iAWZTis1-wln4Nldg" target="_blank">https://mp.weixin.qq.com/s/_TzR0iAWZTis1-wln4Nldg</a></div>
+    </div>
+  </div>
+
+  <!-- 负极材料板块 -->
+  <div class="card" id="anode">
+    <h2>负极材料</h2>
+    <div class="news-item">
+      <h3>约70亿元！四川泸州年产30万吨锂电池负极材料项目刷新进度</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">中科电气四川泸州年产30万吨负极材料项目进入钢结构安装阶段，大规模产能建设持续推进。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/29NfJm-FM1vrYL06w8egrA" target="_blank">https://mp.weixin.qq.com/s/29NfJm-FM1vrYL06w8egrA</a></div>
+    </div>
+    <div class="news-item">
+      <h3>河南焦作年产3000吨硅碳负极产品下线</h3>
+      <div class="meta">发布日期未知 | 来源未知</div>
+      <div class="summary">河南胜怀科技年产3000吨硅碳负极材料一期项目产品下线，硅碳负极产业化取得新进展。</div>
+      <div class="link"><a href="https://mp.weixin.qq.com/s/YkegefAdDR7L2rZW_lCulg" target="_blank">https://mp.weixin.qq.com/s/YkegefAdDR7L2rZW_lCulg</a></div>
+    </div>
+  </div>
+
+  <!-- 今日热点词汇 -->
+  <div class="card" id="keywords">
+    <h2>今日热点词汇</h2>
+    <div class="tag-list">
+      <span>固态电池</span>
+      <span>造假</span>
+      <span>全固态电池</span>
+      <span>钠离子电池</span>
+      <span>储能</span>
+      <span>量产</span>
+      <span>负极材料</span>
+      <span>磷酸铁锂</span>
+      <span>出海</span>
+      <span>投资</span>
+      <span>合作</span>
+      <span>回收</span>
+      <span>枝晶</span>
+      <span>硬碳</span>
+      <span>硅碳负极</span>
+      <span>大圆柱电池</span>
+      <span>半固态</span>
+      <span>国标</span>
+      <span>铜箔</span>
+      <span>六氟磷酸锂</span>
+    </div>
+  </div>
 </div>
 </body>
 </html>
