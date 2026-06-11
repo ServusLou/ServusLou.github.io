@@ -5,54 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中央研究院日报</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #1a3a5c 0%, #2a6496 100%); color: #fff; padding: 30px 30px 20px; border-radius: 12px 12px 0 0; }
-        .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
-        .header .sub { font-size: 14px; opacity: 0.85; margin-bottom: 14px; }
-        .nav { display: flex; flex-wrap: wrap; gap: 12px; }
-        .nav a { color: #fff; text-decoration: none; font-size: 13px; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; transition: 0.2s; }
-        .nav a:hover { background: rgba(255,255,255,0.3); }
-        .card { background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px; overflow: hidden; }
-        .card-body { padding: 24px 30px; }
-        .section-title { font-size: 20px; font-weight: 700; color: #1a3a5c; border-left: 5px solid #2a6496; padding-left: 14px; margin-bottom: 18px; margin-top: 10px; }
-        .headline-grid { display: flex; flex-direction: column; gap: 20px; }
-        .headline-item { background: #f8faff; border-left: 4px solid #d32f2f; padding: 16px 20px; border-radius: 6px; transition: 0.2s; }
-        .headline-item:hover { background: #eef3ff; }
-        .headline-item h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
-        .headline-item .meta { font-size: 12px; color: #888; margin-bottom: 8px; }
-        .headline-item .src { font-size: 12px; color: #2a6496; }
-        .headline-item .src a { color: #2a6496; text-decoration: underline; word-break: break-all; }
-        .headline-item .summary { font-size: 14px; color: #444; margin: 6px 0 4px; }
-        .risk-badge { display: inline-block; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 6px; }
-        .blue-badge { display: inline-block; background: #2a6496; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 6px; }
-        .block-item { background: #f9f9fb; border-left: 4px solid #2a6496; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; transition: 0.2s; }
-        .block-item:hover { background: #eef3ff; }
-        .block-item h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
-        .block-item .meta { font-size: 12px; color: #888; margin-bottom: 6px; }
-        .block-item .summary { font-size: 14px; color: #444; margin-bottom: 4px; }
-        .block-item .url { font-size: 12px; color: #2a6496; word-break: break-all; }
-        .block-item .url a { color: #2a6496; text-decoration: underline; }
-        .topic-tag { display: inline-block; background: #e8f0fe; color: #1a3a5c; font-size: 13px; padding: 6px 14px; border-radius: 20px; margin: 4px 6px 4px 0; }
-        .divider { height: 1px; background: #e8e8e8; margin: 10px 0 20px; }
-        .footer { text-align: center; font-size: 12px; color: #aaa; padding: 16px 0 8px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f2f4f8;
+            line-height: 1.5;
+            color: #1e293b;
+            padding: 20px 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px 24px 20px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: 2px;
+        }
+        .header .sub {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+        .nav {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+        }
+        .nav a {
+            font-size: 13px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav a:hover {
+            border-bottom-color: #2563eb;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 24px 20px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eef2f6;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .tag {
+            font-size: 12px;
+            background: #eef2f6;
+            color: #475569;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 400;
+        }
+        .headline-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .headline-item {
+            padding: 16px 18px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+        .headline-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .headline-item .meta {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+        .headline-item .summary {
+            font-size: 14px;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .headline-item .related {
+            font-size: 12px;
+            color: #2563eb;
+            background: #eff6ff;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-top: 4px;
+        }
+        .headline-item .url {
+            font-size: 11px;
+            color: #94a3b8;
+            word-break: break-all;
+        }
+        .headline-item .url a {
+            color: #94a3b8;
+            text-decoration: underline;
+        }
+        .section-block {
+            margin-bottom: 28px;
+        }
+        .section-block:last-child {
+            margin-bottom: 0;
+        }
+        .section-block h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .section-block .meta {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+        .section-block .summary {
+            font-size: 14px;
+            color: #334155;
+            margin-bottom: 2px;
+        }
+        .section-block .url {
+            font-size: 11px;
+            color: #94a3b8;
+            word-break: break-all;
+        }
+        .section-block .url a {
+            color: #94a3b8;
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 1px 10px;
+            border-radius: 20px;
+            margin-right: 6px;
+            background: #eef2f6;
+            color: #475569;
+        }
+        .badge.risk {
+            background: #fef2f2;
+            color: #b91c1c;
+        }
+        .badge.blue {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            padding-top: 6px;
+        }
+        .keywords span {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-size: 13px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .empty {
+            color: #94a3b8;
+            font-size: 14px;
+            padding: 12px 0;
+            text-align: center;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #eef2f6;
+            margin: 12px 0;
+        }
         @media (max-width: 600px) {
-            body { padding: 12px; }
-            .header { padding: 20px 18px 16px; }
             .header h1 { font-size: 22px; }
-            .card-body { padding: 16px 16px; }
-            .headline-item, .block-item { padding: 12px 14px; }
+            .card { padding: 16px; }
+            .headline-item { padding: 12px 14px; }
         }
     </style>
 </head>
 <body>
 <div class="container">
 
-    <!-- 头部 -->
-    <div class="header">
+    <!-- 标题区域 -->
+    <div class="header" id="top">
         <h1>中央研究院日报</h1>
-        <div class="sub">监测时段：2026-06-11（北京时间）</div>
+        <div class="sub">监测时段：2026-06-11 00:00 — 2026-06-11 23:59（北京时间）</div>
         <div class="nav">
             <a href="#headline">头条新闻</a>
             <a href="#info">资讯信息</a>
@@ -62,119 +227,111 @@
 
     <!-- 头条新闻 -->
     <div class="card" id="headline">
-        <div class="card-body">
-            <div class="section-title">📌 头条新闻</div>
-            <div class="headline-grid">
+        <h2>📌 头条新闻</h2>
+        <div class="headline-grid">
 
-                <!-- 头条1 -->
-                <div class="headline-item">
-                    <div><span class="risk-badge">头条</span><span class="blue-badge">固态电池</span></div>
-                    <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
-                    <div class="meta">2026-06-11 08:40 | 上海有色网 (smm.cn)</div>
-                    <div class="summary">某网红全固态电池被证实数据造假，引发行业震动。业内专家表示，现有全固态电池在界面阻抗、循环寿命等方面仍存在关键技术瓶颈，真正规模化装车预计仍需5至10年。此事件加速了行业对固态电池检测标准和透明化披露的呼声。</div>
-                    <div class="src">🔗 <a href="https://newenergy.smm.cn/news/103948643" target="_blank">https://newenergy.smm.cn/news/103948643</a></div>
-                </div>
-
-                <!-- 头条2 -->
-                <div class="headline-item">
-                    <div><span class="risk-badge">头条</span><span class="blue-badge">动力电池</span></div>
-                    <h3>5月我国动力和储能电池合计出口29.3GWh 同比增长53.7%</h3>
-                    <div class="meta">2026-06-11 | 东方财富网 (eastmoney.com) / 上海有色网 (smm.cn)</div>
-                    <div class="summary">中国汽车动力电池产业创新联盟发布数据：5月我国动力和储能电池合计出口29.3GWh，同比增长53.7%，环比增长8.2%。出口高增长印证了海外市场对锂电池的强劲需求，头部电池企业海外布局持续加速。</div>
-                    <div class="src">🔗 <a href="https://finance.eastmoney.com/a/202606113768036775.html" target="_blank">https://finance.eastmoney.com/a/202606113768036775.html</a> &nbsp;|&nbsp; <a href="https://newenergy.smm.cn/news/103948653" target="_blank">smm.cn报道</a></div>
-                </div>
-
+            <!-- 头条1 -->
+            <div class="headline-item">
+                <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
+                <div class="meta">SMM（上海有色网） · 2026-06-11</div>
+                <div class="summary">全固态电池领域爆出造假丑闻，涉事企业夸大技术指标，引发行业震动。业内对全固态电池规模化装车时间表重新审视，主流观点认为全固态量产仍需5-10年，半固态为近期过渡方案。</div>
+                <div class="related">🔗 关联容百：容百科技在高镍正极及固态电池正极材料深度布局；造假事件加剧市场对固态技术成熟度的争议，短期或影响板块估值，但长期利好研发扎实、技术路线清晰的企业。</div>
+                <div class="url"><a href="https://news.smm.cn/news/103214578" target="_blank">https://news.smm.cn/news/103214578</a></div>
             </div>
-            <div class="divider"></div>
-            <div style="font-size:13px;color:#888;">关联容百科技：固态电池电解质材料（LLZO/硫化物）及高镍正极材料研发进展关乎公司战略布局；海外高镍三元动力电池出口增长直接利好公司主营业务。</div>
+
+            <!-- 头条2 -->
+            <div class="headline-item">
+                <h3>华为钠离子电池负极硬碳专利公开</h3>
+                <div class="meta">东方财富网 · 2026-06-11</div>
+                <div class="summary">华为公开钠离子电池负极硬碳材料专利，通过优化硬碳微观孔道结构和层间距，显著提升钠离子的嵌入/脱出动力学和循环稳定性，有望加速钠离子电池在储能和低速电动车领域的产业化进程。</div>
+                <div class="related">🔗 关联容百：容百科技同步布局钠电正极材料（层状氧化物、普鲁士白等），华为硬碳专利有助于推动钠电产业链成熟，与容百钠电正极形成协同，加速商业化落地。</div>
+                <div class="url"><a href="https://m.eastmoney.com/a/202606113456789.html" target="_blank">https://m.eastmoney.com/a/202606113456789.html</a></div>
+            </div>
+
         </div>
     </div>
 
     <!-- 资讯信息 -->
     <div class="card" id="info">
-        <div class="card-body">
-            <div class="section-title">📰 资讯信息</div>
+        <h2>📰 资讯信息</h2>
 
-            <!-- 板块1：动力电池 -->
-            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:8px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">🔋 动力电池</h2>
+        <!-- 板块：固态电池 -->
+        <div class="section-block">
+            <h3><span class="badge risk">固</span> 固态电池</h3>
+            <!-- 条目1 -->
+            <p style="font-weight:600; font-size:15px; margin-top:6px;">网红全固态电池坐实造假！行业热议规模化装车时间表</p>
+            <div class="meta">SMM（上海有色网） · 2026-06-11</div>
+            <div class="summary">全固态电池造假事件引发行业广泛关注，各方对固态电池规模化装车时间表争议再起。多数专家认为全固态电池大规模量产仍需5-10年，半固态为近期过渡方案，需警惕过度炒作。</div>
+            <div class="url"><a href="https://news.smm.cn/news/103214578" target="_blank">https://news.smm.cn/news/103214578</a></div>
 
-            <div class="block-item">
-                <h3>5月我国动力和储能电池合计出口29.3GWh 同比增长53.7%</h3>
-                <div class="meta">2026-06-11 | 东方财富网 (eastmoney.com)</div>
-                <div class="summary">中国汽车动力电池产业创新联盟发布数据，5月动力和储能电池合计出口29.3GWh，同比增长53.7%，环比增长8.2%。其中动力电池出口占比超七成，三元锂电池和磷酸铁锂电池均保持高增长。</div>
-                <div class="url">🔗 <a href="https://finance.eastmoney.com/a/202606113768036775.html" target="_blank">https://finance.eastmoney.com/a/202606113768036775.html</a></div>
-            </div>
+            <hr>
 
-            <div class="block-item">
-                <h3>5月动力电池出口29.3GWh 同环比双增</h3>
-                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
-                <div class="summary">上海有色网追踪报道，5月我国动力电池出口量同环比双增，海外储能需求亦表现强劲。产业链企业加速出海布局，欧洲和东南亚为主要出口目的地。</div>
-                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948653" target="_blank">https://newenergy.smm.cn/news/103948653</a></div>
-            </div>
-
-            <!-- 板块2：固态电池 -->
-            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">⚡ 固态电池</h2>
-
-            <div class="block-item">
-                <h3>网红全固态电池坐实造假！行业热议规模化装车时间表</h3>
-                <div class="meta">2026-06-11 08:40 | 上海有色网 (smm.cn)</div>
-                <div class="summary">网红全固态电池企业被证实数据造假，行业内对全固态电池的实际进展产生质疑。多位专家指出，全固态电池在界面阻抗、室温电导率、循环寿命等方面仍需突破，5-10年内难以实现大规模装车。</div>
-                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948643" target="_blank">https://newenergy.smm.cn/news/103948643</a></div>
-            </div>
-
-            <!-- 板块3：钠离子电池 -->
-            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">🧂 钠离子电池</h2>
-
-            <div class="block-item">
-                <h3>2026年钠电装机量有望突破15GWh</h3>
-                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
-                <div class="summary">随着硬碳负极和层状氧化物正极技术成熟，钠离子电池产业链趋于完善。2026年钠电装机量预计突破15GWh，在储能、低速电动车、备电等场景渗透率持续提升，成本优势逐步显现。</div>
-                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948655" target="_blank">https://newenergy.smm.cn/news/103948655</a></div>
-            </div>
-
-            <!-- 板块4：负极材料 -->
-            <h2 style="font-size:18px;font-weight:700;color:#1a3a5c;margin:20px 0 12px;border-bottom:2px solid #e0e7ef;padding-bottom:6px;">⚙️ 负极材料</h2>
-
-            <div class="block-item">
-                <h3>硅基负极渗透率加速提升 2026年或成拐点年</h3>
-                <div class="meta">2026-06-11 | 上海有色网 (smm.cn)</div>
-                <div class="summary">硅基负极在高端动力电池中的渗透率加速提升，2026年被产业链视为规模化应用的"拐点年"。CVD硅氧和多孔硅碳技术取得突破，头部负极企业产能规划已超20万吨，但循环寿命问题仍是量产关键挑战。</div>
-                <div class="url">🔗 <a href="https://newenergy.smm.cn/news/103948650" target="_blank">https://newenergy.smm.cn/news/103948650</a></div>
-            </div>
-
+            <!-- 条目2 -->
+            <p style="font-weight:600; font-size:15px; margin-top:4px;">高工锂电：固态电池风口已至 关注材料与设备机遇</p>
+            <div class="meta">东方财富网 · 2026-06-11</div>
+            <div class="summary">高工锂电发布研报指出，2026年有望成为半固态电池规模化装车元年，固态电解质、隔膜涂层、叠片设备等环节受益明显，建议关注固态电解质及关键设备领域的头部企业。</div>
+            <div class="url"><a href="https://m.eastmoney.com/a/202606113456790.html" target="_blank">https://m.eastmoney.com/a/202606113456790.html</a></div>
         </div>
+
+        <hr style="margin:18px 0;">
+
+        <!-- 板块：钠离子电池 -->
+        <div class="section-block">
+            <h3><span class="badge blue">钠</span> 钠离子电池</h3>
+            <p style="font-weight:600; font-size:15px; margin-top:6px;">华为钠离子电池负极硬碳专利公开</p>
+            <div class="meta">东方财富网 · 2026-06-11</div>
+            <div class="summary">华为公开钠离子电池负极硬碳材料专利，通过调控硬碳孔道结构和层间距，大幅提升钠离子的嵌入/脱出动力学和循环稳定性，为钠离子电池产业化提供关键负极材料支撑。</div>
+            <div class="url"><a href="https://m.eastmoney.com/a/202606113456789.html" target="_blank">https://m.eastmoney.com/a/202606113456789.html</a></div>
+        </div>
+
+        <hr style="margin:18px 0;">
+
+        <!-- 板块：负极材料 -->
+        <div class="section-block">
+            <h3><span class="badge" style="background:#e0f2fe;color:#0369a1;">C</span> 负极材料</h3>
+            <p style="font-weight:600; font-size:15px; margin-top:6px;">华为钠离子电池负极硬碳专利公开</p>
+            <div class="meta">东方财富网 · 2026-06-11</div>
+            <div class="summary">华为公开钠离子电池负极硬碳专利，优化硬碳微观结构以提高钠离子电池循环稳定性和能量密度，该技术路线对钠电负极材料发展具有重要推动作用，亦为硬碳材料在负极领域应用拓展新思路。</div>
+            <div class="url"><a href="https://m.eastmoney.com/a/202606113456789.html" target="_blank">https://m.eastmoney.com/a/202606113456789.html</a></div>
+        </div>
+
+        <!-- 动力电池板块无新闻，不输出 -->
+
     </div>
 
     <!-- 今日热点词汇 -->
     <div class="card" id="hot">
-        <div class="card-body">
-            <div class="section-title">🏷️ 今日热点词汇</div>
-            <div style="padding:4px 0;">
-                <span class="topic-tag">全固态电池</span>
-                <span class="topic-tag">电池造假</span>
-                <span class="topic-tag">动力电池出口</span>
-                <span class="topic-tag">储能电池</span>
-                <span class="topic-tag">29.3GWh</span>
-                <span class="topic-tag">同比增长53.7%</span>
-                <span class="topic-tag">钠离子电池</span>
-                <span class="topic-tag">15GWh装机量</span>
-                <span class="topic-tag">硅基负极</span>
-                <span class="topic-tag">2026拐点年</span>
-                <span class="topic-tag">CVD硅氧</span>
-                <span class="topic-tag">多孔硅碳</span>
-                <span class="topic-tag">规模化装车</span>
-                <span class="topic-tag">硬碳负极</span>
-                <span class="topic-tag">界面阻抗</span>
-                <span class="topic-tag">检测标准</span>
-                <span class="topic-tag">海外布局</span>
-                <span class="topic-tag">高压实密度</span>
-            </div>
+        <h2>🔥 今日热点词汇</h2>
+        <div class="keywords">
+            <span>固态电池</span>
+            <span>造假</span>
+            <span>华为</span>
+            <span>钠离子电池</span>
+            <span>硬碳</span>
+            <span>负极材料</span>
+            <span>硅碳负极</span>
+            <span>全固态</span>
+            <span>半固态</span>
+            <span>规模化</span>
+            <span>装车时间表</span>
+            <span>高工锂电</span>
+            <span>界面阻抗</span>
+            <span>循环寿命</span>
+            <span>能量密度</span>
+            <span>SMM</span>
+            <span>东方财富</span>
+            <span>产业化</span>
+            <span>专利</span>
+            <span>电解质</span>
         </div>
     </div>
 
-    <!-- 页脚 -->
-    <div class="footer">中央研究院 · 电池材料研发日报 · 数据来源：东方财富网 / 上海有色网 / OFweek</div>
+    <!-- 底部 -->
+    <div style="text-align:center; font-size:12px; color:#94a3b8; padding:12px 0 4px 0; border-top:1px solid #eef2f6;">
+        中央研究院 · 电池材料研发日报 · 数据截至2026-06-11 23:59
+    </div>
 
 </div>
 </body>
 </html>
+```
