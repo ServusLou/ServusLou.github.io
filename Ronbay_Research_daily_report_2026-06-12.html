@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 24px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #111827;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .sub {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            padding-top: 8px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+        .nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            border-left: 4px solid #2563eb;
+            padding-left: 12px;
+            margin-bottom: 18px;
+        }
+        .headline {
+            background: #eef2ff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        .headline:last-child {
+            margin-bottom: 0;
+        }
+        .headline h3 {
+            font-size: 1.1rem;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+        .headline .meta {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+        .headline .summary {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .headline .url {
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+        .headline .url a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .headline .url a:hover {
+            text-decoration: underline;
+        }
+        .section-block {
+            margin-bottom: 24px;
+        }
+        .section-block.negative {
+            background: #fee2e2;
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+        .section-block.negative h2 {
+            border-left-color: #dc2626;
+            color: #991b1b;
+        }
+        .news-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-item h3 {
+            font-size: 1.05rem;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+        .news-item .meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        .news-item .summary {
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+        .news-item .url {
+            font-size: 0.8rem;
+        }
+        .news-item .url a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .news-item .url a:hover {
+            text-decoration: underline;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            padding: 8px 0;
+        }
+        .keywords span {
+            background: #e5e7eb;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.85rem;
+            color: #374151;
+        }
+        .footer-meta {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            text-align: right;
+            margin-top: 12px;
+        }
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            .card, .header-card { padding: 16px; }
+            h1 { font-size: 1.5rem; }
+            .nav { gap: 8px 16px; }
+            .headline { padding: 12px 16px; }
+            .section-block.negative { padding: 12px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <div class="header-card">
+            <h1>中央研究院日报</h1>
+            <div class="sub">监测时段：2026-06-12（北京时间）</div>
+            <div class="nav">
+                <a href="#headline">头条新闻</a>
+                <a href="#info">资讯信息</a>
+                <a href="#hotwords">今日热点词汇</a>
+            </div>
+        </div>
+
+        <!-- 头条新闻 -->
+        <div class="card" id="headline">
+            <h2>头条新闻</h2>
+            <div class="headline">
+                <h3>【SMM钴锂晨会纪要】三元材料低位震荡成交清淡 海内外需求及结构有变化</h3>
+                <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                <div class="summary">三元材料价格维持低位震荡，硫酸镍小幅下跌，碳酸锂和氢氧化锂小幅反弹；电芯厂库存充足，成交清淡，海内外需求结构变化值得关注。</div>
+                <div class="url"><a href="https://new-energy.smm.cn/content/14042/103951184" target="_blank">https://new-energy.smm.cn/content/14042/103951184</a></div>
+            </div>
+            <div class="headline">
+                <h3>【SMM钴晨会纪要】电解钴及钴盐价格走弱 产业链需求不足行情待修复</h3>
+                <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                <div class="summary">电解钴现货价格延续承压回落，主流冶炼厂出厂价维持42.2万元/吨；下游采购意愿被持续下跌行情抑制，合金及磁材企业多暂缓采买。</div>
+                <div class="url"><a href="https://new-energy.smm.cn/content/14042/103951191" target="_blank">https://new-energy.smm.cn/content/14042/103951191</a></div>
+            </div>
+        </div>
+
+        <!-- 资讯信息 -->
+        <div class="card" id="info">
+            <h2>资讯信息</h2>
+            <div class="section-block negative">
+                <h2>动力电池</h2>
+                <div class="news-item">
+                    <h3>【SMM钴锂晨会纪要】三元材料低位震荡成交清淡 海内外需求及结构有变化</h3>
+                    <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                    <div class="summary">三元材料价格低位震荡，硫酸镍小幅下跌，硫酸钴、硫酸锰持稳，碳酸锂、氢氧化锂小幅反弹；电芯厂库存充足，成交清淡，关注海外需求结构变化。</div>
+                    <div class="url"><a href="https://new-energy.smm.cn/content/14042/103951184" target="_blank">https://new-energy.smm.cn/content/14042/103951184</a></div>
+                </div>
+                <div class="news-item">
+                    <h3>【SMM钴晨会纪要】电解钴及钴盐价格走弱 产业链需求不足行情待修复</h3>
+                    <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                    <div class="summary">电解钴现货价格承压回落，主流出厂价42.2万元/吨；钴盐价格走弱，下游合金及磁材企业采购意愿低迷，行情有待修复。</div>
+                    <div class="url"><a href="https://new-energy.smm.cn/content/14042/103951191" target="_blank">https://new-energy.smm.cn/content/14042/103951191</a></div>
+                </div>
+                <div class="news-item">
+                    <h3>氢能电池价格_氢能材料现货价格_上海有色网</h3>
+                    <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                    <div class="summary">6月12日新疆绿氢报价，包含价格范围及均价，来源上海有色网，为氢能电池材料市场提供参考。</div>
+                    <div class="url"><a href="https://new-energy.smm.cn/content/15003/price/103951089" target="_blank">https://new-energy.smm.cn/content/15003/price/103951089</a></div>
+                </div>
+                <div class="news-item">
+                    <h3>6月12日河南绿氢报价</h3>
+                    <div class="meta">2026-06-12 | 上海有色网 (SMM)</div>
+                    <div class="summary">河南地区绿氢现货报价，提供当日价格行情数据，涵盖氢能材料市场动态。</div>
+                    <div class="url"><a href="https://newenergy.smm.cn/content/15003/price/103951088" target="_blank">https://newenergy.smm.cn/content/15003/price/103951088</a></div>
+                </div>
+            </div>
+            <!-- 固态电池、钠离子电池、负极材料板块无对应新闻，不显示 -->
+        </div>
+
+        <!-- 今日热点词汇 -->
+        <div class="card" id="hotwords">
+            <h2>今日热点词汇</h2>
+            <div class="keywords">
+                <span>三元材料</span>
+                <span>电解钴</span>
+                <span>钴盐</span>
+                <span>碳酸锂</span>
+                <span>氢氧化锂</span>
+                <span>硫酸镍</span>
+                <span>硫酸钴</span>
+                <span>硫酸锰</span>
+                <span>绿氢</span>
+                <span>氢能</span>
+                <span>价格震荡</span>
+                <span>需求不足</span>
+                <span>成交清淡</span>
+                <span>走弱</span>
+                <span>承压</span>
+                <span>库存充足</span>
+                <span>冶炼厂</span>
+                <span>合金</span>
+                <span>磁材</span>
+                <span>现货</span>
+            </div>
+        </div>
+        <div class="footer-meta">数据来源：上海有色网（SMM）</div>
+    </div>
+</body>
+</html>
+```
