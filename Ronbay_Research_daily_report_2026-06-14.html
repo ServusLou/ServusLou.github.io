@@ -1,120 +1,133 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中央研究院日报</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#f5f7fa;line-height:1.5;color:#1f2937}
-.container{max-width:900px;margin:32px auto;padding:0 16px}
-.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:24px}
-h1{font-size:1.75rem;margin-bottom:4px}
-.subtitle{font-size:.9rem;color:#6b7280;margin-bottom:16px}
-.nav{margin-bottom:16px}.nav a{margin-right:16px;font-size:.85rem;color:#2563eb;text-decoration:none}.nav a:hover{text-decoration:underline}
-.highlight-card{background:#eef2ff;border-radius:12px;padding:16px;margin-bottom:16px}
-.news-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e5e7eb}
-.news-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.news-title{font-weight:600;font-size:1rem;color:#111827}
-.news-date{font-size:.8rem;color:#9ca3af;margin-left:8px}
-.news-source{font-size:.8rem;color:#6b7280}
-.news-summary{font-size:.88rem;color:#374151;margin:4px 0}
-.news-url{font-size:.78rem;color:#2563eb;word-break:break-all}
-.news-url a{color:#2563eb;text-decoration:none}
-.news-url a:hover{text-decoration:underline}
-.section-title{font-size:1.2rem;font-weight:600;color:#111827;margin:16px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
-.hotwords{font-size:.9rem;color:#374151;line-height:1.8}
-.hotwords span{display:inline-block;background:#e5e7eb;border-radius:20px;padding:2px 12px;margin:4px 6px 4px 0;font-size:.82rem}
-@media(max-width:640px){.container{margin:16px auto;padding:0 8px}.card{padding:16px}h1{font-size:1.4rem}.news-title{font-size:.92rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报 2026-06-14</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#f5f7fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#1f2937;padding:20px}
+        .container{max-width:900px;margin:0 auto}
+        .card{background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:20px}
+        h1{font-size:1.75rem;color:#111827;margin-bottom:4px}
+        .subhead{font-size:0.95rem;color:#6b7280;margin-bottom:16px}
+        .nav{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px;padding-bottom:12px;border-bottom:1px solid #e5e7eb}
+        .nav a{color:#2563eb;text-decoration:none;font-size:0.9rem;padding:4px 10px;border-radius:6px;transition:background 0.2s}
+        .nav a:hover{background:#eef2ff;text-decoration:underline}
+        h2{font-size:1.3rem;color:#111827;margin:24px 0 12px;padding-left:12px;border-left:4px solid #2563eb}
+        h3{font-size:1rem;color:#111827;margin:14px 0 6px;font-weight:600}
+        .highlight{background:#eef2ff;border-radius:12px;padding:16px;margin-bottom:16px}
+        .highlight:last-child{margin-bottom:0}
+        .article{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0}
+        .article:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+        .meta{font-size:0.82rem;color:#6b7280;margin:2px 0 4px}
+        .summary{font-size:0.92rem;color:#374151;margin:4px 0;line-height:1.6}
+        .link{font-size:0.78rem;color:#2563eb;word-break:break-all;margin:2px 0}
+        .link a{color:#2563eb;text-decoration:none}
+        .link a:hover{text-decoration:underline}
+        .divider{height:1px;background:#e5e7eb;margin:20px 0}
+        .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+        .tag{background:#f3f4f6;color:#1f2937;font-size:0.82rem;padding:4px 12px;border-radius:20px;line-height:1.4}
+        hr{opacity:0.3;margin:24px 0}
+        .badge{display:inline-block;background:#dbeafe;color:#1e40af;font-size:0.75rem;padding:2px 10px;border-radius:12px;font-weight:500;margin-bottom:4px}
+        @media (max-width:600px){
+            body{padding:12px}
+            .card{padding:16px}
+            h1{font-size:1.4rem}
+            h2{font-size:1.1rem}
+            .nav{gap:6px}
+        }
+    </style>
 </head>
 <body>
 <div class="container">
+    <!-- 标题 -->
+    <div class="card">
+        <h1>中央研究院日报</h1>
+        <div class="subhead">监测时段：2026-06-14 00:00 ~ 2026-06-14 23:59（北京时间）</div>
+        <div class="nav">
+            <a href="#headlines">头条新闻</a>
+            <a href="#solid">固态电池</a>
+            <a href="#sodium">钠离子电池</a>
+            <a href="#hotwords">今日热点词汇</a>
+        </div>
+    </div>
 
-<div class="card">
-<h1>中央研究院日报</h1>
-<div class="subtitle">监测时段：2026-06-14（北京时间）</div>
-<div class="nav">
-<a href="#headline">头条新闻</a>
-<a href="#info">资讯信息</a>
-<a href="#hotwords">今日热点词汇</a>
-</div>
-</div>
+    <!-- 头条新闻 -->
+    <div class="card" id="headlines">
+        <h2>头条新闻</h2>
+        <div class="highlight">
+            <h3>东风350Wh/kg半固态电池9月量产装车</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">采用氧化物-聚合物复合电解质路线，能量密度350Wh/kg，-30℃低温保持率74%，170℃不燃。9月量产装车，为固态电池规模化应用奠定关键基础。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA" target="_blank">https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA</a></div>
+        </div>
+        <div class="highlight">
+            <h3>上海大学科研团队钠离子电池高电压稳定性研究获突破</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">创新提出层滑移路径设计策略，实现4.5V高压正极材料，170Wh/kg软包电池，-20℃容量保持率93.8%，对层状氧化物正极材料开发产生重要影响。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
+        </div>
+    </div>
 
-<div class="card" id="headline">
-<h2 class="section-title">头条新闻</h2>
+    <!-- 资讯信息 -->
+    <div class="card">
+        <!-- 固态电池 -->
+        <h2 id="solid">固态电池</h2>
+        <div class="article">
+            <h3>新品发布、产业提速、联合攻关、产线建设，持续推进固态电池研发</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">星源材质发布"固锐"系列固态电池膜材料；方大炭素与宁德时代联合攻关氧化物固态电解质及硬碳/硅碳/石墨烯材料；格林美共建固态电池用前驱体及正极材料联合实验室。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg" target="_blank">https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg</a></div>
+        </div>
+        <div class="divider"></div>
 
-<div class="highlight-card">
-<div class="news-item">
-<div><span class="news-title">供求紧张 站在"锂"面——碳酸锂重拾涨势</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（wap.eastmoney.com）</div>
-<div class="news-summary">碳酸锂主力合约回升至17.53万元/吨，UNCTAD预计2024-2040年全球锂需求将增长353%；高盛研报预测2026年储能将超越新能源汽车成为锂电池第一增长引擎。</div>
-<div class="news-url"><a href="https://wap.eastmoney.com/a/202606133770628836.html" target="_blank">https://wap.eastmoney.com/a/202606133770628836.html</a></div>
-</div>
-</div>
+        <!-- 钠离子电池 -->
+        <h2 id="sodium">钠离子电池</h2>
+        <div class="article">
+            <h3>聚阴离子型钠离子电池热失控行为与燃烧特性研究</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">研究160Ah聚阴离子型钠离子电池热失控行为与燃烧特性，对比层状氧化物、LFP等电池热释放速率及产气分析，为钠电安全设计提供基础数据。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA" target="_blank">https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA</a></div>
+        </div>
+        <div class="article">
+            <h3>振华新材：聚阴离子钠电正极中试线已建成</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">掌握层状氧化物与聚阴离子两大钠电正极技术路线，第四代产品采用高熵材料与表面包覆技术提升稳定性和循环寿命，聚阴离子正极中试线已建成。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/EO240iZS_rfICgzAS6PdIw" target="_blank">https://mp.weixin.qq.com/s/EO240iZS_rfICgzAS6PdIw</a></div>
+        </div>
+        <div class="article">
+            <h3>上海大学科研团队钠离子电池高电压稳定性研究获突破</h3>
+            <div class="meta">2026-06-14 · 来源：东方财富网</div>
+            <div class="summary">创新提出层滑移路径设计策略，实现4.5V高压正极材料，170Wh/kg软包电池，-20℃容量保持率93.8%，为层状氧化物高电压稳定化提供新方法。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
+        </div>
+    </div>
 
-<div class="highlight-card">
-<div class="news-item">
-<div><span class="news-title">上海6.17固态电池大会开启！顶尖高校+产业链龙头齐聚研讨新技术</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（caifuhao.eastmoney.com）</div>
-<div class="news-summary">2026第三届AEPT固态电池产业峰会将于6月17日-18日在上海举办，由上海交通大学化学化工学院、上海前沿新能源电源技术研究院联合主办，聚焦固态电池规模化量产技术瓶颈与解决方案。</div>
-<div class="news-url"><a href="https://caifuhao.eastmoney.com/news/20260614141421757586240" target="_blank">https://caifuhao.eastmoney.com/news/20260614141421757586240</a></div>
-</div>
-</div>
-
-</div>
-
-<div class="card" id="info">
-<h2 class="section-title">资讯信息</h2>
-
-<div class="section-title" style="font-size:1rem;border-bottom:none;margin:12px 0 8px">动力电池</div>
-
-<div class="news-item">
-<div><span class="news-title">新能源新周期 关注南方基金旗下新能源系列ETF布局机遇</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（finance.eastmoney.com）</div>
-<div class="news-summary">5月国内动储电池销量同比增速40%+，其中储能电池同比增长超50%；6月电池环节样本企业及材料端预排产环比维持约5%增速，碳酸锂价格已现回暖迹象，行业库存持续去化。</div>
-<div class="news-url"><a href="https://finance.eastmoney.com/a/202606143770717934.html" target="_blank">https://finance.eastmoney.com/a/202606143770717934.html</a></div>
-</div>
-
-<div class="news-item">
-<div><span class="news-title">富祥股份：目前公司锂电池电解液添加剂VC产能已提升至10000吨/年</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（finance.eastmoney.com）</div>
-<div class="news-summary">富祥股份锂电池电解液添加剂VC产能已提升至10000吨/年，FEC产能接近4000吨/年，与天赐材料、新宙邦等头部客户保持稳定合作，并已通过比亚迪认证实现供货。</div>
-<div class="news-url"><a href="https://finance.eastmoney.com/a/202606143770668742.html" target="_blank">https://finance.eastmoney.com/a/202606143770668742.html</a></div>
-</div>
-
-<div class="news-item">
-<div><span class="news-title">供求紧张 站在"锂"面——碳酸锂重拾涨势</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（wap.eastmoney.com）</div>
-<div class="news-summary">碳酸锂主力合约回升至17.53万元/吨，UNCTAD预计2024-2040年全球锂需求增长353%；高盛研报预测2026年储能将超越新能源汽车成为锂电池第一增长引擎。</div>
-<div class="news-url"><a href="https://wap.eastmoney.com/a/202606133770628836.html" target="_blank">https://wap.eastmoney.com/a/202606133770628836.html</a></div>
-</div>
-
-<div class="section-title" style="font-size:1rem;border-bottom:none;margin:16px 0 8px">固态电池</div>
-
-<div class="news-item">
-<div><span class="news-title">上海6.17固态电池大会开启！顶尖高校+产业链龙头齐聚研讨新技术</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（caifuhao.eastmoney.com）</div>
-<div class="news-summary">2026第三届AEPT固态电池产业峰会将于6月17日-18日在上海举办，由上海交通大学化学化工学院、上海前沿新能源电源技术研究院联合主办，聚焦固态电池规模化量产技术瓶颈与解决方案。</div>
-<div class="news-url"><a href="https://caifuhao.eastmoney.com/news/20260614141421757586240" target="_blank">https://caifuhao.eastmoney.com/news/20260614141421757586240</a></div>
-</div>
-
-<div class="news-item">
-<div><span class="news-title">建议关注配置皇马科技，603181</span><span class="news-date">2026-06-14</span></div>
-<div class="news-source">来源：东方财富（caifuhao.eastmoney.com）</div>
-<div class="news-summary">皇马科技生产的特种功能性表面活性剂可运用于锂电、新能源等领域，可用作锂电池材料的改性剂、添加剂，并关注固态电池中粘合剂、电解质等新材料应用。</div>
-<div class="news-url"><a href="https://caifuhao.eastmoney.com/news/20260614155226561959820" target="_blank">https://caifuhao.eastmoney.com/news/20260614155226561959820</a></div>
-</div>
-
-</div>
-
-<div class="card" id="hotwords">
-<h2 class="section-title">今日热点词汇</h2>
-<div class="hotwords">
-<span>固态电池</span><span>碳酸锂</span><span>VC</span><span>FEC</span><span>储能</span><span>添加剂</span><span>产能</span><span>预排产</span><span>去库存</span><span>需求增长</span><span>第一增长引擎</span><span>上海交通大学</span><span>产业链</span><span>峰会</span><span>动储电池</span><span>富祥股份</span><span>皇马科技</span><span>锂</span><span>销量增速</span><span>电解液</span>
-</div>
-</div>
-
+    <!-- 今日热点词汇 -->
+    <div class="card" id="hotwords">
+        <h2>今日热点词汇</h2>
+        <div class="tags">
+            <span class="tag">半固态电池</span>
+            <span class="tag">氧化物-聚合物复合电解质</span>
+            <span class="tag">固态电解质</span>
+            <span class="tag">聚阴离子正极</span>
+            <span class="tag">层状氧化物</span>
+            <span class="tag">高电压正极</span>
+            <span class="tag">高熵材料</span>
+            <span class="tag">表面包覆</span>
+            <span class="tag">热失控</span>
+            <span class="tag">钠离子电池</span>
+            <span class="tag">能量密度</span>
+            <span class="tag">低温性能</span>
+            <span class="tag">压实密度</span>
+            <span class="tag">二混二烧工艺</span>
+            <span class="tag">铁红替代</span>
+            <span class="tag">中试线</span>
+            <span class="tag">磷酸铁锂</span>
+            <span class="tag">安全测试</span>
+        </div>
+    </div>
 </div>
 </body>
 </html>
