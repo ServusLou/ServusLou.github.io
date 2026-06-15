@@ -6,264 +6,63 @@
     <title>中央研究院日报</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; line-height: 1.5; color: #1e293b; }
-        .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
-        .card { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
-        h1 { font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
-        .sub { font-size: 15px; color: #475569; margin-bottom: 16px; }
-        .nav { margin-bottom: 20px; font-size: 14px; }
-        .nav a { color: #2563eb; text-decoration: none; margin-right: 18px; }
-        .nav a:hover { text-decoration: underline; }
-        h2 { font-size: 22px; font-weight: 600; color: #0f172a; margin-top: 8px; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
-        h3 { font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
-        .highlight { background: #eef2ff; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-        .highlight:last-child { margin-bottom: 0; }
-        .news-item { margin-bottom: 20px; }
-        .news-item:last-child { margin-bottom: 0; }
-        .news-item .meta { font-size: 13px; color: #64748b; margin-bottom: 4px; }
-        .news-item p { font-size: 15px; color: #334155; margin-bottom: 4px; }
-        .news-item a { display: inline-block; font-size: 13px; color: #2563eb; word-break: break-all; line-height: 1.4; }
-        .news-item a:hover { text-decoration: underline; }
-        .divider { border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0; }
-        .keywords { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-        .keyword { background: #f1f5f9; border-radius: 20px; padding: 6px 16px; font-size: 14px; color: #1e293b; }
-        .warn-bg { background: #fee2e2; }
-        @media (max-width: 600px) {
-            .container { padding: 0 8px; margin: 16px auto; }
+        body { background: #f5f7fa; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.5; color: #1a202c; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .card { background: #ffffff; border-radius: 16px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; }
+        h1 { font-size: 1.8rem; font-weight: 700; color: #0b1e33; margin-bottom: 4px; }
+        .subtitle { font-size: 0.95rem; color: #64748b; margin-bottom: 16px; }
+        .nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 24px; font-size: 0.9rem; }
+        .nav a { color: #2563eb; text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        .nav a:hover { border-bottom-color: #2563eb; }
+        h2 { font-size: 1.4rem; font-weight: 600; color: #0b1e33; margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+        h3 { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin: 20px 0 6px; }
+        .headline-card { background: #eef2ff; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .headline-card:last-child { margin-bottom: 0; }
+        .source { font-size: 0.8rem; color: #94a3b8; margin: 4px 0 8px; }
+        .summary { font-size: 0.95rem; color: #334155; margin-bottom: 8px; }
+        .url { font-size: 0.8rem; word-break: break-all; }
+        .url a { color: #2563eb; text-decoration: none; }
+        .url a:hover { text-decoration: underline; }
+        .section-divider { margin: 24px 0; border: 0; border-top: 1px solid #e2e8f0; }
+        .topic-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+        .topic-list li { background: #eef2ff; color: #1e40af; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+        .empty { color: #94a3b8; font-style: italic; padding: 12px 0; }
+        @media (max-width: 640px) {
             .card { padding: 16px; }
-            h1 { font-size: 22px; }
-            h2 { font-size: 18px; }
-            h3 { font-size: 16px; }
-            .highlight { padding: 14px; }
-            .news-item p { font-size: 14px; }
+            h1 { font-size: 1.5rem; }
+            .nav { font-size: 0.8rem; gap: 4px 12px; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="card">
-        <h1>中央研究院日报</h1>
-        <div class="sub">监测时段：2026-06-11 至 2026-06-11（北京时间）</div>
-        <div class="nav">
-            <a href="#headline">头条新闻</a>
-            <a href="#info">资讯信息</a>
-            <a href="#hotwords">今日热点词汇</a>
-        </div>
+    <div class="container">
+        <header class="card">
+            <h1>中央研究院日报</h1>
+            <div class="subtitle">监测时段：2026年6月11日（00:00 - 23:59 北京时间）</div>
+            <div class="nav">
+                <a href="#headline">头条新闻</a>
+                <a href="#info">资讯信息</a>
+                <a href="#hotwords">今日热点词汇</a>
+            </div>
+        </header>
+
+        <!-- 头条新闻 -->
+        <section id="headline" class="card">
+            <h2>头条新闻</h2>
+            <div class="empty">监测窗口内无符合条件的新闻。</div>
+        </section>
+
+        <!-- 资讯信息 -->
+        <section id="info" class="card">
+            <h2>资讯信息</h2>
+            <div class="empty">暂无相关新闻。</div>
+        </section>
+
+        <!-- 今日热点词汇 -->
+        <section id="hotwords" class="card">
+            <h2>今日热点词汇</h2>
+            <div class="empty">暂无。</div>
+        </section>
     </div>
-
-    <div class="card" id="headline">
-        <h2>头条新闻</h2>
-        <div class="highlight">
-            <h3>宁德时代×钠创新能源：钠电正极本征安全新机制研究取得重要突破</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>联合研究首次揭示钠电正极"溶解-催化-热失控"级联机制，提出化学惰性设计新范式，为高安全钠离子电池正极材料开发提供理论基石。</p>
-            <a href="https://mp.weixin.qq.com/s/PcaZfF6lKU6zzhYKdpR78g" target="_blank">https://mp.weixin.qq.com/s/PcaZfF6lKU6zzhYKdpR78g</a>
-        </div>
-        <div class="highlight">
-            <h3>东风汽车350Wh/kg固态电池计划下半年量产装车</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>东风新一代固态电池能量密度达350Wh/kg，采用高比能正极与复合电解质技术，计划今年下半年实现量产装车，是固态电池产业化的重要里程碑。</p>
-            <a href="https://mp.weixin.qq.com/s/M7hBugHM7D-zliPLwND-9g" target="_blank">https://mp.weixin.qq.com/s/M7hBugHM7D-zliPLwND-9g</a>
-        </div>
-    </div>
-
-    <div class="card" id="info">
-        <h2>资讯信息</h2>
-
-        <!-- 动力电池板块 -->
-        <h3 id="section-dynamic">🔋 动力电池</h3>
-        <div class="news-item">
-            <h3>电池ETF易方达(159175)盘中交投活跃，5月我国动力和储能电池销量同比高增47.4%</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>据中国汽车动力电池产业创新联盟数据，5月我国动力和储能电池销量182.2GWh，同比增47.4%。其中动力电池销量127.0GWh，同比增45.2%；储能电池销量55.2GWh，同比增52.7%。东吴证券预计2026年全球锂电需求增长35%。</p>
-            <a href="https://fund.eastmoney.com/a/202606113768182075.html" target="_blank">https://fund.eastmoney.com/a/202606113768182075.html</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>碳酸锂期货走强涨超3%，电池板块午后拉升，旺季行情在望</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>6月11日碳酸锂期货逆市涨超3%站上172000元/吨。国金证券指出，锂电中游环节（电池/隔膜/铁锂正极/负极/六氟磷酸锂等）产能利用率普遍提升至70%-90%，旺季头部公司产能预计紧平衡，2026年有望迎来价格普涨行情。</p>
-            <a href="https://fund.eastmoney.com/a/202606113768214428.html" target="_blank">https://fund.eastmoney.com/a/202606113768214428.html</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>时代北汽电池工厂首颗电芯下线</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>时代北汽电池工厂首颗电芯正式下线，总投资40亿元，达产后年产15GWh，将有力支撑京津冀新能源汽车产业链，涉及宁德时代、北汽集团、小米等合作伙伴。</p>
-            <a href="https://caifuhao.eastmoney.com/news/20260611141514650848930" target="_blank">https://caifuhao.eastmoney.com/news/20260611141514650848930</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>锂电池的逆势上涨</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>分析指出锂矿供给端收缩（宁德宜春矿开采证注销、澳洲减产），需求端向好，比亚迪车辆供不应求核心为动力电池供应不足，7月比亚迪将规模上产能，锂电池产业链迎来双重利好。</p>
-            <a href="https://caifuhao.eastmoney.com/news/20260611123335328952620" target="_blank">https://caifuhao.eastmoney.com/news/20260611123335328952620</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>40亿元！宁德时代/北汽/小米等合建电池工厂投产在即！</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>时代北汽电池工厂首颗电芯下线，总投资40亿元，达产后年产15GWh，有力支撑京津冀新能源汽车产业链，宁德时代、北汽集团、小米等合作伙伴共同参与。</p>
-            <a href="https://mp.weixin.qq.com/s/xGfy9MqLcfW6gQ_67ZVuJA" target="_blank">https://mp.weixin.qq.com/s/xGfy9MqLcfW6gQ_67ZVuJA</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>10.88亿元！12万吨！龙蟠科技拟在印尼扩产磷酸铁锂</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>龙蟠科技拟投资10.88亿元在印尼建设年产12万吨磷酸铁锂正极材料项目，进一步巩固海外产能布局，满足全球动力与储能电池市场需求。</p>
-            <a href="https://mp.weixin.qq.com/s/Rx8FeUFL4qaklKWK3dklcA" target="_blank">https://mp.weixin.qq.com/s/Rx8FeUFL4qaklKWK3dklcA</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>铜箔周报丨锂电铜箔加工费触底回升！德福科技31亿元AI电解铜箔项目启动！</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>锂电铜箔加工费触底回升，德福科技启动31亿元年产5万吨AI电解铜箔项目，助力动力电池高性能铜箔材料供应。</p>
-            <a href="https://mp.weixin.qq.com/s/QE_MU9A4FxYp7REdpGgZ-Q" target="_blank">https://mp.weixin.qq.com/s/QE_MU9A4FxYp7REdpGgZ-Q</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>爬产进度受影响！天齐锂业澳洲锂精矿工厂失火</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>天齐锂业澳洲锂精矿工厂检修期间失火，可能影响第三期工厂爬产进度，短期对锂精矿供应造成扰动，进一步强化锂价上行预期。</p>
-            <a href="https://mp.weixin.qq.com/s/mWd2_qkl9v5T7LtdDGQu3w" target="_blank">https://mp.weixin.qq.com/s/mWd2_qkl9v5T7LtdDGQu3w</a>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 固态电池板块 -->
-        <h3 id="section-solid">🧪 固态电池</h3>
-        <div class="news-item">
-            <h3>含电池PACK基地、固态电池中试线等！奇瑞两大项目再签安徽芜湖</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>奇瑞签约电池全球研发中心（含固态电池中试线）和年产60万套PACK生产基地项目，加速全固态电池技术研发与产业化布局。</p>
-            <a href="https://mp.weixin.qq.com/s/02qN0IvSXOwiKJJviyXO9w" target="_blank">https://mp.weixin.qq.com/s/02qN0IvSXOwiKJJviyXO9w</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>倒计时5天！上海顶级固态电池峰会启幕，800余名行业从业者齐聚</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>2026第三届AEPT固态电池产业峰会将于6月16-18日在上海举办，800余人参会，聚焦固态电池材料、工艺、装备等产业链核心议题。</p>
-            <a href="https://mp.weixin.qq.com/s/1VYINGqknjBZzmpyBQzYkA" target="_blank">https://mp.weixin.qq.com/s/1VYINGqknjBZzmpyBQzYkA</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>茹天科技获上市企业投资，固态电池装备全面升级</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>荣旗科技战略投资茹天科技，打通硫化物固态电池装备+AI质检全链条，提升固态电池量产装备的智能化水平。</p>
-            <a href="https://mp.weixin.qq.com/s/lkKe_jxIKj0cAn9_Z4iQEg" target="_blank">https://mp.weixin.qq.com/s/lkKe_jxIKj0cAn9_Z4iQEg</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>宁德时代曾毓群：现在，固态电池技术成熟度还不到一半</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>曾毓群在行业会议上称固态电池技术成熟度仅4级（共9级），强调产业化需事件驱动，当前仍需攻克界面阻抗、循环寿命等关键技术难点。</p>
-            <a href="https://mp.weixin.qq.com/s/XsIo4_m6ZFoM4b9ToQClpg" target="_blank">https://mp.weixin.qq.com/s/XsIo4_m6ZFoM4b9ToQClpg</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>新能源车ETF国泰(159806)盘中上涨1.8%，电池产业景气与技术迭代受关注</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>券商指出电池技术路线呈多元化格局：磷酸铁锂主导中低端与储能，三元锂聚焦高端，半固态已量产、全固态进入小批量生产阶段。预计2030年全球固态电池出货量超600GWh；锂金属负极因超高比容量有望成为终极方案。</p>
-            <a href="https://fund.eastmoney.com/a/202606113768222067.html" target="_blank">https://fund.eastmoney.com/a/202606113768222067.html</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>520+嘉宾名单更新丨2026起点固态电池及储能大会6.16-18，上海举办！</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>2026起点固态电池及储能大会最终议程与520+参会嘉宾名单公布，涵盖产业链企业、科研院所及投资机构，推动固态电池技术交流与产学研合作。</p>
-            <a href="https://mp.weixin.qq.com/s/z_nbIc0t2W9UrcaQOG8Qng" target="_blank">https://mp.weixin.qq.com/s/z_nbIc0t2W9UrcaQOG8Qng</a>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 钠离子电池板块 -->
-        <h3 id="section-sodium">🧂 钠离子电池</h3>
-        <div class="news-item">
-            <h3>【资讯】钠电赛道迈入规模化拐点</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>钠离子电池正加速商业化，成本逼近磷酸铁锂，通用汽车等巨头入局钠电赛道，产业规模化拐点已至，未来将在储能、低速电动车等领域形成重要补充。</p>
-            <a href="https://mp.weixin.qq.com/s/1x_YH6IkMnyKKSgsSIZXqA" target="_blank">https://mp.weixin.qq.com/s/1x_YH6IkMnyKKSgsSIZXqA</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>兴储世纪推出48V备用电源、轻型动力电源等钠电产品</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>兴储世纪展出高能量180Ah钠电芯及48V备用电源、轻型动力电源等多款钠电产品，推动钠电在通信备电、电动两轮车等场景的应用拓展。</p>
-            <a href="https://mp.weixin.qq.com/s/2vkVaCVCzPNDwPBNVgjjGA" target="_blank">https://mp.weixin.qq.com/s/2vkVaCVCzPNDwPBNVgjjGA</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>海盐的逆袭—从技术路线逐步收敛到重塑能源金属的"第二曲线"</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>深度分析钠电的能源安全意义、技术路线演变及产业化前景，预计2027年钠电芯与磷酸铁锂实现平价，钠电将成为能源金属的"第二曲线"。</p>
-            <a href="https://mp.weixin.qq.com/s/fqVNWRS7W1lUJ-oVCYcs7Q" target="_blank">https://mp.weixin.qq.com/s/fqVNWRS7W1lUJ-oVCYcs7Q</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>【干货】30C脉冲、零下20℃快充，青钠科技大圆柱钠电如何突围？</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>青钠科技大圆柱钠电采用全极耳+激光穿透焊技术，实现30C脉冲放电和零下20℃快充，突破了钠电池低温性能与倍率性能的关键瓶颈。</p>
-            <a href="https://mp.weixin.qq.com/s/OR_IbTJJl15tLOGZculikQ" target="_blank">https://mp.weixin.qq.com/s/OR_IbTJJl15tLOGZculikQ</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>万顺新材：高达因铝箔已连续供应钠电客户</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>万顺新材高达因铝箔已连续供应钠电客户，可显著提升集流体与电极材料的界面结合力，优化电芯内阻与循环性能，助力钠电池提质增效。</p>
-            <a href="https://mp.weixin.qq.com/s/pI9GEdFiOaNThKaPVGg71A" target="_blank">https://mp.weixin.qq.com/s/pI9GEdFiOaNThKaPVGg71A</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>又一汽车巨头切入钠电池赛道！</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>通用汽车与Peak Energy合作开发电网储能用下一代钠离子电池电芯，标志着又一国际汽车巨头正式切入钠电池赛道，加速钠电产业化应用进程。</p>
-            <a href="https://mp.weixin.qq.com/s/V0sDX24bDHJo5FHAB-fJvA" target="_blank">https://mp.weixin.qq.com/s/V0sDX24bDHJo5FHAB-fJvA</a>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 负极材料板块 -->
-        <h3 id="section-anode">⚡ 负极材料</h3>
-        <div class="news-item">
-            <h3>揭示固态钠电池界面失效机制与设计原则</h3>
-            <div class="meta">2026-06-11 ｜ 微信公众号</div>
-            <p>西安交大团队在Chemical Science发表综述，构建了固态钠电池界面失效统一分析框架，系统总结界面接触损失、空间电荷层等失效机制，为钠金属负极设计提供理论指导。</p>
-            <a href="https://mp.weixin.qq.com/s/Md_XixLPJvRAuSt59d2wTw" target="_blank">https://mp.weixin.qq.com/s/Md_XixLPJvRAuSt59d2wTw</a>
-        </div>
-        <div class="divider"></div>
-        <div class="news-item">
-            <h3>新能源车ETF国泰(159806)盘中上涨1.8%，电池产业景气与技术迭代受关注</h3>
-            <div class="meta">2026-06-11 ｜ 东方财富网</div>
-            <p>券商明确指出锂金属负极因超高理论比容量有望成为负极材料终极方案，负极材料环节在2026年旺季产能利用率预计出现紧平衡，价格普涨预期增强。</p>
-            <a href="https://fund.eastmoney.com/a/202606113768222067.html" target="_blank">https://fund.eastmoney.com/a/202606113768222067.html</a>
-        </div>
-    </div>
-
-    <div class="card" id="hotwords">
-        <h2>今日热点词汇</h2>
-        <div class="keywords">
-            <span class="keyword">固态电池</span>
-            <span class="keyword">钠离子电池</span>
-            <span class="keyword">动力电池</span>
-            <span class="keyword">磷酸铁锂</span>
-            <span class="keyword">碳酸锂</span>
-            <span class="keyword">储能电池</span>
-            <span class="keyword">宁德时代</span>
-            <span class="keyword">负极材料</span>
-            <span class="keyword">正极材料</span>
-            <span class="keyword">锂电中游</span>
-            <span class="keyword">产能利用率</span>
-            <span class="keyword">快充</span>
-            <span class="keyword">锂金属负极</span>
-            <span class="keyword">新能源车</span>
-            <span class="keyword">铝箔</span>
-            <span class="keyword">铜箔</span>
-            <span class="keyword">量产</span>
-            <span class="keyword">产业化</span>
-            <span class="keyword">热失控</span>
-            <span class="keyword">安全机制</span>
-        </div>
-    </div>
-</div>
 </body>
 </html>
