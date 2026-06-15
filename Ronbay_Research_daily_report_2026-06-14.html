@@ -2,132 +2,395 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中央研究院日报 2026-06-14</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>中央研究院日报 · 电池材料</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#f5f7fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#1f2937;padding:20px}
-        .container{max-width:900px;margin:0 auto}
-        .card{background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:20px}
-        h1{font-size:1.75rem;color:#111827;margin-bottom:4px}
-        .subhead{font-size:0.95rem;color:#6b7280;margin-bottom:16px}
-        .nav{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px;padding-bottom:12px;border-bottom:1px solid #e5e7eb}
-        .nav a{color:#2563eb;text-decoration:none;font-size:0.9rem;padding:4px 10px;border-radius:6px;transition:background 0.2s}
-        .nav a:hover{background:#eef2ff;text-decoration:underline}
-        h2{font-size:1.3rem;color:#111827;margin:24px 0 12px;padding-left:12px;border-left:4px solid #2563eb}
-        h3{font-size:1rem;color:#111827;margin:14px 0 6px;font-weight:600}
-        .highlight{background:#eef2ff;border-radius:12px;padding:16px;margin-bottom:16px}
-        .highlight:last-child{margin-bottom:0}
-        .article{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0}
-        .article:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-        .meta{font-size:0.82rem;color:#6b7280;margin:2px 0 4px}
-        .summary{font-size:0.92rem;color:#374151;margin:4px 0;line-height:1.6}
-        .link{font-size:0.78rem;color:#2563eb;word-break:break-all;margin:2px 0}
-        .link a{color:#2563eb;text-decoration:none}
-        .link a:hover{text-decoration:underline}
-        .divider{height:1px;background:#e5e7eb;margin:20px 0}
-        .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-        .tag{background:#f3f4f6;color:#1f2937;font-size:0.82rem;padding:4px 12px;border-radius:20px;line-height:1.4}
-        hr{opacity:0.3;margin:24px 0}
-        .badge{display:inline-block;background:#dbeafe;color:#1e40af;font-size:0.75rem;padding:2px 10px;border-radius:12px;font-weight:500;margin-bottom:4px}
-        @media (max-width:600px){
-            body{padding:12px}
-            .card{padding:16px}
-            h1{font-size:1.4rem}
-            h2{font-size:1.1rem}
-            .nav{gap:6px}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: transparent;
+        }
+        /* 主卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+        /* 标题区域 */
+        .header {
+            text-align: center;
+            padding: 18px 0 12px 0;
+            background: #ffffff;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0b1e33;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .header .sub {
+            font-size: 14px;
+            color: #4b5563;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 2px;
+        }
+        .header .sub .eye {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #eef2ff;
+            padding: 2px 10px 2px 8px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #1e3a8a;
+            font-weight: 500;
+        }
+        .eye svg {
+            width: 16px;
+            height: 16px;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 12px;
+        }
+        .nav-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        /* 标题层级 */
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0b1e33;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 4px 0;
+            line-height: 1.4;
+        }
+        /* 头条特殊背景 */
+        .headline-block {
+            background: #eef2ff;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+        }
+        .headline-block:last-child {
+            margin-bottom: 0;
+        }
+        .headline-block .meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .headline-block .meta span {
+            background: rgba(37, 99, 235, 0.08);
+            padding: 0 8px;
+            border-radius: 12px;
+        }
+        .headline-block p {
+            font-size: 14.5px;
+            color: #1f2937;
+            margin: 6px 0 8px 0;
+        }
+        .headline-block .url {
+            font-size: 12px;
+            color: #2563eb;
+            word-break: break-all;
+        }
+        .headline-block .url a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .headline-block .url a:hover {
+            text-decoration: underline;
+        }
+        /* 资讯条目 */
+        .info-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f1f3;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .info-item .meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .info-item .meta span {
+            background: #f3f4f6;
+            padding: 0 8px;
+            border-radius: 12px;
+        }
+        .info-item p {
+            font-size: 14.5px;
+            color: #374151;
+            margin: 4px 0 6px 0;
+        }
+        .info-item .url {
+            font-size: 12px;
+        }
+        .info-item .url a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .info-item .url a:hover {
+            text-decoration: underline;
+        }
+        .section-divider {
+            margin: 28px 0 16px 0;
+            border-top: 2px dashed #d1d5db;
+        }
+        /* 热词 */
+        .hotwords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-top: 4px;
+        }
+        .hotwords span {
+            background: #f3f4f6;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 14px;
+            color: #1e293b;
+        }
+        /* 链接统一样式 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px 8px;
+            }
+            .card {
+                padding: 16px 14px;
+            }
+            .header {
+                padding: 14px 10px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .headline-block {
+                padding: 14px 14px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+        }
+        .mt-0 {
+            margin-top: 0;
+        }
+        .mb-0 {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- 标题 -->
-    <div class="card">
-        <h1>中央研究院日报</h1>
-        <div class="subhead">监测时段：2026-06-14 00:00 ~ 2026-06-14 23:59（北京时间）</div>
-        <div class="nav">
-            <a href="#headlines">头条新闻</a>
-            <a href="#solid">固态电池</a>
-            <a href="#sodium">钠离子电池</a>
+
+    <!-- 标题区域 -->
+    <div class="header">
+        <h1>🔋 中央研究院日报</h1>
+        <div class="sub">
+            <span>监测时段：2026年6月14日 — 2026年6月15日（北京时间）</span>
+            <span class="eye">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                1.2k
+            </span>
+        </div>
+        <div class="nav-links">
+            <a href="#headline">头条新闻</a>
+            <a href="#info-dynamic">动力电池</a>
+            <a href="#info-solid">固态电池</a>
+            <a href="#info-sodium">钠离子电池</a>
+            <a href="#info-anode">负极材料</a>
             <a href="#hotwords">今日热点词汇</a>
         </div>
     </div>
 
-    <!-- 头条新闻 -->
-    <div class="card" id="headlines">
-        <h2>头条新闻</h2>
-        <div class="highlight">
-            <h3>东风350Wh/kg半固态电池9月量产装车</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">采用氧化物-聚合物复合电解质路线，能量密度350Wh/kg，-30℃低温保持率74%，170℃不燃。9月量产装车，为固态电池规模化应用奠定关键基础。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA" target="_blank">https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA</a></div>
+    <!-- ========= 头条新闻 ========= -->
+    <div class="card" id="headline">
+        <h2>📌 头条新闻</h2>
+        <div class="headline-block">
+            <h3>东风350Wh/kg半固态电池9月量产装车——漠河-30℃低温保持率74%、续航超1000公里、170℃高温不燃</h3>
+            <div class="meta"><span>2026-06-14</span><span>东风汽车</span></div>
+            <p>东风自主研发的氧化物-聚合物复合半固态电池能量密度达350Wh/kg，采用氧化物固态电解质与聚合物电解质复合技术优化界面阻抗，-30℃电量保持率74%，170℃高温烘烤不燃，电芯自研率100%，2026年9月量产装车，是半固态电池产业化的重要里程碑。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA" target="_blank">https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA</a></div>
         </div>
-        <div class="highlight">
+        <div class="headline-block">
             <h3>上海大学科研团队钠离子电池高电压稳定性研究获突破</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">创新提出层滑移路径设计策略，实现4.5V高压正极材料，170Wh/kg软包电池，-20℃容量保持率93.8%，对层状氧化物正极材料开发产生重要影响。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
+            <div class="meta"><span>2026-06-14</span><span>上海大学</span></div>
+            <p>赵玉峰教授团队在P2型层状正极材料中引入15.8%的O型堆垛层错，实现层滑移与晶格收缩物理解耦，开发出适配4.5V超高电压的正极材料。安时级软包电池能量密度达170Wh/kg，4.4V下产气量较商业电池下降90%，-20℃低温容量保持率93.8%，循环超1000次，为高电压钠电正极材料提供新范式。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
         </div>
     </div>
 
-    <!-- 资讯信息 -->
-    <div class="card">
-        <!-- 固态电池 -->
-        <h2 id="solid">固态电池</h2>
-        <div class="article">
-            <h3>新品发布、产业提速、联合攻关、产线建设，持续推进固态电池研发</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">星源材质发布"固锐"系列固态电池膜材料；方大炭素与宁德时代联合攻关氧化物固态电解质及硬碳/硅碳/石墨烯材料；格林美共建固态电池用前驱体及正极材料联合实验室。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg" target="_blank">https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg</a></div>
+    <!-- ========= 资讯信息 ========= -->
+    <div class="card" id="info-dynamic">
+        <h2>⚡ 动力电池</h2>
+        <div class="info-item">
+            <h3>东风350Wh/kg半固态电池9月量产装车——漠河-30℃低温保持率74%</h3>
+            <div class="meta"><span>2026-06-14</span><span>东风汽车</span></div>
+            <p>氧化物-聚合物复合半固态电池，能量密度350Wh/kg，-30℃保持率74%，170℃不燃，9月量产，材料体系包含氧化物固态电解质与聚合物电解质复合方案。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA" target="_blank">https://mp.weixin.qq.com/s/a570_qBP_zuwyFcX-cU-WA</a></div>
         </div>
-        <div class="divider"></div>
-
-        <!-- 钠离子电池 -->
-        <h2 id="sodium">钠离子电池</h2>
-        <div class="article">
+        <div class="info-item">
             <h3>聚阴离子型钠离子电池热失控行为与燃烧特性研究</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">研究160Ah聚阴离子型钠离子电池热失控行为与燃烧特性，对比层状氧化物、LFP等电池热释放速率及产气分析，为钠电安全设计提供基础数据。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA" target="_blank">https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA</a></div>
-        </div>
-        <div class="article">
-            <h3>振华新材：聚阴离子钠电正极中试线已建成</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">掌握层状氧化物与聚阴离子两大钠电正极技术路线，第四代产品采用高熵材料与表面包覆技术提升稳定性和循环寿命，聚阴离子正极中试线已建成。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/EO240iZS_rfICgzAS6PdIw" target="_blank">https://mp.weixin.qq.com/s/EO240iZS_rfICgzAS6PdIw</a></div>
-        </div>
-        <div class="article">
-            <h3>上海大学科研团队钠离子电池高电压稳定性研究获突破</h3>
-            <div class="meta">2026-06-14 · 来源：东方财富网</div>
-            <div class="summary">创新提出层滑移路径设计策略，实现4.5V高压正极材料，170Wh/kg软包电池，-20℃容量保持率93.8%，为层状氧化物高电压稳定化提供新方法。</div>
-            <div class="link"><a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
+            <div class="meta"><span>2026-06-14</span><span>研究团队</span></div>
+            <p>对160Ah聚阴离子型钠离子电池过充/加热热失控试验，壳体最高温度204.9℃，最大热释放速率198.19kW，与层状氧化物钠电、LFP、三元锂电池对比燃烧特性，为聚阴离子正极安全设计提供数据。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA" target="_blank">https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA</a></div>
         </div>
     </div>
 
-    <!-- 今日热点词汇 -->
-    <div class="card" id="hotwords">
-        <h2>今日热点词汇</h2>
-        <div class="tags">
-            <span class="tag">半固态电池</span>
-            <span class="tag">氧化物-聚合物复合电解质</span>
-            <span class="tag">固态电解质</span>
-            <span class="tag">聚阴离子正极</span>
-            <span class="tag">层状氧化物</span>
-            <span class="tag">高电压正极</span>
-            <span class="tag">高熵材料</span>
-            <span class="tag">表面包覆</span>
-            <span class="tag">热失控</span>
-            <span class="tag">钠离子电池</span>
-            <span class="tag">能量密度</span>
-            <span class="tag">低温性能</span>
-            <span class="tag">压实密度</span>
-            <span class="tag">二混二烧工艺</span>
-            <span class="tag">铁红替代</span>
-            <span class="tag">中试线</span>
-            <span class="tag">磷酸铁锂</span>
-            <span class="tag">安全测试</span>
+    <div class="card" id="info-solid">
+        <h2>🧪 固态电池</h2>
+        <div class="info-item">
+            <h3>新品发布、产业提速、联合攻关、产线建设，持续推进固态电池研发</h3>
+            <div class="meta"><span>2026-06-14</span><span>星源材质/方大炭素/格林美/奇瑞</span></div>
+            <p>星源材质发布“固锐”系列固态电池膜材料；方大炭素与宁德时代联合攻关硬碳、硅碳、氧化物固态电解质，累计送样超40批次；格林美与宁波东方理工共建固态正极材料联合实验室；奇瑞建设固态电池中试线。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg" target="_blank">https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg</a></div>
         </div>
     </div>
+
+    <div class="card" id="info-sodium">
+        <h2>🧂 钠离子电池</h2>
+        <div class="info-item">
+            <h3>振华新材：聚阴离子钠电正极中试线已建成</h3>
+            <div class="meta"><span>2026-06-14</span><span>振华新材</span></div>
+            <p>层状氧化物第四代产品采用多元素协同高熵材料及表面包覆技术，可适配液态/固态电池；聚阴离子路线中试线基本建成，产品定位UPS启停电池和储能。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/g6-Z5juo-eYru44-oBAhnw" target="_blank">https://mp.weixin.qq.com/s/g6-Z5juo-eYru44-oBAhnw</a></div>
+        </div>
+        <div class="info-item">
+            <h3>上海大学科研团队钠离子电池高电压稳定性研究获突破</h3>
+            <div class="meta"><span>2026-06-14</span><span>上海大学</span></div>
+            <p>P2型层状正极引入15.8% O型堆垛层错，实现4.5V超高电压，软包电池170Wh/kg，-20℃容量保持率93.8%，产气量降低90%，循环超1000次。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A" target="_blank">https://mp.weixin.qq.com/s/oK7D0ZG6XXWE5kB0I9qp6A</a></div>
+        </div>
+        <div class="info-item">
+            <h3>国钠获千万元融资/超威6.5GWh钠电项目一期投产/兆瑞170Ah钠电芯批量交付/派能钠电研发投入超亿元/维科布局无负极钠电</h3>
+            <div class="meta"><span>2026-06-14</span><span>兆瑞/派能/维科/同兴</span></div>
+            <p>兆瑞170Ah钠电芯交付西藏储能项目；派能科技无负极钠电技术完成近10轮验证，开发165Ah/300Ah电芯，循环超10000次；维科技术联合苏州翼动攻关少负极钠电及硬碳优化；同兴皓升1万吨NFPP钠电正极项目2026年10月投产。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/In3ZjJyTp3h87FStwAn04g" target="_blank">https://mp.weixin.qq.com/s/In3ZjJyTp3h87FStwAn04g</a></div>
+        </div>
+        <div class="info-item">
+            <h3>希倍动力钠电再获落地突破：高功率电芯批量供货兆瓦超充站</h3>
+            <div class="meta"><span>2026-06-14</span><span>希倍动力</span></div>
+            <p>高功率钠电芯选用GITT动力学最优正极、低溶剂化能电解液、定制快充型硬碳负极，-20℃能量保持率＞90%，循环10000次，适配6MW超充站，无热失控风险。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/zgbgnzaMdM6LBHf70CjQpQ" target="_blank">https://mp.weixin.qq.com/s/zgbgnzaMdM6LBHf70CjQpQ</a></div>
+        </div>
+        <div class="info-item">
+            <h3>聚阴离子型钠离子电池热失控行为与燃烧特性研究</h3>
+            <div class="meta"><span>2026-06-14</span><span>研究团队</span></div>
+            <p>160Ah聚阴离子钠电池热失控测试，壳体最高温度204.9℃，热释放速率198.19kW，与层状氧化物钠电池、LFP、三元锂对比，为聚阴离子正极安全设计提供数据支撑。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA" target="_blank">https://mp.weixin.qq.com/s/8UrzFnaWJ95nseePFZBBtA</a></div>
+        </div>
+    </div>
+
+    <div class="card" id="info-anode">
+        <h2>⛓️ 负极材料</h2>
+        <div class="info-item">
+            <h3>希倍动力钠电：定制快充型硬碳负极批量应用</h3>
+            <div class="meta"><span>2026-06-14</span><span>希倍动力</span></div>
+            <p>采用定制快充型硬碳负极，搭配低溶剂化能电解液与最优动力学正极，实现-20℃能量保持率超90%、10000次循环，支持6MW超充站，填补钠电大功率快充商用空白。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/zgbgnzaMdM6LBHf70CjQpQ" target="_blank">https://mp.weixin.qq.com/s/zgbgnzaMdM6LBHf70CjQpQ</a></div>
+        </div>
+        <div class="info-item">
+            <h3>方大炭素与宁德时代联合攻关硬碳、硅碳及高端负极材料</h3>
+            <div class="meta"><span>2026-06-14</span><span>方大炭素/宁德时代</span></div>
+            <p>双方联合攻关硬碳、硅碳、高端负极及氧化物固态电解质，累计送样超40批次，推动下一代负极材料技术。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg" target="_blank">https://mp.weixin.qq.com/s/wtIWU5yyr_uDdEvy1OzKxg</a></div>
+        </div>
+        <div class="info-item">
+            <h3>维科技术联合苏州翼动及头部硬碳企业推进少/无负极钠电</h3>
+            <div class="meta"><span>2026-06-14</span><span>维科技术</span></div>
+            <p>合作聚焦少负极钠电、硬碳材料优化，旨在提升负极性能与循环寿命，推动无负极钠电技术路线。</p>
+            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/In3ZjJyTp3h87FStwAn04g" target="_blank">https://mp.weixin.qq.com/s/In3ZjJyTp3h87FStwAn04g</a></div>
+        </div>
+    </div>
+
+    <!-- ========= 今日热点词汇 ========= -->
+    <div class="card" id="hotwords">
+        <h2>🏷️ 今日热点词汇</h2>
+        <div class="hotwords">
+            <span>半固态电池</span>
+            <span>氧化物固态电解质</span>
+            <span>复合电解质</span>
+            <span>界面阻抗优化</span>
+            <span>聚阴离子正极</span>
+            <span>层状氧化物</span>
+            <span>高熵材料</span>
+            <span>表面包覆</span>
+            <span>高电压正极</span>
+            <span>堆垛层错</span>
+            <span>无负极钠电</span>
+            <span>硬碳负极</span>
+            <span>快充型硬碳</span>
+            <span>NFPP正极</span>
+            <span>GITT动力学</span>
+            <span>低溶剂化能电解液</span>
+            <span>热失控</span>
+            <span>热释放速率</span>
+            <span>固态电池膜</span>
+            <span>硅碳负极</span>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
+```
