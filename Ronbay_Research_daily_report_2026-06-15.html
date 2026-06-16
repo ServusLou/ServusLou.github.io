@@ -2,339 +2,531 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中央研究院日报</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #f2f4f8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #1e293b; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: #f5f7fa; border-radius: 24px; padding: 20px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
-        @media (max-width: 640px) { .container { padding: 12px 14px; } body { padding: 10px; } }
-        .header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0; }
-        .header-left { flex: 1; min-width: 200px; }
-        .header-left h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; color: #0a1e3c; margin-bottom: 2px; }
-        .header-left .sub { font-size: 0.85rem; color: #5f6b7a; margin-top: 2px; }
-        .header-right { display: flex; align-items: center; gap: 6px; background: #eef2ff; padding: 6px 14px; border-radius: 40px; font-size: 0.9rem; color: #1e3a8a; white-space: nowrap; }
-        .header-right .eye { font-size: 1.2rem; }
-        .nav { display: flex; flex-wrap: wrap; gap: 12px 20px; padding: 10px 0 14px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; font-size: 0.9rem; }
-        .nav a { color: #2563eb; text-decoration: none; font-weight: 500; }
-        .nav a:hover { text-decoration: underline; }
-        .card { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        @media (max-width: 640px) { .card { padding: 16px 14px; } }
-        .card-headline { background: #eef2ff; }
-        .card-warn { background: #fee2e2; }
-        h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid #dbe4f0; color: #0f2647; }
-        h3 { font-size: 1.05rem; font-weight: 600; margin: 12px 0 6px 0; color: #0f2647; }
-        .news-item { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid #edf2f7; }
-        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .news-title { font-weight: 600; font-size: 1.02rem; color: #0b1e3a; }
-        .news-summary { font-size: 0.92rem; color: #3b4a5e; margin: 4px 0 6px 0; line-height: 1.5; }
-        .news-link { font-size: 0.78rem; color: #2563eb; word-break: break-all; }
-        .news-link a { color: #2563eb; text-decoration: none; }
-        .news-link a:hover { text-decoration: underline; }
-        .divider { height: 1px; background: #dce3ec; margin: 20px 0; }
-        .tag-list { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 6px; }
-        .tag { background: #eef2ff; color: #1e3a8a; padding: 4px 14px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; }
-        .source-badge { font-size: 0.75rem; color: #6b7a8f; background: #f0f2f5; display: inline-block; padding: 0 8px; border-radius: 10px; margin-left: 6px; }
-        .empty-placeholder { color: #8a9bb0; font-style: italic; padding: 12px 0; text-align: center; font-size: 0.95rem; }
-        .headline-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 640px) { .headline-two { grid-template-columns: 1fr; gap: 16px; } }
-        .headline-item { background: #ffffff; border-radius: 14px; padding: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); border-left: 4px solid #3b82f6; }
-        .headline-item h3 { margin-top: 0; font-size: 1.08rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a202c;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+        }
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .header-left {
+            flex: 1;
+            min-width: 200px;
+        }
+        .header-left h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 2px;
+        }
+        .header-left .sub {
+            font-size: 0.85rem;
+            color: #5a6a7a;
+            letter-spacing: 0.3px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: #3b4a5a;
+            background: #eef2f7;
+            padding: 6px 14px;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+        .header-right .eye {
+            font-size: 1.2rem;
+        }
+        .header-right .count {
+            font-weight: 600;
+            color: #1a3b5c;
+            min-width: 28px;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin: 12px 0 4px 0;
+            padding-top: 8px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+        .nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+            color: #1e40af;
+        }
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0a2540;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a2540;
+            margin: 0 0 4px 0;
+        }
+        .headline-box {
+            background: #eef2ff;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .headline-item {
+            margin-bottom: 16px;
+        }
+        .headline-item:last-child {
+            margin-bottom: 0;
+        }
+        .headline-item h3 {
+            font-size: 1.05rem;
+        }
+        .headline-item .src {
+            font-size: 0.75rem;
+            color: #6b7a8a;
+            margin: 2px 0 4px 0;
+        }
+        .headline-item .abs {
+            font-size: 0.9rem;
+            color: #2d3a4a;
+            margin-bottom: 4px;
+        }
+        .headline-item .link {
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+        .headline-item .link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .headline-item .link a:hover {
+            text-decoration: underline;
+        }
+        .section-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 20px 0;
+        }
+        .news-item {
+            margin-bottom: 18px;
+        }
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+        .news-item .src {
+            font-size: 0.75rem;
+            color: #6b7a8a;
+            margin: 1px 0 3px 0;
+        }
+        .news-item .abs {
+            font-size: 0.9rem;
+            color: #2d3a4a;
+            margin-bottom: 3px;
+        }
+        .news-item .link {
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+        .news-item .link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .news-item .link a:hover {
+            text-decoration: underline;
+        }
+        .hotwords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            padding: 4px 0;
+        }
+        .hotwords span {
+            background: #eef2f7;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #1a3b5c;
+            font-weight: 500;
+        }
+        .risk-bg {
+            background: #fee2e2;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #8a9aa8;
+            margin-top: 20px;
+            padding: 12px 0 4px;
+            border-top: 1px solid #e2e8f0;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 12px 8px;
+            }
+            .card {
+                padding: 16px;
+                border-radius: 12px;
+            }
+            .header-left h1 {
+                font-size: 1.3rem;
+            }
+            .header-right {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+            h2 {
+                font-size: 1.05rem;
+            }
+            h3 {
+                font-size: 0.95rem;
+            }
+            .headline-box {
+                padding: 14px;
+            }
+            .nav {
+                gap: 4px 12px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <div class="header-left">
-            <h1>中央研究院日报</h1>
-            <div class="sub">监测时段：2026年6月15日 （北京时间）</div>
+
+    <!-- 标题 -->
+    <div class="card">
+        <div class="header">
+            <div class="header-left">
+                <h1>中央研究院日报</h1>
+                <div class="sub">监测时段：2026-06-15 00:00 — 2026-06-15 23:59（北京时间）</div>
+            </div>
+            <div class="header-right">
+                <span class="eye">👁️</span>
+                <span class="count" id="viewCount">0</span>
+                <span>访问</span>
+            </div>
         </div>
-        <div class="header-right">
-            <span class="eye">👁️</span>
-            <span id="visitCounter">0</span>
-            <span style="font-size:0.8rem;color:#5f6b7a;">次访问</span>
+        <div class="nav">
+            <a href="#headline">头条新闻</a>
+            <a href="#info">资讯信息</a>
+            <a href="#hot">今日热点词汇</a>
         </div>
-    </div>
-    <div class="nav">
-        <a href="#headline">头条新闻</a>
-        <a href="#info">资讯信息</a>
-        <a href="#hotwords">今日热点词汇</a>
     </div>
 
-    <div id="headline" class="card card-headline">
+    <!-- 头条新闻 -->
+    <div class="card" id="headline">
         <h2>📌 头条新闻</h2>
-        <div class="headline-two">
-            <div class="headline-item">
-                <h3>东风2026下半年量产半固态电池，350Wh/kg</h3>
-                <div class="news-summary">东风汽车宣布氧化物-聚合物复合半固态电池将于2026下半年量产，能量密度达350Wh/kg，9月底启动装车。</div>
-                <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/SaJFrsKDpzgLLtbBu0-T9g" target="_blank">https://mp.weixin.qq.com/s/SaJFrsKDpzgLLtbBu0-T9g</a></div>
-            </div>
+        <div class="headline-box">
             <div class="headline-item">
                 <h3>湖北首条千吨级固态电解质产线建成</h3>
-                <div class="news-summary">武汉睿事达建成湖北省首条千吨级氧化物固态电解质规模化产线，标志固态电池核心材料本土化量产取得关键突破。</div>
-                <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/3u2GOi6gkEwb1rzJQJ7yvw" target="_blank">https://mp.weixin.qq.com/s/3u2GOi6gkEwb1rzJQJ7yvw</a></div>
+                <div class="src">来源：地方产业新闻 · 2026-06-15</div>
+                <div class="abs">武汉睿事达建成湖北首条千吨级氧化物固态电解质产线，标志着固态电池关键材料向规模化量产迈出重要一步，对推动全固态电池产业化具有里程碑意义。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/3u2GOi6gkEwb1rzJQJ7yvw" target="_blank">https://mp.weixin.qq.com/s/3u2GOi6gkEwb1rzJQJ7yvw</a></div>
+            </div>
+        </div>
+        <div class="headline-box" style="margin-top:12px;">
+            <div class="headline-item">
+                <h3>通用汽车放弃磷酸铁锂电池，转向富锂锰基路线</h3>
+                <div class="src">来源：行业资讯 · 2026-06-15</div>
+                <div class="abs">通用汽车宣布放弃LFP电池路线，全面转向富锂锰基（LMR）电池，LMR能量密度比LFP高33%，这一技术路线调整将深刻影响全球正极材料产业格局。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ" target="_blank">https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ</a></div>
             </div>
         </div>
     </div>
 
-    <div id="info" class="card">
-        <h2>📰 资讯信息</h2>
+    <!-- 资讯信息 -->
+    <div class="card" id="info">
+        <h2>📊 资讯信息</h2>
 
-        <h3>⚡ 动力电池</h3>
+        <!-- 动力电池 -->
+        <h3>🔋 动力电池</h3>
         <div class="news-item">
-            <div class="news-title">国轩高科正式配套问界M6</div>
-            <div class="news-summary">国轩高科磷酸铁锂电池配套问界M6纯电新版本，正式切入华为系供应链，电池配套竞争格局生变。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/AUmA2S_rBhZvkZcqCe102w" target="_blank">https://mp.weixin.qq.com/s/AUmA2S_rBhZvkZcqCe102w</a></div>
+            <h3>云山动力大圆柱电池亮相欧洲电池展</h3>
+            <div class="src">来源：行业展会 · 2026-06-15</div>
+            <div class="abs">云山动力46系列大圆柱全极耳超充电池亮相欧洲电池展，具高功率密度和快充能力，瞄准高端动力电池市场。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg" target="_blank">https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">云山动力大圆柱电池亮相欧洲电池展</div>
-            <div class="news-summary">云山动力46系列大圆柱全极耳超充电池亮相欧洲电池展，支持-40~60°C宽温域，展示中国大圆柱电池技术实力。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg" target="_blank">https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg</a></div>
+            <h3>东风2026下半年量产半固态电池</h3>
+            <div class="src">来源：企业发布 · 2026-06-15</div>
+            <div class="abs">东风350Wh/kg半固态电池下半年量产，-30°C保持率超74%，率先在高端车型搭载，推动半固态技术商业化。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/SaJFrsKDpzgLLtbBu0-T9g" target="_blank">https://mp.weixin.qq.com/s/SaJFrsKDpzgLLtbBu0-T9g</a></div>
         </div>
-        <div class="divider"></div>
 
-        <h3>🔬 固态电池</h3>
-        <div class="news-item">
-            <div class="news-title">彼欧与辉能科技联手开发固态电池包</div>
-            <div class="news-summary">彼欧与辉能科技签署MoU，联合开发固态电池电芯集成模组与电池包，加速固态电池整车应用落地。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/mlHd7q9KeDNq6ydivBS6Pg" target="_blank">https://mp.weixin.qq.com/s/mlHd7q9KeDNq6ydivBS6Pg</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">高能数造全自动硫化物高通量制粉线</div>
-            <div class="news-summary">推出全自动硫化物高通量制备小试线，实现200mg-200g宽量程制备，重构硫化物固态电解质制备全链路范式。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/5F9a9uQ57MGytA-46WgSjQ" target="_blank">https://mp.weixin.qq.com/s/5F9a9uQ57MGytA-46WgSjQ</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">中建七局中标固态电池项目</div>
-            <div class="news-summary">固一新能2.2GWh准固态电池产线EPC总承包项目由中建七局中标，工期194天，固态电池产业化基建加速推进。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/8CHf-kNtoa0iB0RPYbp91Q" target="_blank">https://mp.weixin.qq.com/s/8CHf-kNtoa0iB0RPYbp91Q</a></div>
-        </div>
-        <div class="divider"></div>
+        <div class="section-divider"></div>
 
+        <!-- 固态电池 -->
+        <h3>🧪 固态电池</h3>
+        <div class="news-item">
+            <h3>高能数造全自动硫化物高通量制粉线</h3>
+            <div class="src">来源：技术前沿 · 2026-06-15</div>
+            <div class="abs">高能数造推出全自动硫化物固态电解质高通量制备小试线，加速硫化物固态电解质从实验室到中试的转化进程。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/6bemDe68cJCXwgQfmizI9A" target="_blank">https://mp.weixin.qq.com/s/6bemDe68cJCXwgQfmizI9A</a></div>
+        </div>
+        <div class="news-item">
+            <h3>彼欧与辉能科技联手开发固态电池包</h3>
+            <div class="src">来源：国际合作 · 2026-06-15</div>
+            <div class="abs">彼欧与辉能科技合作开发固态电池电芯模组及电池包，整合双方在材料与系统集成领域的优势，加速固态电池上车。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/mlHd7q9KeDNq6ydivBS6Pg" target="_blank">https://mp.weixin.qq.com/s/mlHd7q9KeDNq6ydivBS6Pg</a></div>
+        </div>
+        <div class="news-item">
+            <h3>面向无堆叠压力全固态微电池的结构可编程固态电解质</h3>
+            <div class="src">来源：学术前沿 · 2026-06-15</div>
+            <div class="abs">大连化物所提出结构可编程固态电解质，实现无外部堆叠压力下稳定工作的全固态微电池，为微型电池设计提供新思路。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/SSNU-ZR1TzO2jcs5GVYuEA" target="_blank">https://mp.weixin.qq.com/s/SSNU-ZR1TzO2jcs5GVYuEA</a></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- 钠离子电池 -->
         <h3>🧂 钠离子电池</h3>
         <div class="news-item">
-            <div class="news-title">雅迪北极光钠电技术解决方案亮相</div>
-            <div class="news-summary">雅迪北极光钠电方案-10°C放电保持率超85%，支持1200次长循环，推动钠电在两轮车领域规模化应用。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/2n3AW4NNLhSi4l1Fam-syw" target="_blank">https://mp.weixin.qq.com/s/2n3AW4NNLhSi4l1Fam-syw</a></div>
+            <h3>雅迪北极光钠电技术解决方案亮相</h3>
+            <div class="src">来源：企业发布 · 2026-06-15</div>
+            <div class="abs">雅迪北极光钠电技术方案支持-10°C放电保持率超85%，1200次长循环，专为电动两轮车场景打造，成本优势显著。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/2n3AW4NNLhSi4l1Fam-syw" target="_blank">https://mp.weixin.qq.com/s/2n3AW4NNLhSi4l1Fam-syw</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">年产13万吨！四川钠电负极材料产线投产</div>
-            <div class="news-summary">遂宁天钠能源年产13万吨钠电负极材料项目一期首条产线投产，为国内最大规模钠电负极产能之一。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/cLzbinGRk0FOnmHu1ds0pw" target="_blank">https://mp.weixin.qq.com/s/cLzbinGRk0FOnmHu1ds0pw</a></div>
+            <h3>年产13万吨钠电负极材料产线投产</h3>
+            <div class="src">来源：产业投资 · 2026-06-15</div>
+            <div class="abs">遂宁天钠能源年产13万吨钠电负极材料产线正式投产，为国内最大的钠电负极专用产线之一，保障钠电池产业链供应链安全。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/cLzbinGRk0FOnmHu1ds0pw" target="_blank">https://mp.weixin.qq.com/s/cLzbinGRk0FOnmHu1ds0pw</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">总投资35亿元！超威安庆6.5GWh钠电项目一期投产</div>
-            <div class="news-summary">超威安庆6.5GWh钠电项目一期2GWh投产，电芯在-30°C容量保持率超93%，展现优异低温性能。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/DaN5SuWPBdKTUK70fXsXoQ" target="_blank">https://mp.weixin.qq.com/s/DaN5SuWPBdKTUK70fXsXoQ</a></div>
+            <h3>超威安庆6.5GWh钠电项目一期投产</h3>
+            <div class="src">来源：项目进展 · 2026-06-15</div>
+            <div class="abs">超威集团安庆6.5GWh钠离子电池项目一期投产，循环寿命1500次以上，聚焦储能与低速电动车市场。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/DaN5SuWPBdKTUK70fXsXoQ" target="_blank">https://mp.weixin.qq.com/s/DaN5SuWPBdKTUK70fXsXoQ</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">隐功科技新型钠离子电池生产基地落子晋江</div>
-            <div class="news-summary">隐功科技15亿元钠电池基地落户晋江，一期预计四季度投产，钠电产能布局持续加速。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/e0HiaaZ-_mij6KkaSCRRug" target="_blank">https://mp.weixin.qq.com/s/e0HiaaZ-_mij6KkaSCRRug</a></div>
+            <h3>隐功科技新型钠电池生产基地落户泉州</h3>
+            <div class="src">来源：产业布局 · 2026-06-15</div>
+            <div class="abs">隐功科技投资15亿元在福建泉州建设新型钠离子电池生产基地，规划产能2GWh，聚焦储能与轻型动力市场。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/e0HiaaZ-_mij6KkaSCRRug" target="_blank">https://mp.weixin.qq.com/s/e0HiaaZ-_mij6KkaSCRRug</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">钠电企业温州智能制造中心开业</div>
-            <div class="news-summary">宁嘉迪温州智能制造中心开业，规划年产钠电池10万组，配套PACK产线，布局长三角钠电市场。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/TNVCA7QDp-ttPDGitx1sZw" target="_blank">https://mp.weixin.qq.com/s/TNVCA7QDp-ttPDGitx1sZw</a></div>
+            <h3>钠电企业温州智能制造中心开业</h3>
+            <div class="src">来源：企业动态 · 2026-06-15</div>
+            <div class="abs">宁嘉迪温州钠电池智能制造中心开业，年产10万组钠电池，采用全自动产线，产品覆盖储能与小动力市场。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/RcsvJWRQmb0ge6itqA8K7g" target="_blank">https://mp.weixin.qq.com/s/RcsvJWRQmb0ge6itqA8K7g</a></div>
         </div>
-        <div class="divider"></div>
 
-        <h3>🔋 磷酸铁锂电池</h3>
-        <div class="news-item">
-            <div class="news-title">10亿元！10万吨！又一电池大厂切入高压实磷酸铁锂赛道</div>
-            <div class="news-summary">荆门金泉新材料斥资10亿元建设10万吨/年高压实磷酸铁锂项目，高压实产品成行业新趋势。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/4_AFiTbsGaqM97ni6_wN3A" target="_blank">https://mp.weixin.qq.com/s/4_AFiTbsGaqM97ni6_wN3A</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">电池厂加码"扩产"高压实磷酸铁锂</div>
-            <div class="news-summary">亿纬、国轩、宁德时代邦普体系集体加码高压实磷酸铁锂材料扩产，高压实产品成为提升能量密度的关键方向。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/UTecdytGs3ze9gBYRlugKw" target="_blank">https://mp.weixin.qq.com/s/UTecdytGs3ze9gBYRlugKw</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">不超14.28亿元！丰元股份募资加码磷酸铁锂正极材料项目</div>
-            <div class="news-summary">丰元股份募资14.28亿元在云南玉溪加码磷酸铁锂正极材料产能，巩固正极材料领域布局。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/CA2h4nlNAW0496NViVx0JQ" target="_blank">https://mp.weixin.qq.com/s/CA2h4nlNAW0496NViVx0JQ</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">一汽车巨头放弃磷酸铁锂电池</div>
-            <div class="news-summary">通用汽车宣布放弃LFP磷酸铁锂电池路线，转向富锂锰基（LMR）电池，称能量密度可提升33%。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/4ASDgrjSE6Z3V8_yc9MK2Q" target="_blank">https://mp.weixin.qq.com/s/4ASDgrjSE6Z3V8_yc9MK2Q</a></div>
-        </div>
-        <div class="divider"></div>
+        <div class="section-divider"></div>
 
-        <h3>⚙️ 负极材料</h3>
+        <!-- 磷酸铁锂电池 -->
+        <h3>🔶 磷酸铁锂电池</h3>
         <div class="news-item">
-            <div class="news-title">33万吨负极项目终止，中科电气战略大调整</div>
-            <div class="news-summary">中科电气终止眉山、兰州、摩洛哥三个负极项目合计33万吨产能，集中资源推进泸州30万吨及阿曼项目。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/I8NTPwsLDYieRKRxVam9Ig" target="_blank">https://mp.weixin.qq.com/s/I8NTPwsLDYieRKRxVam9Ig</a></div>
+            <h3>10亿元！10万吨！亿纬系切入高压实磷酸铁锂赛道</h3>
+            <div class="src">来源：产能投资 · 2026-06-15</div>
+            <div class="abs">亿纬系荆门金泉新材料投资10亿元建设10万吨/年高压实磷酸铁锂项目，强化正极材料自供能力，提升电池能量密度。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw" target="_blank">https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">锂电池负极析锂问题的分析及对策</div>
-            <div class="news-summary">系统分析了N/P比、Overhang、低温工况等对负极析锂的影响，并提出材料与工艺方面的优化对策。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/e-WHiaPHIwz-5CinNJgxxg" target="_blank">https://mp.weixin.qq.com/s/e-WHiaPHIwz-5CinNJgxxg</a></div>
+            <h3>丰元股份募资14.28亿元加码磷酸铁锂正极材料</h3>
+            <div class="src">来源：资本市场 · 2026-06-15</div>
+            <div class="abs">丰元股份募资不超14.28亿元，用于云南玉溪磷酸铁锂正极材料项目扩产，满足下游头部客户增量需求。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/CA2h4nlNAW0496NViVx0JQ" target="_blank">https://mp.weixin.qq.com/s/CA2h4nlNAW0496NViVx0JQ</a></div>
         </div>
-        <div class="divider"></div>
+        <div class="news-item">
+            <h3>电池厂加码扩产高压实磷酸铁锂</h3>
+            <div class="src">来源：产业趋势 · 2026-06-15</div>
+            <div class="abs">亿纬、国轩、宁德时代等头部企业加码高压实磷酸铁锂材料自供产能建设，推动LFP材料向高能量密度方向升级。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/UTecdytGs3ze9gBYRlugKw" target="_blank">https://mp.weixin.qq.com/s/UTecdytGs3ze9gBYRlugKw</a></div>
+        </div>
 
-        <h3>🏛️ 政策</h3>
-        <div class="news-item">
-            <div class="news-title">原有LiFSI和NaF产品不再建设！山东济宁年产15万吨电解液项目获批</div>
-            <div class="news-summary">山东立中年产15万吨电池电解液项目获批，包含锂电13万吨、钠电2万吨，但原规划的LiFSI和NaF产线取消。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/o3KwLbu8jCQIE5dXEgCr1g" target="_blank">https://mp.weixin.qq.com/s/o3KwLbu8jCQIE5dXEgCr1g</a></div>
-        </div>
-        <div class="divider"></div>
+        <div class="section-divider"></div>
 
-        <h3>📡 AIDC</h3>
+        <!-- 负极材料 -->
+        <h3>⚡ 负极材料</h3>
         <div class="news-item">
-            <div class="news-title">头部电池厂商集体入局，AIDC成"必争之地"</div>
-            <div class="news-summary">宁德时代、松下等头部电池厂商加码AIDC（人工智能数据中心）储能领域，推出高倍率专用电芯方案，开辟新增长极。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/ndBjLJz2MW7cv26RUaYBQg" target="_blank">https://mp.weixin.qq.com/s/ndBjLJz2MW7cv26RUaYBQg</a></div>
+            <h3>极薄铜箔产品信息一览</h3>
+            <div class="src">来源：产品汇总 · 2026-06-15</div>
+            <div class="abs">诺德、海亮、德福等厂商推出3-3.5μm极薄铜箔，可显著提升电池能量密度，成为下一代负极集流体主流方向。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg" target="_blank">https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg</a></div>
         </div>
-        <div class="divider"></div>
+        <div class="news-item">
+            <h3>33万吨负极项目终止，中科电气战略调整</h3>
+            <div class="src">来源：企业战略 · 2026-06-15</div>
+            <div class="abs">中科电气终止年产33万吨负极材料项目，集中资源推进泸州基地和阿曼海外基地，行业产能扩张趋于理性。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/I8NTPwsLDYieRKRxVam9Ig" target="_blank">https://mp.weixin.qq.com/s/I8NTPwsLDYieRKRxVam9Ig</a></div>
+        </div>
 
-        <h3>🎓 学术研究进展</h3>
-        <div class="news-item">
-            <div class="news-title">45年争议未解！锂电池嵌锂动力学到底该怎么测？</div>
-            <div class="news-summary">揭示现有嵌锂反应动力学测试方法存在根本缺陷，证实尚无标准手段能同时准确表征不同条件下的真实动力学。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/-9hUvuY1g2zg2PhwWc_65A" target="_blank">https://mp.weixin.qq.com/s/-9hUvuY1g2zg2PhwWc_65A</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">超快锂离子传输，Nature Nanotechnology！</div>
-            <div class="news-summary">BNNT中Li⁺传输速率比菲克扩散快31倍，具有锂优先增强特性，为超快离子导体设计提供新思路。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/1JzgnGQSHpSi5zdU4WvhWg" target="_blank">https://mp.weixin.qq.com/s/1JzgnGQSHpSi5zdU4WvhWg</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">双相催化协同调控硫转化与锂沉积，推动锂硫电池实用化</div>
-            <div class="news-summary">FeSyg双相催化体系实现0.52Ah软包电池364.8Wh/kg高能量密度，解决锂硫电池多硫化物穿梭问题。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/1qBKqgCKzcGdhQIoE5cGEw" target="_blank">https://mp.weixin.qq.com/s/1qBKqgCKzcGdhQIoE5cGEw</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">从"看结构"到"看过程"：云南大学团队提出电解液设计新范式</div>
-            <div class="news-summary">提出溶剂极化响应描述符τᵢ，筛选AN构建深共晶电解液体系，建立"过程导向"电解液设计新方法论。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ" target="_blank">https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">北京理工大学：PDA框架限域β-环糊精，锌负极超5000小时循环</div>
-            <div class="news-summary">Zn@PDA-β-CD界面修饰使锌负极对称电池实现超5000小时稳定循环，为水系锌电池负极保护提供新方案。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A" target="_blank">https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">重庆大学&香港城市大学AFM：次牛磺酸实现正负极界面协同调控</div>
-            <div class="news-summary">次牛磺酸电解液添加剂使Zn-Mn电池全电池5000次循环稳定运行，实现正负极界面协同调控。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/A8STGT5Ck6rkyqwh59cqPw" target="_blank">https://mp.weixin.qq.com/s/A8STGT5Ck6rkyqwh59cqPw</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">复旦大学AM：紧凑溶剂化助力超快充电钠离子电池</div>
-            <div class="news-summary">1.0M NaPF₆-DME电解液体系实现250A/g极限电流密度和100000次循环的超长寿命，突破钠电快充瓶颈。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/E9g7Ryfwk9u5m1QgyKjl3A" target="_blank">https://mp.weixin.qq.com/s/E9g7Ryfwk9u5m1QgyKjl3A</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">树脂衍生无定形碳中互连孔结构用于钠储存</div>
-            <div class="news-summary">采用PTCDA分子模板构建无定形碳，实现470.7mAh/g可逆容量，为钠电负极材料提供新设计思路。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/eAfM5zhYg-0Jlalp2XZ_kw" target="_blank">https://mp.weixin.qq.com/s/eAfM5zhYg-0Jlalp2XZ_kw</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">JACS：全新电解液设计准则兼顾低温抗冻与离子传导</div>
-            <div class="news-summary">提出SPI指数描述符，在-60°C极低温条件下锌电池仍能稳定循环超4800小时，为宽温域电解液设计提供普适准则。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/Ec_K1yaeFv_aQfWD7zXkQA" target="_blank">https://mp.weixin.qq.com/s/Ec_K1yaeFv_aQfWD7zXkQA</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">康奈尔大学EES：电极直接再生技术大幅降低回收成本</div>
-            <div class="news-summary">DEER工艺实现电极材料直接再生，容量恢复95%，制造成本降低56%，为锂电回收提供颠覆性技术路线。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/fXCcCZTxlA8LeqFhXDiIsA" target="_blank">https://mp.weixin.qq.com/s/fXCcCZTxlA8LeqFhXDiIsA</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">引入双氢键提升醚类电解液高电压稳定性</div>
-            <div class="news-summary">LiBH₄构建双氢键电解液体系，将醚类电解液氧化稳定性提升至5.54V，突破高压醚类电解液瓶颈。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/h82AvRX0IDUmd5sAkpOH4g" target="_blank">https://mp.weixin.qq.com/s/h82AvRX0IDUmd5sAkpOH4g</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">电子科技大学：可解释机器学习揭示Li₂S不完全氧化导致Li-S电池失效</div>
-            <div class="news-summary">机器学习模型揭示Li₂S不完全氧化是Li-S电池失效关键，分段充电策略可延长电池寿命83%。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/jctURdzEkWNdnrTe-ckqIg" target="_blank">https://mp.weixin.qq.com/s/jctURdzEkWNdnrTe-ckqIg</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">多重氢键协同：30分钟自修复聚合物电解质</div>
-            <div class="news-summary">UEP聚合物电解质在60°C下30分钟自修复，离子电导率恢复98%，为长效锂金属电池提供自修复电解质方案。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/qe117auAtu8IQ9aGpA9quQ" target="_blank">https://mp.weixin.qq.com/s/qe117auAtu8IQ9aGpA9quQ</a></div>
-        </div>
-        <div class="news-item">
-            <div class="news-title">面向无堆叠压力全固态微电池的结构可编程固态电解质</div>
-            <div class="news-summary">提出结构可编程固态电解质概念，在无外压条件下实现微电池内部界面稳定，为全固态微电池集成提供新路径。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/SEpBW4AY5Kj2mc4I5ORFig" target="_blank">https://mp.weixin.qq.com/s/SEpBW4AY5Kj2mc4I5ORFig</a></div>
-        </div>
-        <div class="divider"></div>
+        <div class="section-divider"></div>
 
-        <h3>🧩 其他</h3>
+        <!-- 正极材料 -->
+        <h3>🧴 正极材料</h3>
         <div class="news-item">
-            <div class="news-title">召回1.7万辆汽车！因LG新能源电芯存热失控风险</div>
-            <div class="news-summary">LG电芯因工艺缺陷导致热失控风险，克莱斯勒召回17277辆Pacifica插电混动车型，凸显电芯品质管控重要性。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/3p0z0GMUvjDZNWVbZQFPxg" target="_blank">https://mp.weixin.qq.com/s/3p0z0GMUvjDZNWVbZQFPxg</a></div>
+            <h3>正极材料周报：容百科技NFPP循环超15000次</h3>
+            <div class="src">来源：产业周报 · 2026-06-15</div>
+            <div class="abs">容百科技钠电正极材料NFPP循环超15000次；龙蟠科技印尼扩产12万吨磷酸铁锂，中国正极材料企业加速全球化布局。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/lTsQ2p9R-lNRb_VtZevC8A" target="_blank">https://mp.weixin.qq.com/s/lTsQ2p9R-lNRb_VtZevC8A</a></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- AIDC -->
+        <h3>🖥️ AIDC</h3>
+        <div class="news-item">
+            <h3>头部电池厂商集体入局，AIDC成"必争之地"</h3>
+            <div class="src">来源：行业趋势 · 2026-06-15</div>
+            <div class="abs">宁德时代推出300+Ah钠电池布局AIDC储能场景，头部电池厂纷纷将AI数据中心作为新的增长极，高安全、长寿命电芯需求攀升。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/ndBjLJz2MW7cv26RUaYBQg" target="_blank">https://mp.weixin.qq.com/s/ndBjLJz2MW7cv26RUaYBQg</a></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- 学术研究进展 -->
+        <h3>📄 学术研究进展</h3>
+        <div class="news-item">
+            <h3>45年争议未解！锂电池嵌锂动力学到底该怎么测？</h3>
+            <div class="src">来源：学术讨论 · 2026-06-15</div>
+            <div class="abs">韩国团队系统验证三种嵌锂动力学测试方法均有缺陷，提出优化校正模型，为锂电池充放电机制研究提供更可靠工具。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/-9hUvuY1g2zg2PhwWc_65A" target="_blank">https://mp.weixin.qq.com/s/-9hUvuY1g2zg2PhwWc_65A</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">运达首个海外储能工厂揭幕</div>
-            <div class="news-summary">运达巴西卡马萨里储能工厂揭幕，设计年产能1.5GWh，标志着中国储能企业海外本地化制造迈出重要一步。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw" target="_blank">https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw</a></div>
+            <h3>超快锂离子传输，Nature Nanotechnology</h3>
+            <div class="src">来源：学术期刊 · 2026-06-15</div>
+            <div class="abs">BNNT膜中锂离子传输速率比菲克扩散快31倍，揭示锂离子优先增强传输机制，为快充电池隔膜/电解质设计提供新思路。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/1JzgnGQSHpSi5zdU4WvhWg" target="_blank">https://mp.weixin.qq.com/s/1JzgnGQSHpSi5zdU4WvhWg</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">比亚迪储能配套！匈牙利最大储能项目投运</div>
-            <div class="news-summary">比亚迪提供288.6MWh魔方电池，匈牙利99.8MW/288.6MWh储能项目正式投运，为中国储能出海标杆项目。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/AYoTgnA5aNViPcYAd7bAEQ" target="_blank">https://mp.weixin.qq.com/s/AYoTgnA5aNViPcYAd7bAEQ</a></div>
+            <h3>双相催化协同调控硫转化与锂沉积，锂硫电池364.8 Wh/kg</h3>
+            <div class="src">来源：学术前沿 · 2026-06-15</div>
+            <div class="abs">FePcCl相分离构筑均相/非均相协同催化剂，软包电池达364.8 Wh/kg，解决锂硫电池穿梭效应和锂枝晶难题。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/1qBKqgCKzcGdhQIoE5cGEw" target="_blank">https://mp.weixin.qq.com/s/1qBKqgCKzcGdhQIoE5cGEw</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">5.4GWh！宁德时代斩获储能大单</div>
-            <div class="news-summary">宁德时代获澳洲2.4GWh及芬兰3GWh储能订单，合计5.4GWh，进一步巩固全球储能市场龙头地位。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/BN_LVYHma0r6Myi9p-tp8g" target="_blank">https://mp.weixin.qq.com/s/BN_LVYHma0r6Myi9p-tp8g</a></div>
+            <h3>PDA限域β-环糊精实现锌负极超5000小时稳定循环</h3>
+            <div class="src">来源：学术论文 · 2026-06-15</div>
+            <div class="abs">北京理工大学通过PDA框架限域β-环糊精界面设计，锌负极对称电池循环超5000小时，推动水系锌电池实用化。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/8HdTLQ7n26deMrclhbKXOA" target="_blank">https://mp.weixin.qq.com/s/8HdTLQ7n26deMrclhbKXOA</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">极薄铜箔产品信息一览</div>
-            <div class="news-summary">各厂商极薄铜箔产品汇总：诺德3.5μm、海亮3μm、德福3μm已实现量产，推动电池集流体轻薄化。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/6bemDe68cJCXwgQfmizI9A" target="_blank">https://mp.weixin.qq.com/s/6bemDe68cJCXwgQfmizI9A</a></div>
+            <h3>可解释机器学习揭示Li2S不完全氧化导致Li-S电池失效</h3>
+            <div class="src">来源：学术论文 · 2026-06-15</div>
+            <div class="abs">电子科技大学团队利用可解释机器学习揭示Li2S不完全氧化是锂硫电池失效主因，分段充电策略可延长寿命83%。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/jctURdzEkWNdnrTe-ckqIg" target="_blank">https://mp.weixin.qq.com/s/jctURdzEkWNdnrTe-ckqIg</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">碳酸锂回收利用技术工艺</div>
-            <div class="news-summary">湿法冶金为主流工艺，锂回收率>90%，并综述了直接回收、生物技术等新兴方向，锂电回收技术路线日趋成熟。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg" target="_blank">https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg</a></div>
+            <h3>树脂衍生无定形碳负极：互连孔结构实现高效钠储存</h3>
+            <div class="src">来源：学术论文 · 2026-06-15</div>
+            <div class="abs">分子工程构筑连通孔无定形碳负极，50 mA/g下容量470.7 mAh/g，为钠离子电池高容量负极材料设计提供新路径。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/eAfM5zhYg-0Jlalp2XZ_kw" target="_blank">https://mp.weixin.qq.com/s/eAfM5zhYg-0Jlalp2XZ_kw</a></div>
         </div>
         <div class="news-item">
-            <div class="news-title">总规划产能25亿㎡！宇程科技江苏隔膜生产基地一期贯通</div>
-            <div class="news-summary">宇程科技一期2.5亿㎡高耐温聚酰亚胺锂电池隔膜产线贯通，隔膜国产化替代进程加速。</div>
-            <div class="news-link">🔗 <a href="https://mp.weixin.qq.com/s/SSNU-ZR1TzO2jcs5GVYuEA" target="_blank">https://mp.weixin.qq.com/s/SSNU-ZR1TzO2jcs5GVYuEA</a></div>
+            <h3>电极直接再生技术大幅降低锂电回收成本与能耗</h3>
+            <div class="src">来源：学术论文 · 2026-06-15</div>
+            <div class="abs">康奈尔大学DEER工艺通过电化学溶解EEI界面层，电池容量恢复至95%，显著降低回收能耗与成本，推动直接再生商业化。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/fXCcCZTxlA8LeqFhXDiIsA" target="_blank">https://mp.weixin.qq.com/s/fXCcCZTxlA8LeqFhXDiIsA</a></div>
+        </div>
+        <div class="news-item">
+            <h3>多重氢键自修复聚合物电解质：30分钟自修复，循环超4000h</h3>
+            <div class="src">来源：学术论文 · 2026-06-15</div>
+            <div class="abs">多重氢键自修复聚合物电解质60°C电导率9.07×10⁻⁴ S/cm，锂金属电池循环超4000小时，解决固态电解质界面损伤问题。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/PpI6n1Z1JRN3o-QEsf0quQ" target="_blank">https://mp.weixin.qq.com/s/PpI6n1Z1JRN3o-QEsf0quQ</a></div>
+        </div>
+        <div class="news-item">
+            <h3>探秘纳米级电化学界面：SECCM的崛起与未来</h3>
+            <div class="src">来源：学术综述 · 2026-06-15</div>
+            <div class="abs">扫描电化学池显微镜（SECCM）技术综述，实现电池界面纳米级原位电化学分析，为电极/电解质界面研究提供尖端工具。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/r-Z0Ct0dpnvqN4bM_EBbBQ" target="_blank">https://mp.weixin.qq.com/s/r-Z0Ct0dpnvqN4bM_EBbBQ</a></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- 其他 -->
+        <h3>📂 其他</h3>
+        <div class="news-item">
+            <h3>碳酸锂回收利用技术工艺（湿法冶金）</h3>
+            <div class="src">来源：技术科普 · 2026-06-15</div>
+            <div class="abs">湿法冶金回收碳酸锂回收率>90%，纯度达电池级99.5%以上，实现废旧电池中锂资源的高效闭环利用。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/8CHf-kNtoa0iB0RPYbp91Q" target="_blank">https://mp.weixin.qq.com/s/8CHf-kNtoa0iB0RPYbp91Q</a></div>
+        </div>
+        <div class="news-item">
+            <h3>负极析锂分析与对策：overhang和N/P比深度解析</h3>
+            <div class="src">来源：技术科普 · 2026-06-15</div>
+            <div class="abs">系统分析锂电池负极析锂机理与影响因素，提出N/P比优化、充电策略调控等工程化解决方案，指导电池设计。</div>
+            <div class="link"><a href="https://mp.weixin.qq.com/s/e-WHiaPHIwz-5CinNJgxxg" target="_blank">https://mp.weixin.qq.com/s/e-WHiaPHIwz-5CinNJgxxg</a></div>
         </div>
     </div>
 
-    <div id="hotwords" class="card">
-        <h2>🔑 今日热点词汇</h2>
-        <div class="tag-list">
-            <span class="tag">固态电池</span>
-            <span class="tag">半固态</span>
-            <span class="tag">磷酸铁锂</span>
-            <span class="tag">高压实</span>
-            <span class="tag">钠离子电池</span>
-            <span class="tag">负极材料</span>
-            <span class="tag">电解液</span>
-            <span class="tag">储能</span>
-            <span class="tag">AIDC</span>
-            <span class="tag">回收</span>
-            <span class="tag">析锂</span>
-            <span class="tag">铜箔</span>
-            <span class="tag">隔膜</span>
-            <span class="tag">锌电池</span>
-            <span class="tag">锂硫电池</span>
-            <span class="tag">聚合物电解质</span>
-            <span class="tag">自修复</span>
-            <span class="tag">热失控</span>
-            <span class="tag">产线投产</span>
-            <span class="tag">能量密度</span>
+    <!-- 今日热点词汇 -->
+    <div class="card" id="hot">
+        <h2>🔥 今日热点词汇</h2>
+        <div class="hotwords">
+            <span>固态电解质</span>
+            <span>磷酸铁锂</span>
+            <span>钠离子电池</span>
+            <span>负极材料</span>
+            <span>富锂锰基</span>
+            <span>半固态电池</span>
+            <span>正极材料</span>
+            <span>铜箔</span>
+            <span>锂硫电池</span>
+            <span>自修复电解质</span>
+            <span>锌负极</span>
+            <span>碳酸锂回收</span>
+            <span>高压实</span>
+            <span>AIDC</span>
+            <span>无定形碳</span>
+            <span>析锂</span>
+            <span>SECCM</span>
+            <span>NFPP</span>
+            <span>大圆柱电池</span>
+            <span>电极再生</span>
         </div>
+    </div>
+
+    <div class="footer-note">
+        中央研究院日报 · 监测时段：2026-06-15 00:00 — 2026-06-15 23:59（北京时间）<br>
+        数据来源：公开新闻整理 · 仅供内部参考
     </div>
 </div>
+
 <script>
-(function(){
-    let c = document.getElementById('visitCounter');
-    let v = localStorage.getItem('dailyReportVisit') || 0;
-    v = parseInt(v) + 1;
-    localStorage.setItem('dailyReportVisit', v);
-    c.textContent = v;
+(function() {
+    var key = 'cai_daily_view_count';
+    var count = parseInt(localStorage.getItem(key)) || 0;
+    count += 1;
+    localStorage.setItem(key, count);
+    document.getElementById('viewCount').textContent = count;
 })();
 </script>
 </body>
