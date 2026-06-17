@@ -1,445 +1,275 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中央研究院日报</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #f5f7fa;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
-            color: #1e293b;
-            padding: 20px 16px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-        @media (max-width: 640px) {
-            .container { padding: 16px; border-radius: 12px; }
-        }
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-            color: #0f172a;
-        }
-        .sub-title {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .sub-title .eye {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: #e2e8f0;
-            border-radius: 20px;
-            padding: 2px 12px;
-            font-size: 0.8rem;
-            color: #334155;
-        }
-        .eye svg {
-            width: 16px;
-            height: 16px;
-            fill: none;
-            stroke: #475569;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        .nav {
-            margin-bottom: 1.2rem;
-            font-size: 0.85rem;
-        }
-        .nav a {
-            display: inline-block;
-            margin-right: 1rem;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .nav a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            margin-top: 2rem;
-        }
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            border-left: 5px solid #2563eb;
-            padding-left: 14px;
-            margin-bottom: 1rem;
-            color: #0f172a;
-        }
-        .headline-card {
-            background: #eef2ff;
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 1rem;
-        }
-        .headline-card h3 {
-            font-size: 1.1rem;
-            color: #1e3a5f;
-            margin-bottom: 6px;
-        }
-        .headline-card .src {
-            font-size: 0.75rem;
-            color: #64748b;
-            margin-bottom: 4px;
-        }
-        .headline-card p {
-            font-size: 0.9rem;
-            color: #334155;
-            margin-bottom: 6px;
-        }
-        .headline-card .url {
-            font-size: 0.75rem;
-            word-break: break-all;
-            color: #2563eb;
-        }
-        .headline-card .url a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .headline-card .url a:hover {
-            text-decoration: underline;
-        }
-        .block {
-            margin-bottom: 2rem;
-        }
-        .block h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 0.8rem;
-            padding-bottom: 4px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .news-item {
-            margin-bottom: 1rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px dashed #e9edf2;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .news-item h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 3px;
-        }
-        .news-item .src {
-            font-size: 0.7rem;
-            color: #94a3b8;
-            margin-bottom: 2px;
-        }
-        .news-item p {
-            font-size: 0.85rem;
-            color: #475569;
-            margin-bottom: 4px;
-        }
-        .news-item .url {
-            font-size: 0.7rem;
-            word-break: break-all;
-        }
-        .news-item .url a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .news-item .url a:hover {
-            text-decoration: underline;
-        }
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, #cbd5e1, transparent);
-            margin: 1.8rem 0;
-        }
-        .keywords {
-            margin-top: 2rem;
-            padding: 16px 20px;
-            background: #f8fafc;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-        .keywords h2 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .keywords .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 14px;
-        }
-        .keywords .tag {
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            border-radius: 20px;
-            padding: 2px 14px;
-            font-size: 0.8rem;
-            color: #1e293b;
-        }
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中央研究院日报</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;color:#1a1a2e}
+.container{max-width:900px;margin:32px auto;padding:0 16px}
+.header-card{background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:24px}
+.card{background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:24px}
+.header-flex{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.header-left{flex:1}
+#main-title{font-size:1.8rem;font-weight:700;color:#1e293b;margin-bottom:4px}
+#monitor{font-size:.85rem;color:#64748b;margin-bottom:8px}
+.header-right{display:flex;align-items:center;gap:8px;font-size:.9rem;color:#475569}
+.visitor-icon{font-size:1.3rem;margin-right:4px}
+#visitor-count{font-weight:600;color:#2563eb;min-width:24px;text-align:center}
+.header-nav{margin-top:12px;display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem}
+.header-nav a{color:#2563eb;text-decoration:none;font-weight:500;transition:color .2s}
+.header-nav a:hover{color:#1e40af;text-decoration:underline}
+.hotspot{background:#f1f5f9;border-radius:12px;padding:16px;margin-top:20px}
+.hotspot h3{font-size:1rem;margin-bottom:8px;color:#334155}
+.hotspot-tags{display:flex;flex-wrap:wrap;gap:8px}
+.hotspot-tag{background:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:.8rem;color:#1e293b}
+.news-card{margin-bottom:12px}
+.news-title{font-weight:600;font-size:1.05rem;margin-bottom:4px;color:#1e293b}
+.news-summary{font-size:.9rem;color:#475569;margin-bottom:4px}
+.news-url{font-size:.75rem;color:#64748b;word-break:break-all}
+.news-url a{color:#2563eb;text-decoration:none}
+.news-url a:hover{text-decoration:underline}
+.section-divider{height:1px;background:#e2e8f0;margin:24px 0}
+h2{font-size:1.3rem;font-weight:700;color:#1e293b;margin-bottom:16px;padding-left:12px;border-left:4px solid #2563eb}
+.featured-card{background:#eef2ff;border-radius:12px;padding:20px;margin-bottom:16px}
+.featured-card .news-card{border-bottom:1px solid #dbeafe;padding-bottom:12px;margin-bottom:12px}
+.featured-card .news-card:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+@media(max-width:640px){.container{padding:0 12px}.header-card,.card{padding:16px}#main-title{font-size:1.4rem}.header-nav{gap:8px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- 标题区域 -->
-        <h1>中央研究院日报</h1>
-        <div class="sub-title">
-            <span>监测时段：2026年6月16日（北京时间）</span>
-            <span class="eye">
-                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                <span id="visitCount">1</span>
-            </span>
-        </div>
-        <div class="nav">
-            <a href="#headlines">头条新闻</a>
-            <a href="#info">资讯信息</a>
-            <a href="#hotwords">今日热点词汇</a>
-        </div>
+<div class="container">
 
-        <!-- 头条新闻 -->
-        <div id="headlines" class="section">
-            <div class="section-title">头条新闻</div>
-            <div class="headline-card">
-                <h3>晶核能源推出全球首款机器人专用固态电池，60Ah电芯能量密度超450Wh/kg</h3>
-                <div class="src">来源：微信公众号</div>
-                <p>晶核能源在上海新材料展发布全球首款机器人专用固态电池，60Ah硫化物全固态电芯能量密度超450Wh/kg，计划2026年小批量交付。</p>
-                <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/v2CE53ZoUzCB7mLo-hzNww" target="_blank">https://mp.weixin.qq.com/s/v2CE53ZoUzCB7mLo-hzNww</a></div>
-            </div>
-            <div class="headline-card">
-                <h3>湖北年产10万吨高压实磷酸铁锂项目落地，总投资10亿元</h3>
-                <div class="src">来源：微信公众号</div>
-                <p>荆门金泉新建年产10万吨高压实（≥2.6g/cm³）磷酸铁锂项目，总投资10亿元，进一步扩充正极材料产能。</p>
-                <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg" target="_blank">https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg</a></div>
-            </div>
-        </div>
-
-        <!-- 资讯信息 -->
-        <div id="info" class="section">
-            <div class="section-title">资讯信息</div>
-
-            <!-- 动力电池 -->
-            <div class="block">
-                <h2>动力电池</h2>
-                <div class="news-item">
-                    <h3>探厂绵阳创明：全极耳大圆柱数智化标杆工厂</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>创明新能源全极耳大圆柱电池满产满销，良品率99.5%，订单排至2027年。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/0HakWjoKRwBPtuR3Ws2O6g" target="_blank">https://mp.weixin.qq.com/s/0HakWjoKRwBPtuR3Ws2O6g</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>干法电极与4680电池：从理想适配到量产突围</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>特斯拉全干法4680电池量产，电芯能量密度295Wh/kg，成本降12%。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/1j3C6Wc_3gOuFEqOLXSIbA" target="_blank">https://mp.weixin.qq.com/s/1j3C6Wc_3gOuFEqOLXSIbA</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>总投资近百亿！100GWh！中创新航山东枣庄多个电池项目获批</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>中创新航山东枣庄电池项目获批，总投资99亿元，总产能100GWh。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q" target="_blank">https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>软包电池DCR阻抗分解的方法知多少</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>拆解分析软包电芯DCR组成：正极贡献41%，负极36%，集流体18%，隔膜5%。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/s3FcXH9vy-0BOOePbUKGZQ" target="_blank">https://mp.weixin.qq.com/s/s3FcXH9vy-0BOOePbUKGZQ</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>万顺新材：10万吨储能及动力电池铝箔项目今年将分步投产</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>万顺新材年产10万吨电池铝箔项目将分步投产，达因电池铝箔已供应钠电池客户。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/ZqPNt_CJSaBx4Vf_Jkp7gw" target="_blank">https://mp.weixin.qq.com/s/ZqPNt_CJSaBx4Vf_Jkp7gw</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 固态电池 -->
-            <div class="block">
-                <h2>固态电池</h2>
-                <div class="news-item">
-                    <h3>4.4亿！科力远固态储能产业项目落地河北</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>科力远投建100MW/400MWh混合储能电站，含10MW固态电池系统。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/FPAqcw4Kamucqyyl-zIZCw" target="_blank">https://mp.weixin.qq.com/s/FPAqcw4Kamucqyyl-zIZCw</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>晶核能源推出全球首款机器人专用固态电池</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>晶核能源发布60Ah硫化物全固态电芯，能量密度超450Wh/kg，2026年小批量交付。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/v2CE53ZoUzCB7mLo-hzNww" target="_blank">https://mp.weixin.qq.com/s/v2CE53ZoUzCB7mLo-hzNww</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>奇瑞犀牛电池深度解析！400Wh/kg电芯</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>奇瑞发布犀牛电池，全固态电芯400Wh/kg，2026年Q4星途EX7搭载半固态电池。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/ztriqrGxf5e29gk8wwlfww" target="_blank">https://mp.weixin.qq.com/s/ztriqrGxf5e29gk8wwlfww</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 钠离子电池 -->
-            <div class="block">
-                <h2>钠离子电池</h2>
-                <div class="news-item">
-                    <h3>总投资35亿元！超威集团安庆钠电池项目一期投产</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>超威安庆钠电池项目一期2GWh投产，总投资35亿元，总规划6.5GWh。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/iVFGEjc3FC5rXByCjyGIWw" target="_blank">https://mp.weixin.qq.com/s/iVFGEjc3FC5rXByCjyGIWw</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>总投资15亿元！福建泉州落户一新型钠电池生产基地</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>隐功科技新型钠离子电池生产基地落地泉州，总投资15亿元。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/of1F3rerl0ATx18KV3ki4g" target="_blank">https://mp.weixin.qq.com/s/of1F3rerl0ATx18KV3ki4g</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 磷酸铁锂电池 -->
-            <div class="block">
-                <h2>磷酸铁锂电池</h2>
-                <div class="news-item">
-                    <h3>湖北年产10万吨高压实磷酸铁锂项目落地</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>荆门金泉新建年产10万吨高压实(≥2.6g/cm³)磷酸铁锂项目，投资10亿元。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg" target="_blank">https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>24.75亿！年产50万吨高端储能用磷酸铁锂项目</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>富临精工拟募资建设年产50万吨高端储能用磷酸铁锂项目，使用募资24.75亿元。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/WrD-ObjP0EUM52WvCoImyQ" target="_blank">https://mp.weixin.qq.com/s/WrD-ObjP0EUM52WvCoImyQ</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 负极材料 -->
-            <div class="block">
-                <h2>负极材料</h2>
-                <div class="news-item">
-                    <h3>东南大学等AM：优选(110)晶面取向提升水系铁离子电池循环稳定性</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>高[110]取向铁负极使水系铁离子电池在5A/g下循环8540次，容量保持率99.3%。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A" target="_blank">https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 政策 -->
-            <div class="block">
-                <h2>政策</h2>
-                <div class="news-item">
-                    <h3>不只是锂价重回17万元！锂钴镍等升级国家战略性矿产！</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>锂钴镍等36种矿产列入国家战略性矿产资源目录，锂需求预计增长353%。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/kS4y9cYBmbZ6zEYDqLq4tA" target="_blank">https://mp.weixin.qq.com/s/kS4y9cYBmbZ6zEYDqLq4tA</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 学术研究进展 -->
-            <div class="block">
-                <h2>学术研究进展</h2>
-                <div class="news-item">
-                    <h3>北京理工大学陈人杰等ACS Nano：电流间歇弛豫法解锁单晶高镍锂电正极潜在性能</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>脉冲电流策略使单晶高镍正极首次放电容量提升10.6%，300循环容量保持率大幅改善。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/GE7xXvF-ZQPzFoTOiC2NSA" target="_blank">https://mp.weixin.qq.com/s/GE7xXvF-ZQPzFoTOiC2NSA</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>东南大学等AM：优选(110)晶面取向提升水系铁离子电池循环稳定性</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>高[110]取向铁负极使水系铁离子电池在5A/g下循环8540次，容量保持率99.3%。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A" target="_blank">https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>亚纳米孔"筛"出高纯锂，破解盐湖提锂难题</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>自具微孔聚合物膜实现Li+/Mg2+选择性约230，制备出99.6%纯度电池级碳酸锂。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/q-0KCFos6I47rfSf1wlQPA" target="_blank">https://mp.weixin.qq.com/s/q-0KCFos6I47rfSf1wlQPA</a></div>
-                </div>
-            </div>
-            <div class="divider"></div>
-
-            <!-- 其他 -->
-            <div class="block">
-                <h2>其他</h2>
-                <div class="news-item">
-                    <h3>投资逾8.8亿元！贵州贵阳拟新建年产3万吨碳酸锂项目</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>贵州开阳拟建年产3万吨电池级碳酸锂项目，总投资8.8亿元。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g" target="_blank">https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g</a></div>
-                </div>
-                <div class="news-item">
-                    <h3>年产15万吨电池级碳酸锂项目一期拟落地贵州</h3>
-                    <div class="src">来源：微信公众号</div>
-                    <p>贵州开阳年产15万吨碳酸锂项目一期3万吨环评公示，投资8.8亿元。</p>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/arFvQB_XP4RZPdq18rg7gg" target="_blank">https://mp.weixin.qq.com/s/arFvQB_XP4RZPdq18rg7gg</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 今日热点词汇 -->
-        <div id="hotwords" class="keywords">
-            <h2>今日热点词汇</h2>
-            <div class="tag-list">
-                <span class="tag">固态电池</span>
-                <span class="tag">磷酸铁锂</span>
-                <span class="tag">钠离子电池</span>
-                <span class="tag">碳酸锂</span>
-                <span class="tag">全固态电芯</span>
-                <span class="tag">能量密度</span>
-                <span class="tag">高镍正极</span>
-                <span class="tag">负极材料</span>
-                <span class="tag">干法电极</span>
-                <span class="tag">大圆柱电池</span>
-                <span class="tag">产能投资</span>
-                <span class="tag">战略性矿产</span>
-                <span class="tag">集流体</span>
-                <span class="tag">电池回收</span>
-                <span class="tag">电解液</span>
-            </div>
-        </div>
+<!-- 标题栏 -->
+<div class="header-card">
+  <div class="header-flex">
+    <div class="header-left">
+      <div id="main-title">中央研究院日报</div>
+      <div id="monitor">监测时段：2026-06-16（北京时间）</div>
     </div>
-    <script>
-        // 模拟计数器：每次刷新+1（实际可用后端/本地存储）
-        let count = localStorage.getItem('dailyVisitCount');
-        if (count === null) {
-            count = 1;
-        } else {
-            count = parseInt(count) + 1;
-        }
-        localStorage.setItem('dailyVisitCount', count);
-        document.getElementById('visitCount').innerText = count;
-    </script>
+    <div class="header-right">
+      <span class="visitor-icon">👁</span>
+      <span>访问人次：</span>
+      <span id="visitor-count">0</span>
+    </div>
+  </div>
+  <div class="header-nav">
+    <a href="#headline">头条新闻</a>
+    <a href="#info">资讯信息</a>
+    <a href="#hotwords">今日热点词汇</a>
+  </div>
+</div>
+
+<!-- 头条新闻 -->
+<div class="card" id="headline" style="background:#eef2ff;border:1px solid #dbeafe">
+  <h2 style="border-left-color:#1d4ed8">头条新闻</h2>
+  <div class="featured-card">
+    <div class="news-card">
+      <div class="news-title">“宁王”董事长炮轰竞争对手挖人、偷技术！</div>
+      <div class="news-summary">曾毓群谈固态电池产业化，称宁德时代全固态电池研发成熟度仅4级，2027年有望小批量下线，2030年前难实现百万级装车，并批评行业恶意挖人、偷技术。</div>
+      <div class="news-url"><a href="https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ" target="_blank">https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-title">干法电极与4680电池：从理想适配到量产突围</div>
+      <div class="news-summary">特斯拉全干法4680电池已量产装车，干法正极良品率大幅提升，电芯能量密度达295Wh/kg，成本下降约12%，为锂电正极制造工艺重大突破。</div>
+      <div class="news-url"><a href="https://mp.weixin.qq.com/s/1j3C6Wc_3gOuFEqOLXSIbA" target="_blank">https://mp.weixin.qq.com/s/1j3C6Wc_3gOuFEqOLXSIbA</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 资讯信息 -->
+<div class="card" id="info">
+  <h2>资讯信息</h2>
+
+  <!-- 固态电池 -->
+  <h2>固态电池</h2>
+  <div class="news-card">
+    <div class="news-title">4.4亿！科力远固态储能产业项目落地河北</div>
+    <div class="news-summary">科力远子公司投建100MW/400MWh混合储能电站，含10MW/40MWh固态电池系统，总投资4.4亿元，为固态储能商业化重要进展。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/FPAqcw4Kamucqyyl-zIZCw" target="_blank">https://mp.weixin.qq.com/s/FPAqcw4Kamucqyyl-zIZCw</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">上海新材料展：晶核能源推出全球首款机器人专用固态电池</div>
+    <div class="news-summary">晶核能源发布机器人专用硫化物全固态电池，60Ah电芯能量密度超450Wh/kg，计划2026年启动小批量交付验证。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/w93a0Z_ST-F6cmlMSwiUQw" target="_blank">https://mp.weixin.qq.com/s/w93a0Z_ST-F6cmlMSwiUQw</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">奇瑞犀牛电池深度解析！400Wh/kg电芯、1500km续航</div>
+    <div class="news-summary">奇瑞发布犀牛电池，全固态电芯目标600Wh/kg，半固态版本2026年Q4装车；全固态2027年量产，首款搭载车型星途EX7。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/ZqPNt_CJSaBx4Vf_Jkp7gw" target="_blank">https://mp.weixin.qq.com/s/ZqPNt_CJSaBx4Vf_Jkp7gw</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">固态电池又被热议，宁德时代和赣锋锂业真正卡在哪一步？</div>
+    <div class="news-summary">分析宁德时代硫化物/复合电解质/锂金属负极布局及赣锋锂业固态电解质材料进展，讨论全固态产业化面临的关键挑战。</div>
+    <div class="news-url"><a href="https://caifuhao.eastmoney.com/news/20260616185907568840200" target="_blank">https://caifuhao.eastmoney.com/news/20260616185907568840200</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">4.4亿元！一固态＋磷酸铁锂储能产业项目落地河北保定</div>
+    <div class="news-summary">科力远定兴县混合独立储能电站项目，磷酸铁锂90MW/360MWh+固态电池10MW/40MWh，总投资4.4亿元。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/OylQUR2N9kvAukA4LG0YfQ" target="_blank">https://mp.weixin.qq.com/s/OylQUR2N9kvAukA4LG0YfQ</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 动力电池 -->
+  <h2>动力电池</h2>
+  <div class="news-card">
+    <div class="news-title">亿纬锂能上半年净利最高预增110%</div>
+    <div class="news-summary">亿纬锂能预计上半年净利31.3-33.7亿元，同比增95%-110%，固态电池已规划100MWh量产基地，储能电池出货20.38GWh反超动力电池。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/06MyEEcdIf-f5H2Yu89o8w" target="_blank">https://mp.weixin.qq.com/s/06MyEEcdIf-f5H2Yu89o8w</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">探厂绵阳创明：全极耳大圆柱数智化标杆工厂</div>
+    <div class="news-summary">创明新能源绵阳基地年产15GWh，全极耳大圆柱电芯内阻下降90%，订单排至2027年，兼容锂电、钠电、半固态柔性生产。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/0HakWjoKRwBPtuR3Ws2O6g" target="_blank">https://mp.weixin.qq.com/s/0HakWjoKRwBPtuR3Ws2O6g</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">新能源重卡“狂奔”！动力电池迎变局</div>
+    <div class="news-summary">新能源重卡5月渗透率达40.88%，政策推动600kWh以上大容量电池包布局，电池企业转向快充、长循环、轻量化综合能力比拼。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/AGabE4PDs6ijc-gBWBLgHg" target="_blank">https://mp.weixin.qq.com/s/AGabE4PDs6ijc-gBWBLgHg</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 磷酸铁锂电池 -->
+  <h2>磷酸铁锂电池</h2>
+  <div class="news-card">
+    <div class="news-title">湖北年产10万吨高压实磷酸铁锂项目落地</div>
+    <div class="news-summary">荆门金泉新材料投资10亿元建设年产10万吨高压实（≥2.6g/cm³）磷酸铁锂项目，面向亿纬锂能电芯产线及周边客户。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg" target="_blank">https://mp.weixin.qq.com/s/FpjvHjcyRiR2zeKVMQHLtg</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">24.75亿！年产50万吨高端储能用磷酸铁锂项目</div>
+    <div class="news-summary">富临精工拟向宁德时代定增募资，其中24.75亿元用于年产50万吨高端储能用磷酸铁锂项目一期，为大规模正极材料产能扩充。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/WrD-ObjP0EUM52WvCoImyQ" target="_blank">https://mp.weixin.qq.com/s/WrD-ObjP0EUM52WvCoImyQ</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 钠离子电池 -->
+  <h2>钠离子电池</h2>
+  <div class="news-card">
+    <div class="news-title">总投资35亿元！超威集团安庆钠电池项目一期投产</div>
+    <div class="news-summary">超威集团安庆超仁能源6.5GWh钠离子电池项目一期2GWh投产，总投资35亿元，年产200万组以上钠电池。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/iVFGEjc3FC5rXByCjyGIWw" target="_blank">https://mp.weixin.qq.com/s/iVFGEjc3FC5rXByCjyGIWw</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">对话中科海钠李树军：钠电池还没到拼产能的时候</div>
+    <div class="news-summary">中科海钠总经理称钠电行业核心是技术竞赛，商用车领域有望最先跑通商业闭环，已建成万吨级正负极材料和GWh级电芯产线。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/qjxklgQmD2DRJjBGhLb67w" target="_blank">https://mp.weixin.qq.com/s/qjxklgQmD2DRJjBGhLb67w</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 政策 -->
+  <h2>政策</h2>
+  <div class="news-card">
+    <div class="news-title">不只是锂价重回17万元！锂钴镍等升级国家战略性矿产！</div>
+    <div class="news-summary">锂、钴、镍等36种矿产列入国家战略性矿产资源目录，《矿产资源法实施条例》正式施行，强化战略性矿产全链条统筹。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/kS4y9cYBmbZ6zEYDqLq4tA" target="_blank">https://mp.weixin.qq.com/s/kS4y9cYBmbZ6zEYDqLq4tA</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 学术研究进展 -->
+  <h2>学术研究进展</h2>
+  <div class="news-card">
+    <div class="news-title">北京理工大学陈人杰等ACS Nano：电流间歇弛豫法解锁单晶高镍正极性能</div>
+    <div class="news-summary">脉冲电流循环模式将单晶高镍正极首次放电容量提升10.6%，300次循环容量保持率显著优于恒流模式，适配低温4.6V高压及软包电池。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/GE7xXvF-ZQPzFoTOiC2NSA" target="_blank">https://mp.weixin.qq.com/s/GE7xXvF-ZQPzFoTOiC2NSA</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">东南大学胡林峰等AM：优选(110)晶面取向大幅提升水系铁离子电池循环稳定性</div>
+    <div class="news-summary">高[110]取向铁负极有效抑制析氢与腐蚀，水系铁离子电池在5.0A/g下循环8540次，容量保持率99.3%。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A" target="_blank">https://mp.weixin.qq.com/s/wuJL9zMBuQ6kOTqt8Lob2A</a></div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 其他 -->
+  <h2>其他</h2>
+  <div class="news-card">
+    <div class="news-title">投资逾8.8亿元！贵州贵阳拟新建年产3万吨碳酸锂项目</div>
+    <div class="news-summary">贵州开阳“磷钛铁锂”项目一期3万吨电池级碳酸锂生产线环评公示，总投资8.8亿元，属百亿级耦合循环一体化工程子项目。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g" target="_blank">https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">总投资近百亿！100GWh！中创新航山东枣庄多个电池项目获批</div>
+    <div class="news-summary">中创新航山东枣庄三大电池项目获批，总投资99亿元，含50GWh商用车电池、50GWh储能电池及60GWh集成系统产能。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q" target="_blank">https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">【干货】亚纳米孔“筛”出高纯锂，破解盐湖提锂难题</div>
+    <div class="news-summary">自具微孔聚合物膜在电渗析中实现Li+/Mg²⁺高选择性分离（选择性约230），在模拟盐湖卤水中制备出纯度99.6%的电池级碳酸锂。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/q-0KCFos6I47rfSf1wlQPA" target="_blank">https://mp.weixin.qq.com/s/q-0KCFos6I47rfSf1wlQPA</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">200亿锂矿陷入治理乱象！刚果（金）马诺诺手握顶级资源却难变现</div>
+    <div class="news-summary">刚果金马诺诺锂矿资源价值超200亿美元，因矿权纠纷、治理乱象等长期无法商业化开发，错失锂价高峰窗口。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/T8lm3bx7I1hUDWNijk074A" target="_blank">https://mp.weixin.qq.com/s/T8lm3bx7I1hUDWNijk074A</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">总投资15亿元！湖南10万吨退役锂电池回收处理项目落地</div>
+    <div class="news-summary">澧县新能源循环经济项目开工，总投资15亿元，一期建设10万吨退役锂电池及光伏组件回收利用生产线。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/UVwrH5SyvRtISJ0Lo3lpkQ" target="_blank">https://mp.weixin.qq.com/s/UVwrH5SyvRtISJ0Lo3lpkQ</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">超5亿元！两大新型储能项目落户广东茂名</div>
+    <div class="news-summary">广东茂名电白区签约两大储能项目，总投资5.46亿元，含新能源电池制造及锂电池PACK生产基地。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/XEyPSJmhv6wcQdnhRHyx9A" target="_blank">https://mp.weixin.qq.com/s/XEyPSJmhv6wcQdnhRHyx9A</a></div>
+  </div>
+  <div class="news-card">
+    <div class="news-title">万顺新材：10万吨储能及动力电池铝箔项目今年将分步投产</div>
+    <div class="news-summary">万顺新材年产10万吨电池铝箔项目计划2026年分步投产，形成28.8万吨铝箔年产能，高达因电池铝箔已供货钠电池客户。</div>
+    <div class="news-url"><a href="https://mp.weixin.qq.com/s/YdcgfUlfS6QxL6VIZ1z_CA" target="_blank">https://mp.weixin.qq.com/s/YdcgfUlfS6QxL6VIZ1z_CA</a></div>
+  </div>
+</div>
+
+<!-- 今日热点词汇 -->
+<div class="card" id="hotwords">
+  <div class="hotspot">
+    <h3>今日热点词汇</h3>
+    <div class="hotspot-tags">
+      <span class="hotspot-tag">固态电池</span>
+      <span class="hotspot-tag">磷酸铁锂</span>
+      <span class="hotspot-tag">钠离子电池</span>
+      <span class="hotspot-tag">全固态</span>
+      <span class="hotspot-tag">能量密度</span>
+      <span class="hotspot-tag">干法电极</span>
+      <span class="hotspot-tag">4680电池</span>
+      <span class="hotspot-tag">硫化物</span>
+      <span class="hotspot-tag">锂金属负极</span>
+      <span class="hotspot-tag">复合电解质</span>
+      <span class="hotspot-tag">高压实</span>
+      <span class="hotspot-tag">单晶高镍</span>
+      <span class="hotspot-tag">水系铁离子</span>
+      <span class="hotspot-tag">碳酸锂</span>
+      <span class="hotspot-tag">战略矿产</span>
+      <span class="hotspot-tag">全极耳</span>
+      <span class="hotspot-tag">大圆柱</span>
+      <span class="hotspot-tag">回收利用</span>
+      <span class="hotspot-tag">盐湖提锂</span>
+      <span class="hotspot-tag">铝箔</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// 访问计数器（localStorage模拟）
+(function() {
+  let count = localStorage.getItem('bat_daily_visitor_count');
+  if (count === null) {
+    count = 0;
+  } else {
+    count = parseInt(count, 10);
+  }
+  count += 1;
+  localStorage.setItem('bat_daily_visitor_count', count);
+  document.getElementById('visitor-count').textContent = count;
+})();
+</script>
 </body>
 </html>
-```
