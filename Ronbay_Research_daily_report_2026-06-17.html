@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报 · 2026-06-17</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            line-height: 1.5;
+            color: #1e293b;
+            padding: 20px 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.02);
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-left h1 {
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .header-left .sub-line {
+            font-size: 15px;
+            color: #64748b;
+            font-weight: 400;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 6px;
+        }
+        .eye-count {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f1f5f9;
+            padding: 6px 14px 6px 12px;
+            border-radius: 30px;
+            font-size: 15px;
+            color: #334155;
+        }
+        .eye-count svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: #475569;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .eye-count span {
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+            min-width: 28px;
+            display: inline-block;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            margin-top: 14px;
+            width: 100%;
+            border-top: 1px solid #e9edf2;
+            padding-top: 14px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 450;
+            transition: color .15s;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.02);
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9edf2;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 550;
+            color: #0f172a;
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+        .card h3:first-of-type {
+            margin-top: 0;
+        }
+        .card p {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .card .url-small {
+            font-size: 13px;
+            color: #64748b;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+        .card .url-small a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .card .url-small a:hover {
+            text-decoration: underline;
+        }
+        .headline-card {
+            background: #eef2ff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }
+        .headline-card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 14px;
+            border-bottom: 2px solid #d0d9f5;
+            padding-bottom: 8px;
+        }
+        .headline-card h3 {
+            font-size: 17px;
+            font-weight: 550;
+            color: #0f172a;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+        .headline-card h3:first-of-type {
+            margin-top: 0;
+        }
+        .headline-card p {
+            font-size: 15px;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .headline-card .url-small {
+            font-size: 13px;
+            color: #475569;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+        .headline-card .url-small a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .headline-card .url-small a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            height: 1px;
+            background: #e0e6ed;
+            margin: 20px 0 18px;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            list-style: none;
+            padding: 0;
+        }
+        .tag-list li {
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: #1e293b;
+        }
+        .empty-msg {
+            color: #94a3b8;
+            font-size: 15px;
+            font-style: italic;
+            padding: 6px 0;
+        }
+        @media (max-width: 640px) {
+            body { padding: 12px 10px; }
+            .header-card { padding: 18px 16px; }
+            .header-left h1 { font-size: 22px; }
+            .card, .headline-card { padding: 18px 16px; }
+            .nav-links { gap: 4px 10px; }
+            .nav-links a { font-size: 13px; }
+            .tag-list li { font-size: 13px; padding: 4px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 标题区域 -->
+    <div class="header-card" id="top">
+        <div class="header-left">
+            <h1>中央研究院日报</h1>
+            <div class="sub-line">监测时段：2026-06-17</div>
+        </div>
+        <div class="header-right">
+            <div class="eye-count">
+                <svg viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span id="visitorCount">0</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#headline">头条新闻</a>
+            <a href="#info">资讯信息</a>
+            <a href="#hotwords">今日热点词汇</a>
+        </div>
+    </div>
+
+    <!-- 头条新闻 -->
+    <div class="headline-card" id="headline">
+        <h2>📌 头条新闻</h2>
+        <h3>动力转向富锂锰基，储能押注钠电，“反主流”的通用汽车？</h3>
+        <p>通用汽车电池负责人Kurt Kelty表示不再将磷酸铁锂用于电动车，转向富锂锰基电池（LMR）作为未来正极技术路线，可减少镍钴依赖且能量密度更高。同时与Peak Energy合作开发钠离子电池储能系统，服务电网侧储能。</p>
+        <div class="url-small">🔗 <a href="https://chuneng.ofweek.com/news/2026-06/ART-180220-8420-30691113.html" target="_blank">https://chuneng.ofweek.com/news/2026-06/ART-180220-8420-30691113.html</a></div>
+    </div>
+
+    <!-- 资讯信息 -->
+    <div class="card" id="info">
+        <h2>📋 资讯信息</h2>
+
+        <!-- 动力电池 -->
+        <h3 id="sect-power">动力电池</h3>
+        <h3>动力转向富锂锰基，储能押注钠电，“反主流”的通用汽车？</h3>
+        <p>通用汽车电池负责人Kurt Kelty表示不再将磷酸铁锂用于电动车，转向富锂锰基电池（LMR）作为未来正极技术路线，可减少镍钴依赖且能量密度更高。同时与Peak Energy合作开发钠离子电池储能系统，服务电网侧储能。</p>
+        <div class="url-small">🔗 <a href="https://chuneng.ofweek.com/news/2026-06/ART-180220-8420-30691113.html" target="_blank">https://chuneng.ofweek.com/news/2026-06/ART-180220-8420-30691113.html</a></div>
+
+        <div class="divider"></div>
+
+        <!-- 固态电池 -->
+        <h3 id="sect-solid">固态电池</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- 钠离子电池 -->
+        <h3 id="sect-na">钠离子电池</h3>
+        <div class="empty-msg">暂无独立新闻（上述动力电池新闻中提及钠电储能，已归入动力电池板块）</div>
+
+        <div class="divider"></div>
+
+        <!-- 磷酸铁锂电池 -->
+        <h3 id="sect-lfp">磷酸铁锂电池</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- 负极材料 -->
+        <h3 id="sect-anode">负极材料</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- 政策 -->
+        <h3 id="sect-policy">政策</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- AIDC -->
+        <h3 id="sect-aidc">AIDC</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- 学术研究进展 -->
+        <h3 id="sect-academic">学术研究进展</h3>
+        <div class="empty-msg">暂无相关信息</div>
+
+        <div class="divider"></div>
+
+        <!-- 其他 -->
+        <h3 id="sect-other">其他</h3>
+        <div class="empty-msg">暂无相关信息</div>
+    </div>
+
+    <!-- 今日热点词汇 -->
+    <div class="card" id="hotwords">
+        <h2>🔖 今日热点词汇</h2>
+        <ul class="tag-list">
+            <li>富锂锰基</li>
+            <li>磷酸铁锂</li>
+            <li>钠离子电池</li>
+            <li>通用汽车</li>
+            <li>正极材料</li>
+            <li>储能</li>
+            <li>LMR</li>
+            <li>Peak Energy</li>
+            <li>动力电池</li>
+            <li>技术路线</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- 小眼睛计数器：每访问一次+1，本地存储持久化 -->
+<script>
+(function() {
+    const key = 'zyy_daily_visitor_20260617';
+    let count = parseInt(localStorage.getItem(key), 10);
+    if (isNaN(count) || count < 0) count = 0;
+    count += 1;
+    localStorage.setItem(key, count);
+    document.getElementById('visitorCount').textContent = count;
+})();
+</script>
+
+</body>
+</html>
+```
