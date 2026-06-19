@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中央研究院日报</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f7fa; line-height: 1.5; color: #333; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.header { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.header h1 { font-size: 1.8rem; color: #1e293b; margin: 0; }
+.header .sub { font-size: 0.9rem; color: #64748b; margin: 4px 0 0 0; width: 100%; }
+.header .stats { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #64748b; white-space: nowrap; }
+.header .stats .eye { font-size: 1.2rem; }
+.header .nav { width: 100%; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; }
+.header .nav a { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
+.header .nav a:hover { text-decoration: underline; }
+.card { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.card h2 { font-size: 1.3rem; color: #1e293b; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+.card h3 { font-size: 1rem; color: #1e293b; margin: 12px 0 4px 0; }
+.card p { color: #475569; margin: 4px 0 8px 0; }
+.card .url { font-size: 0.8rem; color: #94a3b8; word-break: break-all; }
+.card .url a { color: #2563eb; text-decoration: none; }
+.card .url a:hover { text-decoration: underline; }
+.highlight { background: #eef2ff; }
+.separator { height: 1px; background: #e2e8f0; margin: 20px 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags span { background: #e2e8f0; padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; color: #334155; }
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  .header, .card { padding: 16px; }
+  .header h1 { font-size: 1.4rem; }
+  .header .nav { gap: 8px; }
+  .header .nav a { font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header" id="top">
+  <div>
+    <h1>中央研究院日报</h1>
+    <p class="sub">监测时段：2026-06-18</p>
+  </div>
+  <div class="stats">
+    <span class="eye">👁️</span>
+    <span>访问人次：<span id="counter">0</span></span>
+  </div>
+  <div class="nav">
+    <a href="#headlines">头条新闻</a>
+    <a href="#info">资讯信息</a>
+    <a href="#hotwords">今日热点词汇</a>
+  </div>
+</div>
+
+<div class="card highlight" id="headlines">
+  <h2>头条新闻</h2>
+  <div>
+    <h3>安徽省固态电池产业联盟成立！奇瑞、国轩等龙头企业共同发起</h3>
+    <p>安徽省固态电池产业联盟成立，国轩高科"金石"、奇瑞"鲲鹏"全固态电池亮相，涵盖固态电解质等上游关键材料环节，推动固态电池从实验室迈向量产。</p>
+    <p class="url"><a href="https://caifuhao.eastmoney.com/news/20260618144843701469940" target="_blank">https://caifuhao.eastmoney.com/news/20260618144843701469940</a></p>
+  </div>
+  <div style="margin-top:16px;">
+    <h3>暂无</h3>
+    <p>暂无</p>
+    <p class="url">暂无</p>
+  </div>
+</div>
+
+<div class="card" id="info">
+  <h2>资讯信息</h2>
+  <div>
+    <h2>固态电池</h2>
+    <h3>安徽省固态电池产业联盟成立！奇瑞、国轩等龙头企业共同发起</h3>
+    <p>安徽省固态电池产业联盟成立，国轩高科"金石"、奇瑞"鲲鹏"全固态电池亮相，涵盖固态电解质等上游关键材料环节，推动固态电池从实验室迈向量产。</p>
+    <p class="url"><a href="https://caifuhao.eastmoney.com/news/20260618144843701469940" target="_blank">https://caifuhao.eastmoney.com/news/20260618144843701469940</a></p>
+  </div>
+  <div class="separator"></div>
+  <div>
+    <p>暂无其他板块信息。</p>
+  </div>
+</div>
+
+<div class="card" id="hotwords">
+  <h2>今日热点词汇</h2>
+  <div class="tags">
+    <span>固态电池</span>
+    <span>产业联盟</span>
+    <span>全固态电池</span>
+    <span>国轩高科</span>
+    <span>奇瑞</span>
+    <span>固态电解质</span>
+    <span>安徽省</span>
+    <span>量产</span>
+    <span>上游材料</span>
+    <span>产业链</span>
+  </div>
+</div>
+
+</div>
+<script>
+let count = localStorage.getItem('visitorCount');
+if (count === null) { count = 0; }
+count = Number(count) + 1;
+localStorage.setItem('visitorCount', count);
+document.getElementById('counter').textContent = count;
+</script>
+</body>
+</html>
