@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报 2026-06-20</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .header-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+        .header-left h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: 1px;
+        }
+        .header-left .sub-line {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+        .header-right .counter-wrapper {
+            background: #eef2ff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .nav-links {
+            margin-top: 12px;
+            width: 100%;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 12px;
+        }
+        .nav-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        h2.section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .headline-card {
+            background: #eef2ff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .headline-card:last-child {
+            margin-bottom: 0;
+        }
+        .headline-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+        .headline-card p {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        .headline-card .url-link {
+            font-size: 0.8rem;
+            color: #6b7280;
+            word-break: break-all;
+        }
+        .headline-card .url-link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .headline-card .url-link a:hover {
+            text-decoration: underline;
+        }
+        .info-block {
+            margin-bottom: 24px;
+        }
+        .info-block h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            padding: 8px 0;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .info-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 6px;
+        }
+        .info-item p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+        .info-item .url-link {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        .info-item .url-link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .info-item .url-link a:hover {
+            text-decoration: underline;
+        }
+        .hotwords-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .hotwords-card span {
+            background: #f3f4f6;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+        }
+        .divider {
+            height: 1px;
+            background: #d1d5db;
+            margin: 24px 0;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+            .card {
+                padding: 16px;
+            }
+            .header-card {
+                padding: 16px;
+            }
+            .header-left h1 {
+                font-size: 1.4rem;
+            }
+            .headline-card {
+                padding: 16px;
+            }
+            .nav-links {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <div class="card header-card" id="top">
+            <div class="header-left">
+                <h1>中央研究院日报</h1>
+                <span class="sub-line">监测时段：2026-06-20</span>
+            </div>
+            <div class="header-right">
+                <div class="counter-wrapper">
+                    <span>👁️</span>
+                    <span>访问人次：<span id="visitor-counter">0</span></span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#headline">头条新闻</a>
+                <a href="#info">资讯信息</a>
+                <a href="#hotwords">今日热点词汇</a>
+            </div>
+        </div>
+
+        <!-- 头条新闻 -->
+        <div class="card" id="headline">
+            <h2 class="section-title">📌 头条新闻</h2>
+            <div class="headline-card">
+                <h3>比亚迪全球首条钠电量产线7月投产在即</h3>
+                <p>比亚迪位于青海西宁的全球首条钠电量产线计划于2026年7月正式投产，采用自研层状氧化物正极体系，能量密度约160Wh/kg，标志着钠电产业化迈出关键一步。</p>
+                <div class="url-link">来源：<a href="https://caifuhao.eastmoney.com/news/20260620104131932165470" target="_blank" rel="noopener noreferrer">https://caifuhao.eastmoney.com/news/20260620104131932165470</a></div>
+            </div>
+            <div class="headline-card">
+                <h3>宁德时代“天行二代”钠电池进入量产倒计时</h3>
+                <p>继比亚迪之后，宁德时代宣布其“天行二代轻商低温版”钠电池亦计划于7月实现量产，两大头部企业的同步推进有望加速钠电产业链成熟与规模化降本。</p>
+                <div class="url-link">来源：<a href="https://caifuhao.eastmoney.com/news/20260620104131932165470" target="_blank" rel="noopener noreferrer">https://caifuhao.eastmoney.com/news/20260620104131932165470</a></div>
+            </div>
+        </div>
+
+        <!-- 资讯信息 -->
+        <div class="card" id="info">
+            <h2 class="section-title">📰 资讯信息</h2>
+            <div class="info-block">
+                <h2>钠离子电池</h2>
+                <div class="info-item">
+                    <h3>头部企业密集布局，钠电产业化浪潮将至</h3>
+                    <p>据行业信息，比亚迪与宁德时代两大巨头均计划于今年7月集中上马钠电产线。其中，比亚迪青海西宁基地首条产线采用层状氧化物体系，能量密度达160Wh/kg；宁德时代天行二代钠电池同步量产，市场接受度与规模化降本将成为下一阶段重点。</p>
+                    <div class="url-link">来源：<a href="https://caifuhao.eastmoney.com/news/20260620104131932165470" target="_blank" rel="noopener noreferrer">https://caifuhao.eastmoney.com/news/20260620104131932165470</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 今日热点词汇 -->
+        <div class="card" id="hotwords">
+            <h2 class="section-title">🔥 今日热点词汇</h2>
+            <div class="hotwords-card">
+                <span>钠离子电池</span>
+                <span>层状氧化物</span>
+                <span>正极材料</span>
+                <span>比亚迪</span>
+                <span>宁德时代</span>
+                <span>量产</span>
+                <span>产能</span>
+                <span>能量密度</span>
+                <span>160Wh/kg</span>
+                <span>青海西宁</span>
+                <span>天行二代</span>
+                <span>轻商低温版</span>
+                <span>产线投产</span>
+                <span>产业化</span>
+                <span>规模化降本</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            let count = parseInt(localStorage.getItem('dailyVisitorCount20260620'), 10);
+            if (isNaN(count) || count < 0) {
+                count = 0;
+            }
+            count += 1;
+            localStorage.setItem('dailyVisitorCount20260620', count);
+            document.getElementById('visitor-counter').textContent = count;
+        })();
+    </script>
+</body>
+</html>
+```
