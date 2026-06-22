@@ -5,495 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>战略日报</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #f0f2f5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            padding: 20px;
-            color: #1f2937;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .header-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 28px 24px 20px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-            margin-bottom: 20px;
-        }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .header-title h1 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #0b2b4a;
-        }
-        .header-title .sub {
-            font-size: 14px;
-            color: #6b7280;
-            margin-top: 2px;
-        }
-        .eye-counter {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #f3f4f6;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 15px;
-            color: #374151;
-            white-space: nowrap;
-        }
-        .eye-counter svg {
-            width: 20px;
-            height: 20px;
-            fill: none;
-            stroke: #4b5563;
-            stroke-width: 1.8;
-        }
-        .eye-counter .count {
-            font-weight: 600;
-            color: #1e40af;
-            min-width: 24px;
-            text-align: center;
-        }
-        .nav-links {
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-            font-size: 14px;
-        }
-        .nav-links a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.1s;
-        }
-        .nav-links a:hover {
-            text-decoration: underline;
-            color: #1d4ed8;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-            margin-bottom: 20px;
-        }
-        .card h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0b2b4a;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        .headline-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .headline-item {
-            background: #eef2ff;
-            border-radius: 12px;
-            padding: 18px 20px;
-            border-left: 4px solid #2563eb;
-        }
-        .headline-item .h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 6px;
-        }
-        .headline-item .h3 a {
-            color: #111827;
-            text-decoration: none;
-        }
-        .headline-item .h3 a:hover {
-            color: #2563eb;
-            text-decoration: underline;
-        }
-        .headline-item .summary {
-            font-size: 14px;
-            color: #374151;
-            margin-bottom: 6px;
-        }
-        .headline-item .url {
-            font-size: 12px;
-            color: #6b7280;
-            word-break: break-all;
-        }
-        .headline-item .url a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .headline-item .url a:hover {
-            text-decoration: underline;
-        }
-        .news-item {
-            margin-bottom: 18px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .news-item .h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-        .news-item .h3 a {
-            color: #111827;
-            text-decoration: none;
-        }
-        .news-item .h3 a:hover {
-            color: #2563eb;
-            text-decoration: underline;
-        }
-        .news-item .summary {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 4px;
-        }
-        .news-item .url {
-            font-size: 12px;
-            color: #6b7280;
-            word-break: break-all;
-        }
-        .news-item .url a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .news-item .url a:hover {
-            text-decoration: underline;
-        }
-        .divider {
-            height: 1px;
-            background: #e5e7eb;
-            margin: 20px 0;
-        }
-        .negative .news-item .h3 a {
-            color: #991b1b;
-        }
-        .negative .news-item .h3 a:hover {
-            color: #b91c1c;
-        }
-        .hotwords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 12px;
-            padding-top: 4px;
-        }
-        .hotwords span {
-            background: #f3f4f6;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #1f2937;
-            font-weight: 500;
-            border: 1px solid #e5e7eb;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 12px;
-            }
-            .header-card {
-                padding: 18px 16px;
-            }
-            .header-title h1 {
-                font-size: 22px;
-            }
-            .card {
-                padding: 18px 16px;
-            }
-            .headline-item {
-                padding: 14px 16px;
-            }
-            .nav-links {
-                gap: 6px 14px;
-                font-size: 13px;
-            }
-            .eye-counter {
-                font-size: 13px;
-                padding: 4px 10px;
-            }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f5f7fa; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #1a1a2e; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 24px; padding: 20px 0; border-bottom: 2px solid #e0e5ec; }
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .header-left h1 { font-size: 28px; font-weight: 700; color: #1e293b; }
+        .header-left .sub { font-size: 14px; color: #64748b; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .eye-icon { font-size: 22px; cursor: default; }
+        .counter { background: #eef2ff; border-radius: 20px; padding: 4px 14px; font-size: 14px; font-weight: 600; color: #2563eb; }
+        .nav { margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .nav a { background: #ffffff; padding: 6px 16px; border-radius: 20px; font-size: 14px; color: #2563eb; text-decoration: none; border: 1px solid #dbeafe; transition: 0.2s; }
+        .nav a:hover { background: #dbeafe; }
+        .card { background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
+        .headline-card { background: #eef2ff; border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+        h2 { font-size: 22px; font-weight: 600; color: #1e293b; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #2563eb; display: inline-block; }
+        h3 { font-size: 18px; font-weight: 600; color: #1e293b; margin: 16px 0 6px; }
+        .news-item { margin-bottom: 20px; }
+        .summary { color: #475569; font-size: 15px; margin: 4px 0 8px; }
+        .link { font-size: 13px; color: #64748b; word-break: break-all; margin-top: 4px; }
+        .link a { color: #2563eb; text-decoration: none; }
+        .link a:hover { text-decoration: underline; }
+        .divider { height: 1px; background: linear-gradient(to right, #e2e8f0, transparent); margin: 28px 0; }
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .tag { background: #f1f5f9; color: #334155; padding: 4px 14px; border-radius: 20px; font-size: 14px; }
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            .card, .headline-card { padding: 16px; }
+            .header-left h1 { font-size: 22px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .header-right { align-self: flex-end; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 标题 -->
-        <div class="header-card">
-            <div class="header-top">
-                <div class="header-title">
-                    <h1>战略日报</h1>
-                    <div class="sub">监测时段：2026-06-21</div>
-                </div>
-                <div class="eye-counter">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>访问人次：</span>
-                    <span class="count" id="visitorCount">0</span>
-                </div>
+        <!-- 标题区域 -->
+        <div class="header">
+            <div class="header-left">
+                <h1>战略日报</h1>
+                <span class="sub">监测时段：2026-06-21</span>
             </div>
-            <div class="nav-links">
-                <a href="#headline">头条新闻</a>
-                <a href="#info">资讯信息</a>
-                <a href="#hotwords">今日热点词汇</a>
+            <div class="header-right">
+                <span class="eye-icon">👁️</span>
+                <span class="counter" id="visitCounter">0</span>
             </div>
+        </div>
+
+        <!-- 快捷导航 -->
+        <div class="nav">
+            <a href="#headline">头条新闻</a>
+            <a href="#cheduan">车端</a>
+            <a href="#dianchi">电池</a>
+            <a href="#gutaidianchi">固态电池</a>
+            <a href="#zhengjicailiao">正极材料</a>
+            <a href="#hotwords">今日热点词汇</a>
         </div>
 
         <!-- 头条新闻 -->
-        <div class="card" id="headline">
-            <h2>📌 头条新闻</h2>
-            <div class="headline-grid">
-                <div class="headline-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A" target="_blank">400Wh/kg突破、2GWh产线推进——全固态电池"中国速度"</a></div>
-                    <div class="summary">广汽全固态电池中试线2026年底装车试验；国轩"金石"电池突破400Wh/kg冲刺1元/Wh；比亚迪硫化物电池通过车规验证，2GWh中试线已投产。多家头部企业全固态电池产业化进程加速。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A" target="_blank">https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A</a></div>
-                </div>
-                <div class="headline-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/2h98jtR2ad6BaKEMCDYBMg" target="_blank">干法电极与4680电池：从理想适配到量产突围</a></div>
-                    <div class="summary">特斯拉2026年Q1实现全干法4680电池量产装车，能量密度295Wh/kg，成本较湿法降12%；干法正极复合粘结剂突破良率瓶颈，标志着干法电极技术进入大规模应用阶段。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/2h98jtR2ad6BaKEMCDYBMg" target="_blank">https://mp.weixin.qq.com/s/2h98jtR2ad6BaKEMCDYBMg</a></div>
-                </div>
+        <div id="headline" class="headline-card">
+            <h2 style="border-bottom-color: #1e40af; color: #1e3a8a;">头条新闻</h2>
+            
+            <div class="news-item">
+                <h3>"宁王"董事长炮轰竞争对手挖人、偷技术</h3>
+                <div class="summary">曾毓群指出行业恶性竞争：挖人窃技术、低价抢单；全固态电池2030年前难百万级装车；公司全固态电池成熟度仅TRL4级。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ" target="_blank">https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>400Wh/kg突破、2GWh产线推进——全固态电池"中国速度"</h3>
+                <div class="summary">广汽全固态电池中试线2026年底装车试验；国轩"金石"电池突破400Wh/kg冲刺1元/Wh；比亚迪硫化物电池通过车规验证，2GWh中试线已投产。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A" target="_blank">https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A</a></div>
             </div>
         </div>
 
-        <!-- 资讯信息 -->
-        <div class="card" id="info">
-            <h2>📰 资讯信息</h2>
-
-            <!-- 车端 -->
-            <div style="margin-bottom: 8px;">
-                <h3 style="font-size:18px; font-weight:700; color:#0b2b4a; margin-bottom:12px;">🚗 车端</h3>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/AP-7TFzDJFqQeIMJH2Emrw" target="_blank">一汽车巨头放弃磷酸铁锂电池！</a></div>
-                    <div class="summary">通用汽车放弃磷酸铁锂乘用车路线，转向富锂锰基(LMR)电池，能量密度比LFP高33%，计划2028年量产，成本目标80-90美元/kWh。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/AP-7TFzDJFqQeIMJH2Emrw" target="_blank">https://mp.weixin.qq.com/s/AP-7TFzDJFqQeIMJH2Emrw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/C5QhS7sxPPWzJAecNyxKig" target="_blank">新能源重卡"狂奔"！动力电池迎变局</a></div>
-                    <div class="summary">亿纬锂能构建332-842度电重卡电池矩阵；瑞浦兰钧推600kWh快充F箱等差异化方案；5月新能源重卡渗透率40.88%。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/C5QhS7sxPPWzJAecNyxKig" target="_blank">https://mp.weixin.qq.com/s/C5QhS7sxPPWzJAecNyxKig</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/eec9tMSOM8UeQ9BxrF9vcw" target="_blank">高端化再落一子 国轩高科正式配套问界M6</a></div>
-                    <div class="summary">国轩高科配套问界M6纯电版磷酸铁锂电池；国轩以32.2%装机占比居零跑第一大供应商，覆盖C16/C11/C10/B10等八款车型。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/eec9tMSOM8UeQ9BxrF9vcw" target="_blank">https://mp.weixin.qq.com/s/eec9tMSOM8UeQ9BxrF9vcw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/AknMxRPehD0kx-ei3Lcc3Q" target="_blank">中创新航、国轩高科入局，鸿蒙智行引入多家电池供应商</a></div>
-                    <div class="summary">鸿蒙智行引入中创新航、国轩高科为电池供应商；问界M6定点国轩81度电池包，智界新增国轩和欣旺达，均需通过华为"巨鲸电池"认证。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/AknMxRPehD0kx-ei3Lcc3Q" target="_blank">https://mp.weixin.qq.com/s/AknMxRPehD0kx-ei3Lcc3Q</a></div>
-                </div>
+        <!-- 车端板块 -->
+        <div id="cheduan" class="card">
+            <h2>车端</h2>
+            
+            <div class="news-item">
+                <h3>干法电极与4680电池：从理想适配到量产突围</h3>
+                <div class="summary">特斯拉2026年Q1实现全干法4680电池量产装车，能量密度295Wh/kg，成本较湿法降12%；干法正极复合粘结剂突破良率瓶颈。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/2h98jtR2ad6BaKEMCDYBMg" target="_blank">https://mp.weixin.qq.com/s/2h98jtR2ad6BaKEMCDYBMg</a></div>
             </div>
-
-            <div class="divider"></div>
-
-            <!-- 电池 -->
-            <div style="margin-bottom: 8px;">
-                <h3 style="font-size:18px; font-weight:700; color:#0b2b4a; margin-bottom:12px;">🔋 电池</h3>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/_2Ff7OgPc2Xfpiq-QY5rhw" target="_blank">比亚迪拟在巴西建储能工厂</a></div>
-                    <div class="summary">比亚迪计划投资5亿雷亚尔(约6.8亿人民币)在巴西建储能系统生产线，三个月内决定选址，配合巴西2026年2GW/8GWh储能招标。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/_2Ff7OgPc2Xfpiq-QY5rhw" target="_blank">https://mp.weixin.qq.com/s/_2Ff7OgPc2Xfpiq-QY5rhw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/1oVRdep7sFfa9bfuZd5rPw" target="_blank">亿纬锂能上半年净利最高预增110%</a></div>
-                    <div class="summary">亿纬锂能预计2026上半年归母净利润31.3-33.71亿元，同比增95%-110%；固态电池100MWh量产基地已规划，钠电储能系统已投运。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/1oVRdep7sFfa9bfuZd5rPw" target="_blank">https://mp.weixin.qq.com/s/1oVRdep7sFfa9bfuZd5rPw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/3WsK1MDhrBZb_DKuHxe4wg" target="_blank">曝比亚迪加码巴西电池产能布局</a></div>
-                    <div class="summary">比亚迪巴西扩电池产能，投入约1亿美元建储能系统配套电网；目标2027年巴西产整车本地零部件占比达50%。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/3WsK1MDhrBZb_DKuHxe4wg" target="_blank">https://mp.weixin.qq.com/s/3WsK1MDhrBZb_DKuHxe4wg</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw" target="_blank">SPIR：2026年5月500Ah+储能大电芯出货TOP5</a></div>
-                    <div class="summary">宁德时代587Ah、亿纬锂能628Ah、海辰储能587Ah/1175Ah、远景动力500-790Ah、比亚迪刀片500Ah+位列TOP5，渗透率约6%。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw" target="_blank">https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/5s6N8jV-Q_DVEPvP58kCLQ" target="_blank">鹏辉能源/华能新华/智平能源签订合作协议</a></div>
-                    <div class="summary">鹏辉能源与大庆市政府、华能新华、智平能源签约，以新型储能推动油田用能绿色转型。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/5s6N8jV-Q_DVEPvP58kCLQ" target="_blank">https://mp.weixin.qq.com/s/5s6N8jV-Q_DVEPvP58kCLQ</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/Fg2sl9C__zR4ffk9Qicyrw" target="_blank">5.4GWh！宁德时代斩获储能大单</a></div>
-                    <div class="summary">宁德时代获芬兰Merus Power约3GWh北欧储能订单及澳洲Edify Energy 2.4GWh储能订单，合计5.4GWh。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/Fg2sl9C__zR4ffk9Qicyrw" target="_blank">https://mp.weixin.qq.com/s/Fg2sl9C__zR4ffk9Qicyrw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/f5KbQ3PLEd5QOp82hWNBqg" target="_blank">欣旺达北京动力电池项目获批</a></div>
-                    <div class="summary">欣旺达投资53.67亿元在北京顺义建41.32GWh电池项目，含4条电芯产线+4条PACK线，预计2030年产值约95亿元。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/f5KbQ3PLEd5QOp82hWNBqg" target="_blank">https://mp.weixin.qq.com/s/f5KbQ3PLEd5QOp82hWNBqg</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/H3oF3oqmo2iY0e7_tL7x_lw" target="_blank">欣旺达与LG、松下握手言和</a></div>
-                    <div class="summary">欣旺达与LG新能源、松下通过Tulip签署锂电专利许可协议，撤销德中韩三地诉讼，扫清全球化知识产权障碍。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/H3oF3oqmo2iY0e7_tL7x_lw" target="_blank">https://mp.weixin.qq.com/s/H3oF3oqmo2iY0e7_tL7x_lw</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg" target="_blank">宁德时代或投50亿元！DeepSeek首轮融资落地</a></div>
-                    <div class="summary">宁德时代考虑投资50亿元参与DeepSeek首轮融资；宁德此前已投中恒电气(41亿)、世纪互联(9.42亿美元)布局AI数据中心。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg" target="_blank">https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/9A9qjdd0kkZGBjWHsLN-bA" target="_blank">宁德时代再签重磅合作！</a></div>
-                    <div class="summary">宁德时代与金汇能、淳点控股签矿产资源合作协议，并与青白江政府等五方签零碳产业生态协议，打通锂电全产业链闭环。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/9A9qjdd0kkZGBjWHsLN-bA" target="_blank">https://mp.weixin.qq.com/s/9A9qjdd0kkZGBjWHsLN-bA</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/549ywkKijnSMWYJIa0X_3g" target="_blank">科力远4.4亿投建储能电站项目</a></div>
-                    <div class="summary">科力远子公司投4.4亿元建100MW/400MWh混合储能电站，采用磷酸铁锂(90MW) + 固态电池(10MW)双技术路线。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/549ywkKijnSMWYJIa0X_3g" target="_blank">https://mp.weixin.qq.com/s/549ywkKijnSMWYJIa0X_3g</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/eLxfXTXwxUwAWMlkYdf8bA" target="_blank">比亚迪储能配套！匈牙利最大储能项目投运</a></div>
-                    <div class="summary">比亚迪储能提供288.6MWh魔方电池系统，配套匈牙利99.8MW/288.6MWh储能项目投运，成为欧洲标杆储能项目。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/eLxfXTXwxUwAWMlkYdf8bA" target="_blank">https://mp.weixin.qq.com/s/eLxfXTXwxUwAWMlkYdf8bA</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/-DGlJeDvpYeAOcAqgJnMQg" target="_blank">锂进铅未退，AIDC备储争夺战升温</a></div>
-                    <div class="summary">宁德时代、海辰储能、鹏辉能源、远景动力、松下等企业竞逐AIDC储能赛道；北美锂电备电渗透率70%+，中国约28%，锂代铅拐点将至。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/-DGlJeDvpYeAOcAqgJnMQg" target="_blank">https://mp.weixin.qq.com/s/-DGlJeDvpYeAOcAqgJnMQg</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/GZq7M_4EZCNZLBo-OpFIbg" target="_blank">孚能科技与德国WLF Energy战略签约</a></div>
-                    <div class="summary">孚能科技与德国WLF Energy合作开发下一代储能电池，融合AI能源管理，拓展欧美亚非市场，推进全球化布局。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/GZq7M_4EZCNZLBo-OpFIbg" target="_blank">https://mp.weixin.qq.com/s/GZq7M_4EZCNZLBo-OpFIbg</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/NHguxgxZ-g5I_OcZs87JLA" target="_blank">电解液周报丨福建宁德与山东济宁两大电解液项目有新进展</a></div>
-                    <div class="summary">天赐材料福鼎凯欣拟扩建年产25万吨电解液；天赐泰国与EA集团合作启动；富祥股份VC产能提升至1万吨/年并通过比亚迪认证。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/NHguxgxZ-g5I_OcZs87JLA" target="_blank">https://mp.weixin.qq.com/s/NHguxgxZ-g5I_OcZs87JLA</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg" target="_blank">极薄铜箔产品信息一览</a></div>
-                    <div class="summary">江铜铜箔3.5μm铜箔进入比亚迪、瑞浦兰钧能源、欣旺达供应链；各厂商极薄铜箔(3-4.5μm)进展汇总。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg" target="_blank">https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg</a></div>
-                </div>
+            
+            <div class="news-item">
+                <h3>召回1.7万辆汽车！因LG新能源电芯存热失控风险</h3>
+                <div class="summary">Stellantis召回17277辆Pacifica插混车，因LG新能源备用产线电芯存在热失控隐患，车辆停放状态也可能起火。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/4nuI_meLQRVXBqjZ4onxeQ" target="_blank">https://mp.weixin.qq.com/s/4nuI_meLQRVXBqjZ4onxeQ</a></div>
             </div>
-
-            <!-- 负面：召回 -->
-            <div style="background:#fee2e2; border-radius:12px; padding:16px 20px; margin:12px 0 20px;">
-                <div class="news-item" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/4nuI_meLQRVXBqjZ4onxeQ" target="_blank" style="color:#991b1b;">召回1.7万辆汽车！因LG新能源电芯存热失控风险</a></div>
-                    <div class="summary">Stellantis召回17277辆Pacifica插混车，因LG新能源备用产线电芯存在热失控隐患，车辆停放状态也可能起火。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/4nuI_meLQRVXBqjZ4onxeQ" target="_blank">https://mp.weixin.qq.com/s/4nuI_meLQRVXBqjZ4onxeQ</a></div>
-                </div>
+            
+            <div class="news-item">
+                <h3>一汽车巨头放弃磷酸铁锂电池！</h3>
+                <div class="summary">通用汽车放弃磷酸铁锂乘用车路线，转向富锂锰基(LMR)电池，能量密度比LFP高33%，计划2028年量产，成本目标80-90美元/kWh。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/AP-7TFzDJFqQeIMJH2Emrw" target="_blank">https://mp.weixin.qq.com/s/AP-7TFzDJFqQeIMJH2Emrw</a></div>
             </div>
-
-            <div class="divider"></div>
-
-            <!-- 固态电池 -->
-            <div style="margin-bottom: 8px;">
-                <h3 style="font-size:18px; font-weight:700; color:#0b2b4a; margin-bottom:12px;">🧪 固态电池</h3>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ" target="_blank">"宁王"董事长炮轰竞争对手挖人、偷技术</a></div>
-                    <div class="summary">曾毓群指出行业恶性竞争：挖人窃技术、低价抢单；全固态电池2030年前难百万级装车；公司全固态电池成熟度仅TRL4级。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ" target="_blank">https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ" target="_blank">湖北首条千吨级固态电解质产线建成</a></div>
-                    <div class="summary">武汉睿事达在蔡甸区建成湖北首条千吨级氧化物固态电解质产线，依托华中科大朱文教授团队，适配新能源汽车等场景。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ" target="_blank">https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A" target="_blank">中建七局中标固态电池项目</a></div>
-                    <div class="summary">固一新能2.2GWh准固态电池建设项目EPC中标，项目位于呼和浩特，计划2026年12月竣工。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A" target="_blank">https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q" target="_blank">赛科动力与上市企业经纬恒润签署战略合作协议</a></div>
-                    <div class="summary">赛科动力(欧阳明高院士工作站孵化)与经纬恒润合作，推进硫化物固态电池在机器人等智能终端应用，已建0.5GWh产线。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q" target="_blank">https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q</a></div>
-                </div>
+            
+            <div class="news-item">
+                <h3>中创新航、国轩高科入局，鸿蒙智行引入多家电池供应商</h3>
+                <div class="summary">鸿蒙智行引入中创新航、国轩高科为电池供应商；问界M6定点国轩81度电池包，智界新增国轩和欣旺达，均需通过华为"巨鲸电池"认证。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/AknMxRPehD0kx-ei3Lcc3Q" target="_blank">https://mp.weixin.qq.com/s/AknMxRPehD0kx-ei3Lcc3Q</a></div>
             </div>
+            
+            <div class="news-item">
+                <h3>新能源重卡"狂奔"！动力电池迎变局</h3>
+                <div class="summary">亿纬锂能构建332-842度电重卡电池矩阵；瑞浦兰钧推600kWh快充F箱等差异化方案；5月新能源重卡渗透率40.88%。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/C5QhS7sxPPWzJAecNyxKig" target="_blank">https://mp.weixin.qq.com/s/C5QhS7sxPPWzJAecNyxKig</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>高端化再落一子 国轩高科正式配套问界M6</h3>
+                <div class="summary">国轩高科配套问界M6纯电版磷酸铁锂电池；国轩以32.2%装机占比居零跑第一大供应商，覆盖C16/C11/C10/B10等八款车型。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/eec9tMSOM8UeQ9BxrF9vcw" target="_blank">https://mp.weixin.qq.com/s/eec9tMSOM8UeQ9BxrF9vcw</a></div>
+            </div>
+        </div>
 
-            <div class="divider"></div>
+        <!-- 电池板块 -->
+        <div id="dianchi" class="card">
+            <h2>电池</h2>
+            
+            <div class="news-item">
+                <h3>比亚迪拟在巴西建储能工厂</h3>
+                <div class="summary">比亚迪计划投资5亿雷亚尔(约6.8亿人民币)在巴西建储能系统生产线，三个月内决定选址，配合巴西2026年2GW/8GWh储能招标。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/_2Ff7OgPc2Xfpiq-QY5rhw" target="_blank">https://mp.weixin.qq.com/s/_2Ff7OgPc2Xfpiq-QY5rhw</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>"宁王"董事长炮轰竞争对手挖人、偷技术</h3>
+                <div class="summary">曾毓群指出行业恶性竞争；全固态电池2030年前难百万级装车；公司全固态电池成熟度仅TRL4级。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ" target="_blank">https://mp.weixin.qq.com/s/_3zRm2fzWHRFhLKJ53oEQQ</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>锂进铅未退，AIDC备储争夺战升温</h3>
+                <div class="summary">宁德时代、海辰储能、鹏辉能源、远景动力、松下等企业竞逐AIDC储能赛道；北美锂电备电渗透率70%+，中国约28%，锂代铅拐点将至。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/-DGlJeDvpYeAOcAqgJnMQg" target="_blank">https://mp.weixin.qq.com/s/-DGlJeDvpYeAOcAqgJnMQg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>亿纬锂能上半年净利最高预增110%</h3>
+                <div class="summary">亿纬锂能预计2026上半年归母净利润31.3-33.71亿元，同比增95%-110%；固态电池100MWh量产基地已规划，钠电储能系统已投运。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/1oVRdep7sFfa9bfuZd5rPw" target="_blank">https://mp.weixin.qq.com/s/1oVRdep7sFfa9bfuZd5rPw</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>曝比亚迪加码巴西电池产能布局</h3>
+                <div class="summary">比亚迪巴西扩电池产能，投入约1亿美元建储能系统配套电网；目标2027年巴西产整车本地零部件占比达50%。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/3WsK1MDhrBZb_DKuHxe4wg" target="_blank">https://mp.weixin.qq.com/s/3WsK1MDhrBZb_DKuHxe4wg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>SPIR：2026年5月500Ah+储能大电芯出货TOP5</h3>
+                <div class="summary">宁德时代587Ah、亿纬锂能628Ah、海辰储能587Ah/1175Ah、远景动力500-790Ah、比亚迪刀片500Ah+位列TOP5，渗透率约6%。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw" target="_blank">https://mp.weixin.qq.com/s/42VK7aD89KNNhhrU8xqwKw</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>鹏辉能源/华能新华/智平能源签订合作协议</h3>
+                <div class="summary">鹏辉能源与大庆市政府、华能新华、智平能源签约，以新型储能推动油田用能绿色转型。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/5s6N8jV-Q_DVEPvP58kCLQ" target="_blank">https://mp.weixin.qq.com/s/5s6N8jV-Q_DVEPvP58kCLQ</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>宁德时代再签重磅合作！</h3>
+                <div class="summary">宁德时代与金汇能、淳点控股签矿产资源合作协议，并与青白江政府等五方签零碳产业生态协议，打通锂电全产业链闭环。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/9A9qjdd0kkZGBjWHsLN-bA" target="_blank">https://mp.weixin.qq.com/s/9A9qjdd0kkZGBjWHsLN-bA</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>极薄铜箔产品信息一览</h3>
+                <div class="summary">江铜铜箔3.5μm铜箔进入比亚迪、瑞浦兰钧能源、欣旺达供应链；各厂商极薄铜箔(3-4.5μm)进展汇总。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg" target="_blank">https://mp.weixin.qq.com/s/7Rzq_mZaSc_fAa70Nr5XQg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>欣旺达北京动力电池项目获批</h3>
+                <div class="summary">欣旺达投资53.67亿元在北京顺义建41.32GWh电池项目，含4条电芯产线+4条PACK线，预计2030年产值约95亿元。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/f5KbQ3PLEd5QOp82hWNBqg" target="_blank">https://mp.weixin.qq.com/s/f5KbQ3PLEd5QOp82hWNBqg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>5.4GWh！宁德时代斩获储能大单</h3>
+                <div class="summary">宁德时代获芬兰Merus Power约3GWh北欧储能订单及澳洲Edify Energy 2.4GWh储能订单，合计5.4GWh。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/Fg2sl9C__zR4ffk9Qicyrw" target="_blank">https://mp.weixin.qq.com/s/Fg2sl9C__zR4ffk9Qicyrw</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>41.32GWh电池项目落户北京</h3>
+                <div class="summary">欣旺达53.67亿北京项目获批，年产能41.32GWh，填补顺义电池空白，助力京津冀新能源汽车产业集群。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/FkZJTYh_MX99WJRxlLvOWg" target="_blank">https://mp.weixin.qq.com/s/FkZJTYh_MX99WJRxlLvOWg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>孚能科技与德国WLF Energy战略签约</h3>
+                <div class="summary">孚能科技与德国WLF Energy合作开发下一代储能电池，融合AI能源管理，拓展欧美亚非市场，推进全球化布局。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/GZq7M_4EZCNZLBo-OpFIbg" target="_blank">https://mp.weixin.qq.com/s/GZq7M_4EZCNZLBo-OpFIbg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>欣旺达与LG、松下握手言和</h3>
+                <div class="summary">欣旺达与LG新能源、松下通过Tulip签署锂电专利许可协议，撤销德中韩三地诉讼，扫清全球化知识产权障碍。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/H3oF3oqmo2iY0e_t7Lx_lw" target="_blank">https://mp.weixin.qq.com/s/H3oF3oqmo2iY0e_t7Lx_lw</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>宁德时代或投50亿元！DeepSeek首轮融资落地</h3>
+                <div class="summary">宁德时代考虑投资50亿元参与DeepSeek首轮融资；宁德此前已投中恒电气(41亿)、世纪互联(9.42亿美元)布局AI数据中心。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg" target="_blank">https://mp.weixin.qq.com/s/IJttO9vrLhH40ASDZ0mZxg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>亿纬锂能，上半年利润翻倍</h3>
+                <div class="summary">亿纬锂能2026上半年归母净利润31.3-33.71亿，同比增95%-110%；628Ah电芯累计下线370万颗，签约储能订单突破167GWh。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/KoEFQNUzgrgLybKebWtQjg" target="_blank">https://mp.weixin.qq.com/s/KoEFQNUzgrgLybKebWtQjg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>电解液周报丨福建宁德与山东济宁两大电解液项目有新进展</h3>
+                <div class="summary">天赐材料福鼎凯欣拟扩建年产25万吨电解液；天赐泰国与EA集团合作启动；富祥股份VC产能提升至1万吨/年并通过比亚迪认证。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/NHguxgxZ-g5I_OcZs87JLA" target="_blank">https://mp.weixin.qq.com/s/NHguxgxZ-g5I_OcZs87JLA</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>比亚迪储能配套！匈牙利最大储能项目投运</h3>
+                <div class="summary">比亚迪储能提供288.6MWh魔方电池系统，配套匈牙利99.8MW/288.6MWh储能项目投运，成为欧洲标杆储能项目。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/eLxfXTXwxUwAWMlkYdf8bA" target="_blank">https://mp.weixin.qq.com/s/eLxfXTXwxUwAWMlkYdf8bA</a></div>
+            </div>
+        </div>
 
-            <!-- 正极材料 -->
-            <div style="margin-bottom: 4px;">
-                <h3 style="font-size:18px; font-weight:700; color:#0b2b4a; margin-bottom:12px;">⚡ 正极材料</h3>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g" target="_blank">投资逾8.8亿元！贵州贵阳拟新建年产3万吨碳酸锂项目</a></div>
-                    <div class="summary">贵州磷化中矿投资8.8亿元建年产3万吨碳酸锂项目，为开阳"磷钛铁锂"百亿工程子项目，万润新能参股磷化万润参与布局。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g" target="_blank">https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g</a></div>
-                </div>
-                <div class="news-item">
-                    <div class="h3"><a href="https://mp.weixin.qq.com/s/5z3SFQqoKGwpUd5PGwuYiA" target="_blank">10亿元！锂电大厂拟建10万吨磷酸铁锂项目</a></div>
-                    <div class="summary">荆门金泉新材料(亿纬系)投资10亿元建年产10万吨高压实磷酸铁锂项目，2026年10月开工，服务亿纬锂能电池配套需求。</div>
-                    <div class="url"><a href="https://mp.weixin.qq.com/s/5z3SFQqoKGwpUd5PGwuYiA" target="_blank">https://mp.weixin.qq.com/s/5z3SFQqoKGwpUd5PGwuYiA</a></div>
-                </div>
+        <!-- 固态电池板块 -->
+        <div id="gutaidianchi" class="card">
+            <h2>固态电池</h2>
+            
+            <div class="news-item">
+                <h3>科力远4.4亿投建储能电站项目</h3>
+                <div class="summary">科力远子公司投4.4亿元建100MW/400MWh混合储能电站，采用磷酸铁锂(90MW)+固态电池(10MW)双技术路线。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/549ywkKijnSMWYJIa0X_3g" target="_blank">https://mp.weixin.qq.com/s/549ywkKijnSMWYJIa0X_3g</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>湖北首条千吨级固态电解质产线建成</h3>
+                <div class="summary">武汉睿事达在蔡甸区建成湖北首条千吨级氧化物固态电解质产线，依托华中科大朱文教授团队，适配新能源汽车等场景。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ" target="_blank">https://mp.weixin.qq.com/s/5b4wKH31VRiiR68E49APWQ</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>中建七局中标固态电池项目</h3>
+                <div class="summary">固一新能2.2GWh准固态电池建设项目EPC中标，项目位于呼和浩特，计划2026年12月竣工。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A" target="_blank">https://mp.weixin.qq.com/s/8dGErTHzgOcwyFaLXOKd_A</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>坐标湖北武汉！千吨级固态电解质产线投用</h3>
+                <div class="summary">睿意新材在武汉投用千吨级氧化物固态电解质产线，朱文教授团队自主研发，适配新能源车、3C、无人机等场景。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/9_Soo3Oe4mmAYV8znRPkVg" target="_blank">https://mp.weixin.qq.com/s/9_Soo3Oe4mmAYV8znRPkVg</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>赛科动力与上市企业经纬恒润签署战略合作协议</h3>
+                <div class="summary">赛科动力(欧阳明高院士工作站孵化)与经纬恒润合作，推进硫化物固态电池在机器人等智能终端应用，已建0.5GWh产线。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q" target="_blank">https://mp.weixin.qq.com/s/9TrBgqZYzGm-BaW1vpr07Q</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>400Wh/kg突破、2GWh产线推进——全固态电池"中国速度"</h3>
+                <div class="summary">广汽全固态电池中试线2026年底装车试验；国轩"金石"电池突破400Wh/kg冲刺1元/Wh；比亚迪硫化物电池通过车规验证，2GWh中试线已投产。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A" target="_blank">https://mp.weixin.qq.com/s/DJq4wHUFSmp27h5Reeb-0A</a></div>
+            </div>
+        </div>
+
+        <!-- 正极材料板块 -->
+        <div id="zhengjicailiao" class="card">
+            <h2>正极材料</h2>
+            
+            <div class="news-item">
+                <h3>投资逾8.8亿元！贵州贵阳拟新建年产3万吨碳酸锂项目</h3>
+                <div class="summary">贵州磷化中矿投资8.8亿元建年产3万吨碳酸锂项目，为开阳"磷钛铁锂"百亿工程子项目，万润新能参股磷化万润参与布局。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g" target="_blank">https://mp.weixin.qq.com/s/-3rbgPfESNVX6Qb6wVTt4g</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>10亿元！锂电大厂拟建10万吨磷酸铁锂项目</h3>
+                <div class="summary">荆门金泉新材料(亿纬系)投资10亿元建年产10万吨高压实磷酸铁锂项目，2026年10月开工，服务亿纬锂能电池配套需求。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/5z3SFQqoKGwpUd5PGwuYiA" target="_blank">https://mp.weixin.qq.com/s/5z3SFQqoKGwpUd5PGwuYiA</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>10亿元！10万吨！又一电池大厂切入高压实磷酸铁锂赛道</h3>
+                <div class="summary">亿纬系荆门金泉新材料10亿建10万吨磷酸铁锂项目；亿纬锂能规划新增约260GWh大铁锂产能，2026年预计出货200GWh+。</div>
+                <div class="link"><a href="https://mp.weixin.qq.com/s/6R1n17TAxa7uXebTe3K6Bw" target="_blank">https://mp.weixin.qq.com/s/6R1n17TAxa7uXebTe3K6Bw</a></div>
             </div>
         </div>
 
         <!-- 今日热点词汇 -->
-        <div class="card" id="hotwords">
-            <h2>🏷️ 今日热点词汇</h2>
-            <div class="hotwords">
-                <span>固态电池</span>
-                <span>磷酸铁锂</span>
-                <span>比亚迪</span>
-                <span>宁德时代</span>
-                <span>亿纬锂能</span>
-                <span>全固态电池</span>
-                <span>储能</span>
-                <span>国轩高科</span>
-                <span>欣旺达</span>
-                <span>干法电极</span>
-                <span>4680电池</span>
-                <span>碳酸锂</span>
-                <span>固态电解质</span>
-                <span>正极材料</span>
-                <span>重卡</span>
-                <span>AIDC</span>
-                <span>LG新能源</span>
-                <span>鸿蒙智行</span>
-                <span>硫化物</span>
-                <span>电解液</span>
+        <div id="hotwords" class="card">
+            <h2>今日热点词汇</h2>
+            <div class="tags">
+                <span class="tag">全固态电池</span>
+                <span class="tag">宁德时代</span>
+                <span class="tag">比亚迪</span>
+                <span class="tag">储能</span>
+                <span class="tag">硫化物</span>
+                <span class="tag">磷酸铁锂</span>
+                <span class="tag">干法电极</span>
+                <span class="tag">4680电池</span>
+                <span class="tag">固态电解质</span>
+                <span class="tag">亿纬锂能</span>
+                <span class="tag">鸿蒙智行</span>
+                <span class="tag">通用汽车</span>
+                <span class="tag">LG新能源</span>
+                <span class="tag">欣旺达</span>
+                <span class="tag">特斯拉</span>
+                <span class="tag">AIDC备储</span>
+                <span class="tag">富锂锰基</span>
+                <span class="tag">碳酸锂</span>
+                <span class="tag">国轩高科</span>
+                <span class="tag">重卡电动化</span>
             </div>
         </div>
-    </div>
 
-    <script>
-        // 动态访问计数器——从0开始，每次页面加载+1
-        (function() {
-            let count = localStorage.getItem('strategyDailyVisitorCount');
-            if (count === null) {
-                count = 0;
-            } else {
-                count = Number(count);
-            }
-            count += 1;
-            localStorage.setItem('strategyDailyVisitorCount', count);
-            document.getElementById('visitorCount').textContent = count;
-        })();
-    </script>
+        <!-- 访问计数脚本 -->
+        <script>
+            (function() {
+                let count = parseInt(localStorage.getItem('dailyReportVisitCount') || '0');
+                count += 1;
+                localStorage.setItem('dailyReportVisitCount', count);
+                document.getElementById('visitCounter').textContent = count;
+            })();
+        </script>
+    </div>
 </body>
 </html>
-```
