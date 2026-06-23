@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中央研究院日报</title>
+    <title>中央研究院日报 - 2026-06-22</title>
     <style>
         * {
             margin: 0;
@@ -11,84 +11,65 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 24px;
             line-height: 1.6;
-            color: #1f2937;
+            color: #1e293b;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
         }
         .card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 28px 32px;
+            padding: 24px 28px;
             margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
         }
-        .card h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e5e7eb;
-            color: #111827;
+        .card-headline {
+            background: #eef2ff;
         }
-        .card h2 .badge {
-            font-size: 0.75rem;
-            font-weight: 400;
-            background: #dbeafe;
-            color: #1e40af;
-            border-radius: 20px;
-            padding: 2px 12px;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0f172a;
-            letter-spacing: 1px;
-        }
-        .subtitle {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-top: 4px;
-        }
-        .header-bar {
+        .header-flex {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
             gap: 12px;
         }
-        .header-left {
-            flex: 1;
+        .header-title h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #0f172a;
+            margin-bottom: 2px;
         }
-        .header-right {
+        .header-title .sub {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .counter-area {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: #eef2ff;
-            padding: 6px 16px 6px 12px;
-            border-radius: 40px;
+            gap: 6px;
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 30px;
             font-size: 0.9rem;
-            color: #1e40af;
-            font-weight: 500;
+            color: #334155;
             white-space: nowrap;
         }
-        .header-right .eye-icon {
+        .counter-area .eye {
             font-size: 1.2rem;
         }
         .nav-links {
+            margin-top: 14px;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px 20px;
-            margin-top: 14px;
+            gap: 12px 24px;
+            border-top: 1px solid #e2e8f0;
             padding-top: 14px;
-            border-top: 1px solid #e5e7eb;
             font-size: 0.9rem;
         }
         .nav-links a {
@@ -99,255 +80,190 @@
         .nav-links a:hover {
             text-decoration: underline;
         }
-        .headline-card {
-            background: #eef2ff;
-            border-radius: 14px;
-            padding: 20px 24px;
-            margin-bottom: 20px;
-            border-left: 4px solid #2563eb;
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-left: 5px solid #2563eb;
+            padding-left: 14px;
+            color: #0f172a;
+            margin-bottom: 16px;
         }
-        .headline-card:last-child {
-            margin-bottom: 0;
-        }
-        .headline-card h3 {
+        h3 {
             font-size: 1.15rem;
             font-weight: 600;
+            margin: 10px 0 4px 0;
             color: #0f172a;
-            margin-bottom: 6px;
-        }
-        .headline-card .summary {
-            font-size: 0.92rem;
-            color: #374151;
-            margin-bottom: 8px;
-        }
-        .headline-card .url {
-            font-size: 0.78rem;
-            color: #6b7280;
-            word-break: break-all;
-        }
-        .headline-card .url a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .headline-card .url a:hover {
-            text-decoration: underline;
-        }
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(to right, #e5e7eb, #f3f4f6);
-            margin: 28px 0;
         }
         .news-item {
-            margin-bottom: 22px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid #f3f4f6;
+            margin-bottom: 18px;
         }
         .news-item:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
         }
-        .news-item h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 4px;
-        }
-        .news-item .summary {
-            font-size: 0.9rem;
-            color: #4b5563;
-            margin-bottom: 6px;
+        .news-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin: 4px 0;
         }
         .news-item .url {
-            font-size: 0.78rem;
-            color: #9ca3af;
+            font-size: 0.8rem;
+            color: #94a3b8;
             word-break: break-all;
         }
         .news-item .url a {
+            color: #94a3b8;
+            text-decoration: underline;
+        }
+        .news-item .url a:hover {
+            color: #2563eb;
+        }
+        .divider {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 24px 0;
+        }
+        .keywords-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+        .keywords-wrap span {
+            background: #e2e8f0;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #334155;
+            font-weight: 500;
+        }
+        a {
             color: #2563eb;
             text-decoration: none;
         }
-        .news-item .url a:hover {
+        a:hover {
             text-decoration: underline;
         }
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 14px;
-            margin-top: 4px;
-        }
-        .tags span {
-            background: #f3f4f6;
-            color: #374151;
-            font-size: 0.82rem;
-            padding: 4px 14px;
-            border-radius: 20px;
-            border: 1px solid #e5e7eb;
-        }
-        .policy-card {
-            background: #fef2f2;
-            border-left: 4px solid #dc2626;
-        }
-        .policy-card .summary {
-            color: #7f1d1d;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
             }
             .card {
-                padding: 18px 16px;
-                border-radius: 12px;
-            }
-            .headline-card {
                 padding: 16px;
             }
-            h1 {
-                font-size: 1.4rem;
+            .header-title h1 {
+                font-size: 1.5rem;
             }
-            .header-right {
+            .counter-area {
                 font-size: 0.8rem;
-                padding: 4px 12px 4px 8px;
+                padding: 4px 10px;
             }
-            .nav-links {
-                gap: 6px 14px;
-                font-size: 0.82rem;
-            }
-            .card h2 {
+            h2 {
                 font-size: 1.2rem;
             }
-        }
-        .counter-animate {
-            display: inline-block;
-            min-width: 28px;
-            text-align: center;
+            h3 {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-    <!-- ===== 标题区域 ===== -->
-    <div class="card" style="padding-bottom: 16px;">
-        <div class="header-bar">
-            <div class="header-left">
-                <h1>中央研究院日报</h1>
-                <div class="subtitle">监测时段：2026-06-22</div>
+        <!-- Header -->
+        <div class="card" id="top">
+            <div class="header-flex">
+                <div class="header-title">
+                    <h1>中央研究院日报</h1>
+                    <div class="sub">监测时段：2026-06-22</div>
+                </div>
+                <div class="counter-area">
+                    <span class="eye">&#x1F441;</span>
+                    <span>访问人次：<strong id="visitor-count">0</strong></span>
+                </div>
             </div>
-            <div class="header-right">
-                <span class="eye-icon">👁️</span>
-                <span>访问人次：</span>
-                <span class="counter-animate" id="visitorCounter">0</span>
-            </div>
-        </div>
-        <div class="nav-links">
-            <a href="#headline">头条新闻</a>
-            <a href="#info">资讯信息</a>
-            <a href="#hotwords">今日热点词汇</a>
-        </div>
-    </div>
-
-    <!-- ===== 头条新闻 ===== -->
-    <div class="card" id="headline">
-        <h2>📌 头条新闻</h2>
-
-        <div class="headline-card">
-            <h3>中国固态电池产业加速成型 正极材料订单激增32%</h3>
-            <div class="summary">2026年上半年，中国固态电池产业呈现加速成型态势。正极材料头部企业订单同比增长32%，电解质产线投资额突破180亿元，干法电极设备交付量环比增长57%。产业从实验室走向规模化量产，全固态电池能量密度突破500Wh/kg。</div>
-            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/TZ4p2N0PmM0JXeFNbM2P3A" target="_blank">https://mp.weixin.qq.com/s/TZ4p2N0PmM0JXeFNbM2P3A</a></div>
-        </div>
-
-        <div class="headline-card">
-            <h3>金钠科技签署320亿元超大圆柱钠电池长期战略协议</h3>
-            <div class="summary">金钠科技与多家能源企业签署超大圆柱钠电池长期战略协议，总金额320亿元。采用超大圆柱钠电池+全固态电解质双重技术路线，年产能达10GWh，正极材料采用普鲁士蓝(白)体系，负极材料采用生物质硬碳。</div>
-            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/0PYEAeIV9PcPJjO6UemuHQ" target="_blank">https://mp.weixin.qq.com/s/0PYEAeIV9PcPJjO6UemuHQ</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 资讯信息 ===== -->
-    <div class="card" id="info">
-        <h2>📊 资讯信息 <span class="badge">按板块分类</span></h2>
-
-        <!-- 固态电池 -->
-        <div class="news-item">
-            <h3>中国固态电池产业加速成型 正极材料订单激增32%</h3>
-            <div class="summary">2026年上半年，中国固态电池产业加速成型。正极材料头部企业订单同比增长32%，电解质产线投资额突破180亿元，干法电极设备交付量环比增长57%。全固态电池能量密度突破500Wh/kg，产业进入规模化量产阶段。</div>
-            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/TZ4p2N0PmM0JXeFNbM2P3A" target="_blank">https://mp.weixin.qq.com/s/TZ4p2N0PmM0JXeFNbM2P3A</a></div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- 钠离子电池 -->
-        <div class="news-item">
-            <h3>金钠科技签署320亿元超大圆柱钠电池长期战略协议</h3>
-            <div class="summary">金钠科技与多家能源企业签署战略协议，总金额320亿元。采用超大圆柱钠电池+全固态电解质双重技术路线，年产能10GWh，正极材料为普鲁士蓝(白)体系，负极材料为生物质硬碳，聚焦AI算力中心储能等场景。</div>
-            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/0PYEAeIV9PcPJjO6UemuHQ" target="_blank">https://mp.weixin.qq.com/s/0PYEAeIV9PcPJjO6UemuHQ</a></div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- 学术研究进展 -->
-        <div class="news-item">
-            <h3>清华大学&amp;中科院物理所研制出新型氧离子导体固态电解质LLZO-MZO</h3>
-            <div class="summary">清华大学与中科院物理所联合团队研制出新型氧离子导体固态电解质LLZO-MZO，室温离子电导率达4.2 mS/cm，电子电导率仅1.3×10⁻⁸ S/cm，锂离子迁移数达0.98。与高镍三元正极匹配，500次循环容量保持率92%，为高比能固态电池提供了关键材料方案。</div>
-            <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/EuF1EOvL0Um9qGec5Jzsog" target="_blank">https://mp.weixin.qq.com/s/EuF1EOvL0Um9qGec5Jzsog</a></div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- 政策板块（使用浅红色背景） -->
-        <div style="background:#fef2f2;border-radius:12px;padding:16px 20px;margin-top:4px;border-left:4px solid #dc2626;">
-            <div class="news-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
-                <h3>广东构建锂电产业生态体系，明确对固态电池/钠电池/硅碳材料等给予专项扶持</h3>
-                <div class="summary" style="color:#7f1d1d;">广东省发布锂电产业生态体系建设方案，明确对固态电池、钠离子电池、硅碳负极材料等前沿领域给予专项资金扶持。设立200亿元锂电产业投资基金，对固态电解质中试线建设按设备投资额30%给予补贴，推动全产业链协同创新。</div>
-                <div class="url">🔗 <a href="https://mp.weixin.qq.com/s/HQ16E9-tnO7dz39rtlEULw" target="_blank">https://mp.weixin.qq.com/s/HQ16E9-tnO7dz39rtlEULw</a></div>
+            <div class="nav-links">
+                <a href="#headline">头条新闻</a>
+                <a href="#info">资讯信息</a>
+                <a href="#hotwords">今日热点词汇</a>
             </div>
         </div>
 
-    </div>
-
-    <!-- ===== 今日热点词汇 ===== -->
-    <div class="card" id="hotwords">
-        <h2>🏷️ 今日热点词汇</h2>
-        <div class="tags">
-            <span>固态电池</span>
-            <span>正极材料</span>
-            <span>电解质</span>
-            <span>负极材料</span>
-            <span>钠离子电池</span>
-            <span>超大圆柱</span>
-            <span>普鲁士蓝</span>
-            <span>生物质硬碳</span>
-            <span>氧离子导体</span>
-            <span>LLZO-MZO</span>
-            <span>高镍三元</span>
-            <span>锂电产业</span>
-            <span>硅碳材料</span>
-            <span>能量密度</span>
-            <span>干法电极</span>
-            <span>循环寿命</span>
-            <span>离子电导率</span>
-            <span>政策扶持</span>
-            <span>全固态</span>
-            <span>产线投资</span>
+        <!-- Headline News -->
+        <div class="card card-headline" id="headline">
+            <h2>&#x1F4F0; 头条新闻</h2>
+            <div class="news-item">
+                <h3>内蒙古固态电池版图再扩：固一新能8亿项目落地47.2GWh待发</h3>
+                <p>固一新能8亿元2.2GWh高安全固态电池项目获备案，建设周期2026.6-2027.6。内蒙古已落地6个固态电池项目，合计规划产能47.2GWh，总投资168亿元。此举标志着固态电池从实验室迈向规模化生产迈出关键一步，对上游正极材料、硅基负极及硫化物电解质产业链形成强力拉动。</p>
+                <div class="url"><a href="https://new-energy.smm.cn/content/14042/103965489" target="_blank">https://new-energy.smm.cn/content/14042/103965489</a></div>
+            </div>
+            <div class="news-item">
+                <h3>商务部将10家美国实体列入出口管制管控名单对固态电池的影响</h3>
+                <p>2026年6月22日商务部将10家美国实体列入出口管制管控名单。分析指出此举对国内固态电池行业几乎不构成直接影响，因中国对300Wh/kg以上高端电池已有出口管制，且固态电池产业尚在发展阶段。</p>
+                <div class="url"><a href="https://newenergy.smm.cn/content/14042/103965544" target="_blank">https://newenergy.smm.cn/content/14042/103965544</a></div>
+            </div>
         </div>
+
+        <!-- Information Sections -->
+        <div class="card" id="info">
+            <h2>&#x1F4CB; 资讯信息</h2>
+
+            <!-- Section: 固态电池 -->
+            <h3>固态电池</h3>
+            <div class="news-item">
+                <h3>内蒙古固态电池版图再扩：固一新能8亿项目落地47.2GWh待发</h3>
+                <p>固一新能(内蒙古)科技8亿元2.2GWh高安全固态电池项目获备案，建设周期2026.6-2027.6。内蒙古已落地6个固态电池项目，合计规划产能47.2GWh，总投资168亿元，清陶能源领衔40GWh布局。</p>
+                <div class="url"><a href="https://new-energy.smm.cn/content/14042/103965489" target="_blank">https://new-energy.smm.cn/content/14042/103965489</a></div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Section: 政策 -->
+            <h3>政策</h3>
+            <div class="news-item">
+                <h3>商务部将10家美国实体列入出口管制管控名单对固态电池的影响</h3>
+                <p>2026年6月22日商务部将10家美国实体列入出口管制管控名单。分析指出此举对国内固态电池行业几乎不构成直接影响，因中国对300Wh/kg以上高端电池已有出口管制，且固态电池产业尚在发展阶段。</p>
+                <div class="url"><a href="https://newenergy.smm.cn/content/14042/103965544" target="_blank">https://newenergy.smm.cn/content/14042/103965544</a></div>
+            </div>
+
+        </div>
+
+        <!-- Hot Words -->
+        <div class="card" id="hotwords">
+            <h2>&#x1F525; 今日热点词汇</h2>
+            <div class="keywords-wrap">
+                <span>固态电池</span>
+                <span>硫化物电解质</span>
+                <span>硅负极</span>
+                <span>产能建设</span>
+                <span>投融资</span>
+                <span>清陶能源</span>
+                <span>高能量密度</span>
+                <span>出口管制</span>
+                <span>磷酸铁锂</span>
+                <span>钠离子电池</span>
+                <span>正极材料</span>
+                <span>负极材料</span>
+                <span>动力电池</span>
+                <span>储能</span>
+                <span>AIDC</span>
+            </div>
+        </div>
+
     </div>
 
-</div>
-
-<script>
-    (function() {
-        // 动态访问人次计数器 —— 模拟从0开始，每刷新一次+1（基于localStorage持久化）
-        var key = 'zydaily_visitor_20260622';
-        var count = parseInt(localStorage.getItem(key), 10);
-        if (isNaN(count) || count < 0) {
-            count = 0;
-        }
-        count += 1;
-        localStorage.setItem(key, count);
-        document.getElementById('visitorCounter').textContent = count;
-    })();
-</script>
+    <script>
+        (function() {
+            let count = localStorage.getItem('rdDailyViewCount');
+            if (count === null) {
+                count = 0;
+            } else {
+                count = Number(count);
+            }
+            count += 1;
+            localStorage.setItem('rdDailyViewCount', count);
+            document.getElementById('visitor-count').innerText = count;
+        })();
+    </script>
 
 </body>
 </html>
