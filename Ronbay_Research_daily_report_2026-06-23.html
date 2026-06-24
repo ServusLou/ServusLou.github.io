@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央研究院日报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+        }
+        .card-blue {
+            background: #eef2ff;
+        }
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-left h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: 1px;
+        }
+        .header-left .sub {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1.2rem;
+            color: #374151;
+            background: #f3f4f6;
+            padding: 6px 14px;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+        .header-right .eye {
+            font-size: 1.3rem;
+        }
+        .header-right .count {
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 24px;
+            text-align: center;
+        }
+        .nav {
+            width: 100%;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 0.95rem;
+        }
+        .nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 14px 0 4px 0;
+        }
+        .summary {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin: 2px 0 4px 0;
+        }
+        .url-small {
+            font-size: 0.78rem;
+            color: #6b7280;
+            word-break: break-all;
+        }
+        .url-small a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .url-small a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 20px 0;
+        }
+        .hotwords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            font-size: 0.95rem;
+            color: #374151;
+        }
+        .hotwords span {
+            background: #f3f4f6;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 640px) {
+            body {
+                padding: 8px;
+            }
+            .card {
+                padding: 16px;
+                border-radius: 12px;
+            }
+            .header-left h1 {
+                font-size: 1.4rem;
+            }
+            .header-right {
+                font-size: 1rem;
+                padding: 4px 10px;
+            }
+            h2 {
+                font-size: 1.15rem;
+            }
+            h3 {
+                font-size: 0.98rem;
+            }
+            .summary {
+                font-size: 0.88rem;
+            }
+            .nav {
+                gap: 6px 14px;
+                font-size: 0.88rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <div class="card">
+            <div class="header">
+                <div class="header-left">
+                    <h1>中央研究院日报</h1>
+                    <div class="sub">监测时段：2026-06-23</div>
+                </div>
+                <div class="header-right">
+                    <span class="eye">👁</span>
+                    <span class="count" id="visitorCount">0</span>
+                </div>
+                <div class="nav">
+                    <a href="#headline">头条新闻</a>
+                    <a href="#info">资讯信息</a>
+                    <a href="#hotwords">今日热点词汇</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 头条新闻 -->
+        <div class="card card-blue" id="headline">
+            <h2>头条新闻</h2>
+            <h3>深圳固态电池材料企业完成A+轮数亿融资</h3>
+            <p class="summary">深圳索理德新材料完成数亿元A+轮融资，专注固态电池核心材料（硅基负极、固态电解质），其多孔硅碳产品采用自主技术解决硅膨胀问题，子公司徐州矽艾诺德年产3000吨硅碳负极项目获批，总投资3.6亿元。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/_xL3UFBj-YNqGc8BVw7kLA" target="_blank">https://mp.weixin.qq.com/s/_xL3UFBj-YNqGc8BVw7kLA</a></p>
+
+            <h3>三大头部企业再推动固态电池"上车"</h3>
+            <p class="summary">阿维塔旗舰SUV首搭宁德时代麒麟凝聚态电池（350Wh/kg），QuantumScape与本田签署固态电池联合研发协议，辉能科技与OPmobility合作推进模组及电池包集成。固态电池产业化进入车型定义、联合研发、模组设计等更深层环节。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/Uik0dZRWTZh2mNSbOU4I0w" target="_blank">https://mp.weixin.qq.com/s/Uik0dZRWTZh2mNSbOU4I0w</a></p>
+        </div>
+
+        <!-- 资讯信息 -->
+        <div class="card" id="info">
+            <h2>资讯信息</h2>
+
+            <!-- 动力电池 -->
+            <h2 id="info-power">动力电池</h2>
+            <h3>湖南年产2万吨碳酸锂生产线启动试运行</h3>
+            <p class="summary">湖南大中赫锂矿年产2万吨碳酸锂生产线启动试运行，自主研发锂渣无害化综合提锂工艺，锂云母综合回收率超90%，同步回收钾、铷、铯等伴生金属，生产成本较传统工艺下降30%-50%，锂渣产生量削减近五成。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/6boSc7PHn_FibQs_jFsb9A" target="_blank">https://mp.weixin.qq.com/s/6boSc7PHn_FibQs_jFsb9A</a></p>
+
+            <h3>5.5万吨！安徽太和废旧新能源电池回收及综合利用项目公示</h3>
+            <p class="summary">安徽鲁控智造投资11.76亿元建废旧锂电池回收项目，采用"破碎-酸浸-萃取-蒸发结晶"工艺，一期可产碳酸锂1058.6t/a、磷酸铁6431t/a，二期建设三元提锂车间，主营退役锂电池回收及资源化再利用。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/2nzg__Ymsl-vQcn6A-QpQQ" target="_blank">https://mp.weixin.qq.com/s/2nzg__Ymsl-vQcn6A-QpQQ</a></p>
+
+            <h3>15亿元！福建泉州将建年产3万吨电池级碳酸锂项目</h3>
+            <p class="summary">盛屯集团旗下泉州金同旭能新能源年产3万吨锂电新材料项目获批，总投资15亿元，采用回转窑焙烧-酸化-沉锂工艺处理锂辉石，产品为电池级碳酸锂，副产品无水硫酸钠94752吨/年。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/8Oh110leltOK3qm8VCg2xQ" target="_blank">https://mp.weixin.qq.com/s/8Oh110leltOK3qm8VCg2xQ</a></p>
+
+            <h3>率先投建7万吨碳酸锂！万华化学山东滨州百亿级项目落地</h3>
+            <p class="summary">万华化学旗下万华（滨州）新能源材料科技年产7万吨电池级碳酸锂项目公示，位于滨州北海经济开发区，建设硫酸锂及碳酸锂生产线各2条。万华电池产业注册资本增至40亿元，滨州基地将与烟台、眉山、宜昌构成全国磷酸铁锂产能网络。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/H-0qOv9KPfqwiLX_Y5qRWQ" target="_blank">https://mp.weixin.qq.com/s/H-0qOv9KPfqwiLX_Y5qRWQ</a></p>
+
+            <h3>增资至49亿！万华化学，加码锂电！</h3>
+            <p class="summary">万华化学集团电池科技注册资本增至49亿元（增幅43.49%），旗下电池产业公司增至40亿元（增幅122%）。现有磷酸铁锂产能：眉山10万吨已投产，海阳一期10万吨投产、二三期各20万吨开工，莱州一期32万吨在建，2026年末总产能冲击百万吨级。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/xkNSB7t4qWVQowIBebFQ3A" target="_blank">https://mp.weixin.qq.com/s/xkNSB7t4qWVQowIBebFQ3A</a></p>
+
+            <h3>【资讯】有望复产！宁德时代枧下窝锂矿重获用地意见书</h3>
+            <p class="summary">宁德时代江西枧下窝锂矿重获用地预审与选址意见书，该矿为亚洲最大锂云母矿山，伴生锂金属氧化物265.678万吨（折合LCE约660万吨），年产碳酸锂规划约10万吨，复产将大幅提升中国锂资源自给率。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/6CD2l_3uF3Rm0kKVCfrJDQ" target="_blank">https://mp.weixin.qq.com/s/6CD2l_3uF3Rm0kKVCfrJDQ</a></p>
+
+            <hr class="divider">
+
+            <!-- 固态电池 -->
+            <h2 id="info-solid">固态电池</h2>
+            <h3>深圳固态电池材料企业完成A+轮数亿融资</h3>
+            <p class="summary">深圳索理德新材料完成数亿元A+轮融资，专注固态电池核心材料（硅基负极、固态电解质），其多孔硅碳产品采用自主技术解决硅膨胀问题，子公司徐州矽艾诺德年产3000吨硅碳负极项目获批，总投资3.6亿元。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/_xL3UFBj-YNqGc8BVw7kLA" target="_blank">https://mp.weixin.qq.com/s/_xL3UFBj-YNqGc8BVw7kLA</a></p>
+
+            <h3>屹锂科技与华能储能签署固态储能电池合作</h3>
+            <p class="summary">屹锂科技（上海交大成果转化企业）与华能储能签署战略合作，围绕固态储能实证测评、火电配套固态储能示范工程、核心技术联合攻坚展开协同。屹锂科技硫化物固态电解质离子电导率达17mS/cm，全固态电池能量密度410Wh/kg，循环寿命超2000次。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/CQciKzoyMp9168r-MFVjCA" target="_blank">https://mp.weixin.qq.com/s/CQciKzoyMp9168r-MFVjCA</a></p>
+
+            <h3>生孚科技发布固态储能电池等产品</h3>
+            <p class="summary">生孚科技在尼日利亚发布261kWh光储充固态储能柜（液冷设计，125kW输出），以及堆叠式/壁挂式家庭储能和便携式电源，采用固态锂电池技术，计划联合Avtinac在尼日利亚建厂实现非洲本地化生产。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/dKXllAuz-UuEqhOxd3odCQ" target="_blank">https://mp.weixin.qq.com/s/dKXllAuz-UuEqhOxd3odCQ</a></p>
+
+            <h3>三大头部企业再推动固态电池"上车"</h3>
+            <p class="summary">阿维塔旗舰SUV首搭宁德时代麒麟凝聚态电池（350Wh/kg），QuantumScape与本田签署固态电池联合研发协议，辉能科技与OPmobility合作推进模组及电池包集成。固态电池产业化进入车型定义、联合研发、模组设计等更深层环节。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/Uik0dZRWTZh2mNSbOU4I0w" target="_blank">https://mp.weixin.qq.com/s/Uik0dZRWTZh2mNSbOU4I0w</a></p>
+
+            <hr class="divider">
+
+            <!-- 钠离子电池 -->
+            <h2 id="info-sodium">钠离子电池</h2>
+            <h3>宁德时代钠电9月份量产交付！</h3>
+            <p class="summary">宁德时代发布天恒钠电储能系统，攻克硬碳产线起泡、水分控制等量产难题，25°C循环寿命超15000次，-20°C保持92%以上可用能量，首批9月中国交付、年底GWh级出货。已与海博思创签署3年60GWh钠电订单，福鼎基地新增40GWh产能。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/e4hhLGqu-kVRSmtjSlDb6g" target="_blank">https://mp.weixin.qq.com/s/e4hhLGqu-kVRSmtjSlDb6g</a></p>
+
+            <h3>广东年产10GWh钠离子电池及配套PACK项目通过备案</h3>
+            <p class="summary">广东金钠科技固态电池钠（锂）共线年产10GWh钠离子电池及配套PACK集成产业项目通过备案，总投资20亿元，占地290亩，建筑面积约16万㎡，含电芯生产线、电极材料生产线等。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/FsWr4jD5N31_HiHDcq9o7g" target="_blank">https://mp.weixin.qq.com/s/FsWr4jD5N31_HiHDcq9o7g</a></p>
+
+            <h3>钠电储能进入放量前夜！</h3>
+            <p class="summary">宁德时代发布天恒钠电储能系统（循环寿命15000次，9月交付），亿纬锂能NF155L钠电池并网运行，众钠能源眉山基地年底达1万吨正极+2GWh PACK产能。2026年钠电储能从示范走向规模化，正/负极材料稳定供给不足、行业标准不完善仍是关键瓶颈。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/UVgDBYdbXwNWwo7P6uaysw" target="_blank">https://mp.weixin.qq.com/s/UVgDBYdbXwNWwo7P6uaysw</a></p>
+
+            <h3>钠电池商业化迎来重要消息 宁德时代预计2026年底实现GWh级出货量</h3>
+            <p class="summary">宁德时代发布全球首款场站级钠电储能解决方案"天恒钠电"，采用钠锂同平台架构设计。公司量产线已全部投产，中国市场9月交付首批系统，2026年底实现1GWh出货，钠电池良率提升且成本比行业低10%-20%。</p>
+            <p class="url-small"><a href="https://fund.eastmoney.com/a/202606233779686290.html" target="_blank">https://fund.eastmoney.com/a/202606233779686290.html</a></p>
+
+            <hr class="divider">
+
+            <!-- 磷酸铁锂电池 -->
+            <h2 id="info-lfp">磷酸铁锂电池</h2>
+            <h3>铁锂上攻30万元级车型，锂电产业链进入新一轮重估</h3>
+            <p class="summary">比亚迪大唐EV全系搭载第二代刀片电池和1000V高压平台，磷酸铁锂突破30万元级高端市场。腾势Z9GT、小鹏GX等也采用磷酸铁锂方案，铁锂从"成本路线"升级为"平台路线"，带动正极材料纳米化、碳包覆、掺杂改性等技术升级。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/lgeIEkeNBnsTLhKDOh9GNg" target="_blank">https://mp.weixin.qq.com/s/lgeIEkeNBnsTLhKDOh9GNg</a></p>
+
+            <h3>500Ah+储能电芯集采迈入GWh</h3>
+            <p class="summary">华能、中国能建等业主开启500Ah+储能电芯GWh级集采，GGII预测2026年500+Ah渗透率超20%、出货超140GWh。高压实磷酸铁锂扩产潮来临，宁德时代依托邦普、亿纬（金泉新材料）等纷纷布局，587Ah被视为第三代主流电芯。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/i8f6OPpw5_u0NeVouSkZ_w" target="_blank">https://mp.weixin.qq.com/s/i8f6OPpw5_u0NeVouSkZ_w</a></p>
+
+            <hr class="divider">
+
+            <!-- 负极材料 -->
+            <h2 id="info-anode">负极材料</h2>
+            <h3>募资25亿元！这一上市公司拟在山东济南投建硅基负极材料项目</h3>
+            <p class="summary">圣泉集团发行可转债募资25亿元，其中20亿用于济南硅碳负极材料产业化项目，建成后年产硅碳负极1万吨、多孔碳1.5万吨。公司多孔碳已达千吨级规模，硅碳百吨中试、千吨产线预计2026年中释放，硬碳已获头部客户认可并批量供应。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/yoeTtnnNDpOHmRjbjQeSKw" target="_blank">https://mp.weixin.qq.com/s/yoeTtnnNDpOHmRjbjQeSKw</a></p>
+
+            <h3>突发！美企再挥337调查大棒，电池新能源领域多家中企遭点名！</h3>
+            <p class="summary">美国Sila Nanotechnologies与Georgia Tech于6月18日向ITC申请337调查，矛头直指中国电池负极材料出口企业碳一新能源集团等三家列名被告。碳一新能源聚焦天然石墨、人造石墨、硅系、硬碳、锂金属全品类负极，2025年出货量位列国内第8。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/t_5CVm4j_t8MZm705NLTqQ" target="_blank">https://mp.weixin.qq.com/s/t_5CVm4j_t8MZm705NLTqQ</a></p>
+
+            <hr class="divider">
+
+            <!-- AIDC -->
+            <h2 id="info-aidc">AIDC</h2>
+            <h3>英伟达首次发布AIDC储能指南 哪些玩家将受益？</h3>
+            <p class="summary">英伟达发布AIDC储能自我认证指南，以交流侧PCS和控制系统为核心考核对象，要求电压电流精度±0.2%、电网频率误差±0.01Hz，推动高压直流液冷储能成算力中心标配。2026-2035年全球AI数据中心装机规模预计以36% CAGR增至1100GW。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/H5cQZXWw2S8FtQ6iaEgkBw" target="_blank">https://mp.weixin.qq.com/s/H5cQZXWw2S8FtQ6iaEgkBw</a></p>
+
+            <hr class="divider">
+
+            <!-- 学术研究进展 -->
+            <h2 id="info-academic">学术研究进展</h2>
+            <h3>东南大学胡林峰、吴宇平、吉远辉、南京航空航天大学朱孔军AM：优选(110)晶面取向，大幅提升水系铁离子电池循环稳定性与使用寿命</h3>
+            <p class="summary">东南大学团队通过DFT计算筛选体心立方铁(110)晶面（表面能0.152 eV Å⁻²，氢吸附吉布斯自由能0.605 eV），采用Ar/H₂气氛1000°C退火制备高[110]取向铁负极，搭配聚苯胺正极的全电池在5.0 A g⁻¹下循环8540次，容量保持率99.3%，远超现有水系二价金属离子电池。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/_bG8owHAzYcOc8m3IheJrA" target="_blank">https://mp.weixin.qq.com/s/_bG8owHAzYcOc8m3IheJrA</a></p>
+
+            <h3>ACS Energy Lett.：低成本CaO改性策略，大幅提升硫银锗矿固态电池耐湿性与循环寿命</h3>
+            <p class="summary">成均馆大学团队采用CaO作为H₂O/H₂S双效清除添加剂改性Li₆PS₅Cl固态电解质，2.5 wt% CaO最优，湿气暴露后离子电导率保留39%，H₂S释放从67.0 ppm降至37.0 ppm，NCM90全固态电池循环350圈，未改性仅100圈失效。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/-dPcnXpLiP5vSLxmqmhtbw" target="_blank">https://mp.weixin.qq.com/s/-dPcnXpLiP5vSLxmqmhtbw</a></p>
+
+            <h3>50000圈！华中农业大学曹菲菲、徐艳松JACS：超快阴离子跳跃输运机理构筑高倍率、长循环钠基双离子电池</h3>
+            <p class="summary">华中农大团队揭示PF₆⁻阴离子超快跳跃输运机理，脱溶剂化能垒仅-1.8 eV（Na⁺为-7.9 eV）；搭配抗氧化LHCE电解液与细菌纤维素-壳聚糖复合隔膜，钠基双离子半电池200C循环超50000圈，容量保持73%，全电池20C循环2000圈容量留存78.16%。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/cSzGX7Zb4-FquWTHRWsA1Q" target="_blank">https://mp.weixin.qq.com/s/cSzGX7Zb4-FquWTHRWsA1Q</a></p>
+
+            <h3>西北工业大学王洪强/徐飞教授：通过激光合成亚稳态铋纳米晶与还原氧化石墨烯化学键合实现高效锂存储</h3>
+            <p class="summary">西工大团队采用液相脉冲激光辐照+溶剂热策略制备2nm超细Bi纳米晶，通过Bi-O-C共价键锚定于rGO，Bi-rGO-2负极在100mA/g下循环500次保持586.7mAh/g可逆容量，电极厚度变化仅9.1%，远低于传统Bulk Bi/rGO的25%膨胀。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/lwezoS5GFSkzKMOnoyjM1Q" target="_blank">https://mp.weixin.qq.com/s/lwezoS5GFSkzKMOnoyjM1Q</a></p>
+
+            <h3>Carbon Energy：破译聚合物极性调控机制，实现高电压锂金属固态电池长效稳定运行</h3>
+            <p class="summary">釜山国立大学团队以全β相高极性P(VDF-TrFE)替代PVDF制备固态聚合物电解质，与残留DMF强结合弱化Li⁺配位，室温离子电导率1.71×10⁻⁴ S/cm，锂对称电池稳定循环1700h，Li/NCM622全电池1C下200圈容量保持110.6mAh/g。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/S67sDLB6jjDLy23ajoEq_g" target="_blank">https://mp.weixin.qq.com/s/S67sDLB6jjDLy23ajoEq_g</a></p>
+
+            <h3>中科院金属所王春阳、李峰，物理所李泓JACS：5V超高电压下LiCoO₂面内/面外耦合形变机制！</h3>
+            <p class="summary">中科院金属所团队利用机器学习辅助超分辨TEM首次在原子尺度观测5V循环下LiCoO₂衰败全过程：面内剪切将O3晶格破碎为O1畴/O3畴马赛克结构，面外畸变引发晶格扭折与晶内裂纹，表面演化出三层"三明治"劣化层。Mg/S共掺杂将10圈容量保持率从67.73%提升至83.93%。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/WVTifM-LtwTpK6t2YnExWA" target="_blank">https://mp.weixin.qq.com/s/WVTifM-LtwTpK6t2YnExWA</a></p>
+
+            <hr class="divider">
+
+            <!-- 其他 -->
+            <h2 id="info-other">其他</h2>
+            <h3>LG Energy Solution宣布全球专利申请超10万件</h3>
+            <p class="summary">LG Energy Solution全球专利注册量达5.9万件、申请量突破10万件，2025年研发投入1.3277万亿韩元，在差异化工艺技术、高电压电解液、硅负极材料等核心领域构建全面专利组合，并持续推进LMR电池商业化专利布局。</p>
+            <p class="url-small"><a href="https://mp.weixin.qq.com/s/F5Y3JuxdAyakGi1wK1pSZg" target="_blank">https://mp.weixin.qq.com/s/F5Y3JuxdAyakGi1wK1pSZg</a></p>
+
+            <h3>锂电下半年迎需求旺季,多环节量价有望双升,电池ETF易方达(159175)连续3日获资金加仓</h3>
+            <p class="summary">华西证券指出下半年锂电进入传统旺季，负极材料核心石墨化产能在需求拉动下趋于紧张，价格有望改善；铜箔等环节供需偏紧具备涨价支撑，电池环节规模效应释放盈利能力有望稳中有升。</p>
+            <p class="url-small"><a href="https://fund.eastmoney.com/a/202606233779560326.html" target="_blank">https://fund.eastmoney.com/a/202606233779560326.html</a></p>
+
+            <h3>电池板块整体回调,储能电池ETF易方达(159566)连续6日获资金加仓</h3>
+            <p class="summary">业内分析指出钠离子电池产业化进程加速推进，多家头部企业已进入量产阶段，产业链降本增效路径清晰；全球储能装机需求保持高速增长，国内大储招标持续放量。</p>
+            <p class="url-small"><a href="https://fund.eastmoney.com/a/202606233780073040.html" target="_blank">https://fund.eastmoney.com/a/202606233780073040.html</a></p>
+        </div>
+
+        <!-- 今日热点词汇 -->
+        <div class="card" id="hotwords">
+            <h2>今日热点词汇</h2>
+            <div class="hotwords">
+                <span>固态电池</span><span>钠离子电池</span><span>磷酸铁锂</span><span>负极材料</span><span>碳酸锂</span><span>宁德时代</span><span>储能</span><span>循环寿命</span><span>硅基负极</span><span>锂矿</span><span>AIDC</span><span>正极材料</span><span>锂电</span><span>钠电</span><span>硫化物</span><span>能量密度</span><span>刀片电池</span><span>硬碳</span><span>电池回收</span><span>万华化学</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var key = 'daily_report_visitor_20260623';
+            var count = localStorage.getItem(key);
+            if (count === null) {
+                count = 0;
+            } else {
+                count = parseInt(count, 10);
+            }
+            count += 1;
+            localStorage.setItem(key, count);
+            document.getElementById('visitorCount').textContent = count;
+        })();
+    </script>
+</body>
+</html>
+```
